@@ -27,9 +27,9 @@ final class Motion {
         return enabled() ? (System.nanoTime() - T0) / 1_000_000_000f : 0f;
     }
 
-    /** Repaints a component about 20 times a second, but only while it is on screen. */
+    /** Repaints a component about 30 times a second, but only while it is on screen. */
     static void ambient(JComponent c) {
-        Timer timer = new Timer(50, e -> c.repaint());
+        Timer timer = new Timer(33, e -> c.repaint());
         c.addHierarchyListener(e -> {
             if ((e.getChangeFlags() & (HierarchyEvent.SHOWING_CHANGED | HierarchyEvent.DISPLAYABILITY_CHANGED)) == 0) return;
             if (enabled() && c.isShowing()) timer.start();

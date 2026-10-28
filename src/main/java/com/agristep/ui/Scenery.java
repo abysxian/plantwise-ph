@@ -99,26 +99,34 @@ final class Scenery {
         return out;
     }
 
-    /** Draws the photo to fill (0, 0, w, h), looking at its focus point, drifting a little with {@code t} seconds. */
+    /**
+     * Draws the photo to fill (0, 0, w, h), looking at its focus point. With motion on it glides slowly side to side;
+     * the position is a fraction of a pixel (not rounded) so the movement is smooth instead of jumping.
+     */
     private static void drawPhoto(Graphics2D g, Photo p, int w, int h, float t) {
-        // a little extra size so the slow drift never shows an edge
-        int pw = Math.round(w * 1.05f);
-        int ph = Math.round(h * 1.05f);
+        int pw = Math.round(w * 1.08f);     // extra size so the glide never shows an edge
+        int ph = Math.round(h * 1.08f);
         BufferedImage img = cover(p, pw, ph);
         if (img == null) {
             g.setPaint(new GradientPaint(0, 0, Theme.LEAF, w, h, Theme.CANOPY_2));
             g.fillRect(0, 0, w, h);
             return;
         }
-        float drift = 0.5f + 0.5f * (float) Math.sin(t * 0.07f);
-        int x = -Math.round((img.getWidth() - w) * drift);
-        int y = -Math.round(Math.max(0, img.getHeight() - h) * p.focus);
-        g.drawImage(img, x, y, null);
+        double drift = 0.5 + 0.5 * Math.sin(t * 0.09);             // 0..1, eases at both ends
+        double sway = Math.sin(t * 0.06 + 1.0) * 3.0;               // a few pixels up and down
+        double x = -(img.getWidth() - w) * drift;
+        double y = -Math.max(0, img.getHeight() - h) * p.focus + sway;
+        y = Math.max(-(img.getHeight() - h), Math.min(0, y));
+        Object oldInterp = g.getRenderingHint(RenderingHints.KEY_INTERPOLATION);
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.drawImage(img, java.awt.geom.AffineTransform.getTranslateInstance(x, y), null);
+        if (oldInterp != null) g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, oldInterp);
     }
 
     /** Fills the rounded banner (0, 0, w, h) with a photo, a green wash for text, and rain when it is raining. */
     static void paintBanner(Graphics2D g, Photo photo, Sky sky, int w, int h, int arc, float t) {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
         java.awt.Shape old = g.getClip();
         g.clip(new RoundRectangle2D.Float(0, 0, w, h, arc, arc));
         drawPhoto(g, photo, w, h, t);
@@ -138,7 +146,7 @@ final class Scenery {
         for (int i = 0; i < drops; i++) {
             float x = (i * 97 % Math.max(1, w)) + ((i * 31) % 17);
             float y = ((i * 53 % Math.max(1, h)) + t * 150f) % Math.max(1, h);
-            g.drawLine(Math.round(x), Math.round(y), Math.round(x - 4), Math.round(y + 11));
+            g.draw(new java.awt.geom.Line2D.Float(x, y, x - 4f, y + 11f));
         }
     }
 

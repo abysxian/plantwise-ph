@@ -78,7 +78,7 @@ The window adapts to its size: a side menu on wide windows, a bottom menu and si
 
 New crops added to `crops.json` appear automatically on the next start, even in an existing database (matched by `code`).
 
-## OOP 
+## For your OOP write-up
 
 | Concept | Where |
 |---|---|
