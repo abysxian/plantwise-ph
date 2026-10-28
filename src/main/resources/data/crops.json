@@ -1,0 +1,3384 @@
+[
+  {
+    "code": "talong",
+    "name": "Talong",
+    "englishName": "Eggplant",
+    "scientificName": "Solanum melongena",
+    "emoji": "🍆",
+    "cycleDays": 75,
+    "sunlight": "Full sun, 6 or more hours a day",
+    "spacing": "About 50–60 cm between plants",
+    "verified": true,
+    "sourceNote": "Temperature, rainfall, pH, soil and crop-cycle ranges are from FAO EcoCrop datasheet 1965 (Solanum melongena). Care steps are general garden guidance.",
+    "sourceUrl": "https://ecocrop.apps.fao.org/ecocrop/srv/en/cropView?id=1965",
+    "temperature": {
+      "absMin": 9,
+      "optMin": 20,
+      "optMax": 35,
+      "absMax": 40
+    },
+    "rainfall": {
+      "absMin": 800,
+      "optMin": 1200,
+      "optMax": 1600,
+      "absMax": 4000
+    },
+    "ph": {
+      "absMin": 4.3,
+      "optMin": 5.5,
+      "optMax": 6.8,
+      "absMax": 8.5
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Plant in soft garden soil that drains well. Eggplant dislikes soggy roots.",
+      "Keep plants 50–60 cm apart so the roots do not compete for food.",
+      "Stake each plant. Branches heavy with fruit snap easily in wind.",
+      "Water at the base and avoid wetting the leaves, which helps stop leaf disease.",
+      "Mulch with dry grass or rice straw to keep moisture in and weeds down."
+    ],
+    "pestTips": [
+      "Tiny holes in young leaves usually mean flea beetles. Cover seedlings with a light net until they are bigger.",
+      "Mix a few drops of dish soap in a spray bottle of water and spray under the leaves in the evening.",
+      "Remove old yellow leaves at the bottom so air can move and bugs have fewer places to hide."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Start seeds in a tray or small pots. Keep them moist and move the seedlings to the bed when they have 4–5 leaves (about 3–4 weeks).",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning. The soil should feel damp, not soggy.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Mix a handful of compost or aged manure into the soil around each seedling.",
+        "extra": "Keep it away from the stem."
+      },
+      {
+        "kind": "PRUNING",
+        "day": 28,
+        "amount": null,
+        "detail": "Tie each plant loosely to a stake. Cut off old yellow leaves at the bottom so air can flow.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "tiny holes in the leaves (flea beetles) or curled, sticky leaves",
+        "extra": "spray soapy water or neem oil under the leaves in the evening."
+      },
+      {
+        "kind": "FEEDING",
+        "day": 45,
+        "amount": null,
+        "detail": "Add another handful of compost around each plant when the first flowers appear.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 75,
+        "amount": null,
+        "detail": "the fruits are shiny and firm, and the skin springs back when pressed lightly",
+        "extra": "Cut with scissors and leave a short piece of stem. Pick often so the plant keeps producing."
+      }
+    ]
+  },
+  {
+    "code": "ampalaya",
+    "name": "Ampalaya",
+    "englishName": "Bitter gourd",
+    "scientificName": "Momordica charantia",
+    "emoji": "🥒",
+    "cycleDays": 60,
+    "sunlight": "Full sun",
+    "spacing": "About 60–90 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers. FAO EcoCrop entry 7795 says flowers appear 30–35 days after planting and fruit can be picked after 50–70 days.",
+    "sourceUrl": "https://ecocrop.apps.fao.org/ecocrop/srv/en/cropView?id=7795",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 4.5,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Grows best in well-drained soft or sandy-loam soil rich in compost.",
+      "Build a bamboo trellis early. Ampalaya is a weak climber and needs support.",
+      "Pick fruits young, every 2–3 days. They mature fast and turn orange-red."
+    ],
+    "pestTips": [
+      "Wrap young fruits in old newspaper or paper bags to stop fruit flies from stinging them.",
+      "Spray aphids off with a gentle stream of water or soapy water."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Soak the seeds in water overnight first, then plant 2–3 seeds per hole.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp but not muddy.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Mix compost into the soil around the seedlings.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Set up a bamboo trellis and guide the vines up it every few days.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "fruit fly stings on young fruit, or white powder on the leaves",
+        "extra": "wrap young fruits in paper bags and spray soapy water on the leaves."
+      },
+      {
+        "kind": "WATERING",
+        "day": 45,
+        "amount": 1,
+        "detail": "Water deeply while the fruits are growing.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 60,
+        "amount": null,
+        "detail": "the fruits are green, bumpy and about 15–20 cm long, before they turn yellow-orange",
+        "extra": "Pick every 2–3 days with scissors because the fruits mature fast."
+      }
+    ]
+  },
+  {
+    "code": "sitao",
+    "name": "Sitao",
+    "englishName": "Yardlong bean",
+    "scientificName": "Vigna unguiculata subsp. sesquipedalis",
+    "emoji": "🌱",
+    "cycleDays": 55,
+    "sunlight": "Full sun",
+    "spacing": "About 30 cm apart, on a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 2000,
+      "absMax": 3500
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Sow seeds straight into the bed. Yardlong beans dislike being moved.",
+      "Thin to the 2 strongest plants per hole so they have room.",
+      "Beans make some of their own plant food, so go easy on fertiliser.",
+      "Give the vines a trellis or sticks to climb."
+    ],
+    "pestTips": [
+      "Tiny black or green bugs (aphids) on young shoots: spray them off with water or soapy water.",
+      "Pick pods often. Old pods left on the vine slow down new ones."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant 2–3 seeds per hole, about 30 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil lightly damp until the seedlings are up.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Thin to the strongest 2 plants per hole and push in a stick or trellis for the vines.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Add a light layer of compost. Do not over-feed, since too much food gives leaves but few pods.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 28,
+        "amount": null,
+        "detail": "tiny black or green bugs (aphids) clustered on young shoots",
+        "extra": "spray them off with water or soapy water."
+      },
+      {
+        "kind": "WATERING",
+        "day": 35,
+        "amount": 1,
+        "detail": "Water well when the flowers appear so the pods set.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 55,
+        "amount": null,
+        "detail": "the pods are slim, long and snap easily, before the seeds make them bulge",
+        "extra": "Pick every 2 days to keep new pods coming."
+      }
+    ]
+  },
+  {
+    "code": "kangkong",
+    "name": "Kangkong",
+    "englishName": "Water spinach",
+    "scientificName": "Ipomoea aquatica",
+    "emoji": "🥬",
+    "cycleDays": 30,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 15–20 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 25,
+      "optMax": 35,
+      "absMax": 40
+    },
+    "rainfall": {
+      "absMin": 1000,
+      "optMin": 1500,
+      "optMax": 3000,
+      "absMax": 4500
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "CLAY",
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "careTips": [
+      "Loves wet, muddy soil. Keep the bed moist all the time.",
+      "Cut stems 5 cm above the soil so new leaves regrow again and again.",
+      "Sandy soil dries too fast. Use a raised bed with compost instead."
+    ],
+    "pestTips": [
+      "Check leaves every morning for caterpillars and pick them off by hand.",
+      "If many leaf-eaters appear, spray soapy water in the evening."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Plant seeds or 15 cm stem cuttings in wet soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 1,
+        "detail": "Keep the soil wet at all times.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Add compost or a little manure. Leafy crops love extra nitrogen.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 18,
+        "amount": null,
+        "detail": "caterpillars or holes in the leaves",
+        "extra": "pick them off by hand in the morning."
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Pinch off the growing tips so the plant becomes bushy.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 30,
+        "amount": null,
+        "detail": "the stems are about 25–30 cm long",
+        "extra": "Cut 5 cm above the soil. It regrows for another harvest in 2–3 weeks."
+      }
+    ]
+  },
+  {
+    "code": "kamatis",
+    "name": "Kamatis",
+    "englishName": "Tomato",
+    "scientificName": "Solanum lycopersicum",
+    "emoji": "🍅",
+    "cycleDays": 70,
+    "sunlight": "Full sun, 6 or more hours a day",
+    "spacing": "About 50 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 18,
+      "optMax": 27,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 800,
+      "optMax": 1400,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 4.5,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Loves soft, nutrient-rich soil and full sun.",
+      "Water at the base, not on the leaves.",
+      "Keep watering steady. Swings between dry and soaked can crack the fruit.",
+      "Hot lowland weather can make flowers drop, so choose heat-tolerant varieties."
+    ],
+    "pestTips": [
+      "Tiny white flying bugs (whiteflies) under the leaves: spray mild soapy water or dust a little wood ash.",
+      "Remove badly damaged leaves and throw them away instead of composting them."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray and move the seedlings to the bed after about 4 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning to keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Mix compost into the soil around each seedling.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 28,
+        "amount": null,
+        "detail": "Pinch off small side shoots between the main stem and branches, and tie the main stem to a stake.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "tiny white flying bugs (whiteflies) or curled leaves",
+        "extra": "spray mild soapy water under the leaves or dust a little wood ash."
+      },
+      {
+        "kind": "WATERING",
+        "day": 45,
+        "amount": 1,
+        "detail": "Water at the base and keep it even. Do not let the soil swing between dry and soaked.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 70,
+        "amount": null,
+        "detail": "the fruits are fully red, or just starting to blush pink",
+        "extra": "Twist or cut the fruit off with its stem. Pick every 2–3 days."
+      }
+    ]
+  },
+  {
+    "code": "okra",
+    "name": "Okra",
+    "englishName": "Lady's finger",
+    "scientificName": "Abelmoschus esculentus",
+    "emoji": "🌿",
+    "cycleDays": 55,
+    "sunlight": "Full sun",
+    "spacing": "About 30–40 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 35,
+      "absMax": 40
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 1000,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.8,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A tough plant that grows in almost any sunny bed.",
+      "Pick pods while they are small and soft. Big pods turn woody.",
+      "Wear gloves when harvesting because the stems and pods can itch."
+    ],
+    "pestTips": [
+      "Look under the leaves for egg clusters and wipe them away with a damp cloth.",
+      "Spray soapy water if leaf-eating bugs appear."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Soak the seeds overnight, then plant 2–3 seeds per hole.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil lightly damp until the seedlings are up.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix compost around the base of each plant.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 28,
+        "amount": null,
+        "detail": "Cut off the lowest yellow leaves so air can move through the plant.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "egg clusters or leaf-eating bugs under the leaves",
+        "extra": "wipe clusters off with a damp cloth and spray soapy water."
+      },
+      {
+        "kind": "WATERING",
+        "day": 45,
+        "amount": 1,
+        "detail": "Water deeply once a week if there has been no rain.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 55,
+        "amount": null,
+        "detail": "the pods are 7–10 cm long and still soft",
+        "extra": "Pick every day or two, and wear gloves."
+      }
+    ]
+  },
+  {
+    "code": "pechay",
+    "name": "Pechay",
+    "englishName": "Pak choi",
+    "scientificName": "Brassica rapa subsp. chinensis",
+    "emoji": "🥬",
+    "cycleDays": 28,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 15–20 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 18,
+      "optMax": 28,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2500,
+      "absMax": 4000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A fast crop. Sow every 2 weeks for a steady supply.",
+      "Keep the soil evenly moist. Dry spells make the leaves tough.",
+      "Light afternoon shade helps in the hottest months."
+    ],
+    "pestTips": [
+      "Holes in the leaves are usually caterpillars or flea beetles. Pick caterpillars off by hand.",
+      "Cover the bed with a fine net to keep moths from laying eggs."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Sow seeds thinly in rows and cover lightly with fine soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 0.5,
+        "detail": "Water gently every morning so the seeds do not wash away.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 10,
+        "amount": null,
+        "detail": "Thin the seedlings to about 15 cm apart. The thinnings are good to eat.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Sprinkle a thin layer of compost between the rows.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 18,
+        "amount": null,
+        "detail": "holes in the leaves or tiny black beetles",
+        "extra": "pick caterpillars off by hand and spray soapy water in the evening."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 28,
+        "amount": null,
+        "detail": "the plants are 15–20 cm tall with firm, bright green leaves",
+        "extra": "Pull up the whole plant or cut it at the base in the morning."
+      }
+    ]
+  },
+  {
+    "code": "mustasa",
+    "name": "Mustasa",
+    "englishName": "Mustard greens",
+    "scientificName": "Brassica juncea",
+    "emoji": "🥬",
+    "cycleDays": 32,
+    "sunlight": "Full sun",
+    "spacing": "About 15–20 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 18,
+      "optMax": 30,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Pick the outer leaves first and the plant keeps producing.",
+      "Mustard can turn bitter and bolt in very hot weather, so water often.",
+      "A good quick filler between slower crops."
+    ],
+    "pestTips": [
+      "Aphids cluster on young leaves. Wash them off with water or soapy water.",
+      "A fine net keeps caterpillars away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Sow seeds thinly and cover lightly with fine soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 0.5,
+        "detail": "Keep the soil moist until the seedlings appear.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 10,
+        "amount": null,
+        "detail": "Thin to about 15 cm apart so the leaves can spread.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 15,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 21,
+        "amount": null,
+        "detail": "tiny green or grey bugs (aphids) on young leaves",
+        "extra": "wash them off with water or spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 32,
+        "amount": null,
+        "detail": "the leaves are about 20 cm long",
+        "extra": "Pick the outer leaves and leave the centre to keep growing."
+      }
+    ]
+  },
+  {
+    "code": "alugbati",
+    "name": "Alugbati",
+    "englishName": "Malabar spinach",
+    "scientificName": "Basella alba",
+    "emoji": "🌿",
+    "cycleDays": 40,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 30 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 25,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 800,
+      "optMin": 1200,
+      "optMax": 2500,
+      "absMax": 4000
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A climbing vine. Give it a trellis or fence to grow on.",
+      "Loves heat and rain and is rarely troubled by pests.",
+      "Pinch the tips often so it grows more leaves."
+    ],
+    "pestTips": [
+      "Remove leaves with brown spots and throw them away.",
+      "Pick off caterpillars by hand."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Plant seeds or 20 cm stem cuttings in damp soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Add a trellis and guide the vines up it. Pinch the tips to make the plant bushy.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 28,
+        "amount": null,
+        "detail": "brown spots on the leaves or chewed leaves",
+        "extra": "remove bad leaves and pick caterpillars off by hand."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 40,
+        "amount": null,
+        "detail": "the vines are about 40 cm long with plump young leaves",
+        "extra": "Cut the tips and young leaves. It regrows quickly."
+      }
+    ]
+  },
+  {
+    "code": "saluyot",
+    "name": "Saluyot",
+    "englishName": "Jute mallow",
+    "scientificName": "Corchorus olitorius",
+    "emoji": "🌿",
+    "cycleDays": 40,
+    "sunlight": "Full sun",
+    "spacing": "About 20–30 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 24,
+      "optMax": 34,
+      "absMax": 40
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A hardy leafy vegetable that likes heat.",
+      "Pick the soft tips often so it keeps branching.",
+      "Water regularly while it is young."
+    ],
+    "pestTips": [
+      "Check under the leaves for small caterpillars and pick them off.",
+      "Spray soapy water if leaf-eating bugs spread."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Sow seeds thinly in rows and cover lightly.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil moist until the seedlings are up.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Thin to about 20 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 28,
+        "amount": null,
+        "detail": "chewed leaves or small caterpillars",
+        "extra": "pick them off by hand and spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 40,
+        "amount": null,
+        "detail": "the plants are about 30 cm tall",
+        "extra": "Cut the tips and young leaves. Cut again as it regrows."
+      }
+    ]
+  },
+  {
+    "code": "labanos",
+    "name": "Labanos",
+    "englishName": "Radish",
+    "scientificName": "Raphanus sativus",
+    "emoji": "🌱",
+    "cycleDays": 30,
+    "sunlight": "Full sun",
+    "spacing": "About 5–8 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 8,
+      "optMin": 15,
+      "optMax": 25,
+      "absMax": 32
+    },
+    "rainfall": {
+      "absMin": 400,
+      "optMin": 700,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "SANDY",
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Needs loose soil with no stones so the roots grow straight.",
+      "Grows very fast. Pull it on time or it turns woody and too hot to eat.",
+      "Sow a few seeds every week for a steady supply."
+    ],
+    "pestTips": [
+      "Tiny holes in the leaves are flea beetles. A fine net protects the bed.",
+      "Keep the soil evenly moist to avoid cracked roots."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Sow seeds in rows and cover lightly with loose soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 0.5,
+        "detail": "Keep the soil evenly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 10,
+        "amount": null,
+        "detail": "Thin to one plant every 5–8 cm so each root has room.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 14,
+        "amount": null,
+        "detail": "Add a thin layer of compost. Too much fertiliser gives leaves but small roots.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 18,
+        "amount": null,
+        "detail": "tiny holes in the leaves (flea beetles)",
+        "extra": "cover with a fine net and spray soapy water on the leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 30,
+        "amount": null,
+        "detail": "the roots are 3–4 cm wide at the soil line",
+        "extra": "Pull one to check. Harvest on time because they get woody fast."
+      }
+    ]
+  },
+  {
+    "code": "letsugas",
+    "name": "Letsugas",
+    "englishName": "Lettuce",
+    "scientificName": "Lactuca sativa",
+    "emoji": "🥬",
+    "cycleDays": 45,
+    "sunlight": "Full sun in the morning, light shade in the afternoon",
+    "spacing": "About 20 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 7,
+      "optMin": 15,
+      "optMax": 22,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 400,
+      "optMin": 600,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Lettuce prefers cool weather. In hot months give it light shade in the afternoon.",
+      "Keep the soil evenly moist and water in the morning.",
+      "Pick loose-leaf types one outer leaf at a time."
+    ],
+    "pestTips": [
+      "Slugs and snails chew leaves at night. Check in the early morning and remove them.",
+      "Wash off aphids with water."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Sow seeds in a tray and keep them in light shade. Move the seedlings to the bed after about 3 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 0.3,
+        "detail": "Water gently every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 28,
+        "amount": null,
+        "detail": "Space the plants about 20 cm apart. Give afternoon shade in hot weather.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "chewed leaves or slime trails (slugs and snails)",
+        "extra": "remove them by hand in the early morning."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 45,
+        "amount": null,
+        "detail": "the leaves are full size and crisp",
+        "extra": "Cut the whole head at the base, or pick the outer leaves one by one."
+      }
+    ]
+  },
+  {
+    "code": "repolyo",
+    "name": "Repolyo",
+    "englishName": "Cabbage",
+    "scientificName": "Brassica oleracea var. capitata",
+    "emoji": "🥬",
+    "cycleDays": 80,
+    "sunlight": "Full sun",
+    "spacing": "About 40 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 15,
+      "optMax": 20,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Cabbage likes cool weather, so it does best in highland areas or the cooler months.",
+      "Needs rich soil and steady watering.",
+      "Plant at least 40 cm apart so the heads have room."
+    ],
+    "pestTips": [
+      "Green caterpillars eat cabbage leaves. Check under the leaves often and pick them off.",
+      "A fine net over the bed keeps the moths away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray in light shade and move the seedlings to the bed after about 4 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water gently every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 28,
+        "amount": null,
+        "detail": "Mix compost around each seedling after you move it to the bed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 42,
+        "amount": null,
+        "detail": "green caterpillars and holes in the leaves",
+        "extra": "pick them off by hand and cover the bed with a fine net."
+      },
+      {
+        "kind": "FEEDING",
+        "day": 56,
+        "amount": null,
+        "detail": "Add more compost around the plant as the head starts to form.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 80,
+        "amount": null,
+        "detail": "the head is firm and solid when you squeeze it",
+        "extra": "Cut the head at the base with a knife. Do not wait too long or it may split."
+      }
+    ]
+  },
+  {
+    "code": "pipino",
+    "name": "Pipino",
+    "englishName": "Cucumber",
+    "scientificName": "Cucumis sativus",
+    "emoji": "🥒",
+    "cycleDays": 50,
+    "sunlight": "Full sun",
+    "spacing": "About 40 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 20,
+      "optMax": 30,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 1800,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A climber. A trellis keeps the fruit clean and straight.",
+      "Water regularly. Dry spells make the fruit bitter.",
+      "Pick often to keep new fruit coming."
+    ],
+    "pestTips": [
+      "Aphids and leaf-eating beetles: spray soapy water on the leaves.",
+      "White powder on the leaves is mildew. Water at the base and remove bad leaves."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Plant 2–3 seeds per hole, about 40 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Put up a trellis and guide the vines onto it.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 30,
+        "amount": null,
+        "detail": "white powder on the leaves or tiny bugs under the leaves",
+        "extra": "remove bad leaves and spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 50,
+        "amount": null,
+        "detail": "the fruits are 15–20 cm long and dark green",
+        "extra": "Cut with scissors. Pick every 2 days."
+      }
+    ]
+  },
+  {
+    "code": "upo",
+    "name": "Upo",
+    "englishName": "Bottle gourd",
+    "scientificName": "Lagenaria siceraria",
+    "emoji": "🥒",
+    "cycleDays": 65,
+    "sunlight": "Full sun",
+    "spacing": "About 1 m apart, with a strong trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2000,
+      "absMax": 3500
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A vigorous vine. Build a strong trellis because the fruits are heavy.",
+      "Needs plenty of water and full sun.",
+      "Pick fruits while the skin is still soft and tender."
+    ],
+    "pestTips": [
+      "Fruit flies sting young fruits. Wrap them in paper bags.",
+      "Spray soapy water on aphids and other soft bugs."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Soak the seeds overnight, then plant 2–3 seeds per hole, about 1 m apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 1,
+        "detail": "Water the hole well and keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Set up a strong trellis and guide the vines up it.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 30,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 45,
+        "amount": null,
+        "detail": "fruit fly stings or white powder on the leaves",
+        "extra": "wrap young fruits in paper bags and spray soapy water on the leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 65,
+        "amount": null,
+        "detail": "the fruits are 30–40 cm long with soft, pale green skin",
+        "extra": "Cut with a knife and pick while young, since old fruit turns hard."
+      }
+    ]
+  },
+  {
+    "code": "patola",
+    "name": "Patola",
+    "englishName": "Sponge gourd",
+    "scientificName": "Luffa aegyptiaca",
+    "emoji": "🥒",
+    "cycleDays": 70,
+    "sunlight": "Full sun",
+    "spacing": "About 60 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2200,
+      "absMax": 3500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A climbing vine that needs a trellis.",
+      "Grows best with regular water and full sun.",
+      "Pick young. Old fruits turn fibrous."
+    ],
+    "pestTips": [
+      "Fruit flies can spoil young fruits. Wrap them in paper bags.",
+      "Spray soapy water for aphids and leaf-eating bugs."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Soak the seeds overnight, then plant 2–3 seeds per hole, about 60 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Set up a trellis and guide the vines up it.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 49,
+        "amount": null,
+        "detail": "fruit fly stings or tiny bugs under the leaves",
+        "extra": "wrap young fruits in paper bags and spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 70,
+        "amount": null,
+        "detail": "the fruits are 15–25 cm long, firm and dark green, before the skin hardens",
+        "extra": "Cut with scissors every 2–3 days."
+      }
+    ]
+  },
+  {
+    "code": "kalabasa",
+    "name": "Kalabasa",
+    "englishName": "Squash",
+    "scientificName": "Cucurbita maxima",
+    "emoji": "🎃",
+    "cycleDays": 90,
+    "sunlight": "Full sun",
+    "spacing": "About 1 m apart, needs room to sprawl",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 20,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1800,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A big sprawling vine. Give each plant at least 1 m of space.",
+      "Needs full sun and rich soil.",
+      "Young leaves and shoots can be picked earlier for cooking."
+    ],
+    "pestTips": [
+      "Bugs and aphids hide under the leaves. Check often and pick them off by hand.",
+      "Water at the base to avoid leaf mildew."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant 2–3 seeds per hole, about 1 m apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp until the seedlings are up.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix a good handful of compost into the soil around each plant.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 35,
+        "amount": null,
+        "detail": "Guide the vines away from the base and pinch the tips so the plant puts energy into fruit.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 50,
+        "amount": null,
+        "detail": "bugs or aphids under the leaves, or white powder on the leaves",
+        "extra": "pick bugs off by hand and spray soapy water."
+      },
+      {
+        "kind": "WATERING",
+        "day": 65,
+        "amount": 2,
+        "detail": "Water deeply once a week if there has been no rain.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 90,
+        "amount": null,
+        "detail": "the skin is hard and a fingernail cannot dent it, and the stem is dry",
+        "extra": "Cut with a short piece of stem. Keep it in a cool, shaded place."
+      }
+    ]
+  },
+  {
+    "code": "sili",
+    "name": "Sili",
+    "englishName": "Chilli pepper (siling labuyo)",
+    "scientificName": "Capsicum frutescens",
+    "emoji": "🌶️",
+    "cycleDays": 90,
+    "sunlight": "Full sun",
+    "spacing": "About 40–50 cm apart; also grows well in pots",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Grows well in pots or beds and gives fruit for months.",
+      "Needs full sun and soil that drains well.",
+      "Water at the base and do not let the soil stay soggy."
+    ],
+    "pestTips": [
+      "Tiny bugs (aphids and thrips) curl the leaves. Spray soapy water under the leaves.",
+      "Remove curled or spotted leaves and throw them away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray and keep them warm and moist. Move the seedlings to the bed after about 5 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 49,
+        "amount": null,
+        "detail": "Tie the plant to a stake if it leans.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 60,
+        "amount": null,
+        "detail": "curled leaves with tiny bugs under them",
+        "extra": "spray soapy water under the leaves in the evening."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 90,
+        "amount": null,
+        "detail": "the chillies are fully red, or green and firm if you want them early",
+        "extra": "Pick with a small piece of stem. Picking often encourages more fruit."
+      }
+    ]
+  },
+  {
+    "code": "mais",
+    "name": "Mais",
+    "englishName": "Sweet corn",
+    "scientificName": "Zea mays",
+    "emoji": "🌽",
+    "cycleDays": 70,
+    "sunlight": "Full sun",
+    "spacing": "About 25–30 cm apart, in short rows",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 20,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.8,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Plant in a block of short rows, not one long row, so wind carries pollen between plants.",
+      "Needs lots of sun and steady water, especially when the tassels appear.",
+      "Corn uses a lot of food, so add compost."
+    ],
+    "pestTips": [
+      "Caterpillars can eat into the leaf whorl and the cobs. Check the centre of the plant and remove them by hand.",
+      "Keep weeds out, since they hide pests."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant 2 seeds per hole, 25–30 cm apart, in short rows.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp until the seedlings are up.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Add compost along the row when the plants are knee-high.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "chewed leaves or caterpillars in the centre of the plant",
+        "extra": "remove them by hand and look again after a few days."
+      },
+      {
+        "kind": "WATERING",
+        "day": 50,
+        "amount": 2,
+        "detail": "Water deeply while the tassels and silks appear.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 70,
+        "amount": null,
+        "detail": "the silks are dry and brown and a kernel squirts milky juice when pressed",
+        "extra": "Twist the cob downward to pick it. Eat it soon while it is sweet."
+      }
+    ]
+  },
+  {
+    "code": "kamote",
+    "name": "Kamote",
+    "englishName": "Sweet potato",
+    "scientificName": "Ipomoea batatas",
+    "emoji": "🍠",
+    "cycleDays": 100,
+    "sunlight": "Full sun",
+    "spacing": "About 30 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 22,
+      "optMax": 30,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 1800,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 4.5,
+      "optMin": 5.5,
+      "optMax": 6.5,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "SANDY",
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Plant stem cuttings, not seeds.",
+      "Loose, sandy soil gives the best roots. Heavy clay makes small, misshapen roots.",
+      "Do not over-feed. Too much food gives leaves and few roots.",
+      "You can pick the leafy tips (talbos) to eat while the roots grow."
+    ],
+    "pestTips": [
+      "Check for small weevil holes in the roots when you harvest, and plant in a different bed next season.",
+      "Pick off leaf-eating caterpillars by hand."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": null,
+        "detail": "Bury 2–3 nodes of a 25–30 cm vine cutting, about 30 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.5,
+        "detail": "Keep the soil damp until the cuttings take root.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 30,
+        "amount": null,
+        "detail": "Lift the vines gently so they do not root at every node, and pull weeds.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 60,
+        "amount": null,
+        "detail": "chewed leaves or small caterpillars",
+        "extra": "pick them off by hand."
+      },
+      {
+        "kind": "WATERING",
+        "day": 75,
+        "amount": 1,
+        "detail": "Water once a week if there has been no rain.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 100,
+        "amount": null,
+        "detail": "the lower leaves turn yellow and a test root is a good size",
+        "extra": "Dig gently with a fork so you do not cut the roots. Let them dry in the shade for a day."
+      }
+    ]
+  },
+  {
+    "code": "sigarilyas",
+    "name": "Sigarilyas",
+    "englishName": "Winged bean",
+    "scientificName": "Psophocarpus tetragonolobus",
+    "emoji": "🌱",
+    "cycleDays": 65,
+    "sunlight": "Full sun",
+    "spacing": "About 30 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 22,
+      "optMax": 30,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 800,
+      "optMin": 1500,
+      "optMax": 2500,
+      "absMax": 4000
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A climbing bean that needs a strong trellis.",
+      "Soak the seeds overnight because the seed coat is hard.",
+      "Pick pods while they are young and tender."
+    ],
+    "pestTips": [
+      "Aphids on young shoots: wash them off with water.",
+      "Remove any leaves with spots."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 2,
+        "detail": "Soak the seeds overnight, then plant 2 seeds per hole, 30 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil lightly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Put up a strong trellis and guide the vines onto it.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 28,
+        "amount": null,
+        "detail": "Add a light layer of compost. Do not over-feed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 40,
+        "amount": null,
+        "detail": "tiny bugs (aphids) on young shoots or spotted leaves",
+        "extra": "wash the bugs off with water and remove spotted leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 65,
+        "amount": null,
+        "detail": "the pods are 10–15 cm long, bright green and tender",
+        "extra": "Pick every 2–3 days."
+      }
+    ]
+  },
+  {
+    "code": "carrot",
+    "name": "Karot",
+    "englishName": "Carrot",
+    "scientificName": "Daucus carota",
+    "emoji": "🥕",
+    "cycleDays": 90,
+    "sunlight": "Full sun",
+    "spacing": "About 5 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 8,
+      "optMin": 15,
+      "optMax": 22,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 400,
+      "optMin": 700,
+      "optMax": 1200,
+      "absMax": 2200
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "SANDY",
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Needs loose, deep, stone-free soil so the roots grow straight.",
+      "Carrots like cool weather, so choose heat-tolerant varieties.",
+      "Keep the soil evenly damp while the seeds sprout. It can take 2 weeks."
+    ],
+    "pestTips": [
+      "Weed gently so you do not damage the roots.",
+      "Plant in a different bed each season to cut down root pests."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Sow seeds thinly in rows and cover with a thin layer of fine soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil damp until the seedlings appear.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Thin to one plant every 5 cm so the roots have room.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Add a thin layer of compost. Avoid fresh manure, which makes roots fork.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 50,
+        "amount": null,
+        "detail": "chewed leaf tips or tiny bugs on the leaves",
+        "extra": "spray soapy water and pull weeds gently."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 90,
+        "amount": null,
+        "detail": "the roots are 2–3 cm wide at the top",
+        "extra": "Loosen the soil with a fork, then pull gently."
+      }
+    ]
+  },
+  {
+    "code": "sibuyas",
+    "name": "Sibuyas",
+    "englishName": "Onion",
+    "scientificName": "Allium cepa",
+    "emoji": "🧅",
+    "cycleDays": 100,
+    "sunlight": "Full sun",
+    "spacing": "About 10–15 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 8,
+      "optMin": 15,
+      "optMax": 25,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 350,
+      "optMin": 600,
+      "optMax": 1200,
+      "absMax": 2000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Onions like loose, well-drained soil and a dry spell near harvest.",
+      "Keep weeds out. Onions have shallow roots and weeds steal their food.",
+      "Do not bury the bulb deep. The top of the bulb should sit near the soil surface."
+    ],
+    "pestTips": [
+      "Thrips make silver streaks on the leaves. Spray soapy water and keep the bed weeded.",
+      "Soggy soil causes rot. Make sure water drains away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray and move the seedlings to the bed after about 5 weeks. Or plant small bulbs (sets) 10–15 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 30,
+        "amount": null,
+        "detail": "Mix a thin layer of compost around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 50,
+        "amount": null,
+        "detail": "silver streaks or twisted leaf tips (thrips)",
+        "extra": "spray soapy water and pull the weeds."
+      },
+      {
+        "kind": "WATERING",
+        "day": 70,
+        "amount": 1,
+        "detail": "Water regularly while the bulbs swell.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 100,
+        "amount": null,
+        "detail": "about half the tops have fallen over and turned yellow",
+        "extra": "Pull the bulbs, let them dry in the shade for a few days, then store in a cool, airy place."
+      }
+    ]
+  },
+  {
+    "code": "bawang",
+    "name": "Bawang",
+    "englishName": "Garlic",
+    "scientificName": "Allium sativum",
+    "emoji": "🧄",
+    "cycleDays": 100,
+    "sunlight": "Full sun",
+    "spacing": "About 10–15 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 8,
+      "optMin": 15,
+      "optMax": 25,
+      "absMax": 32
+    },
+    "rainfall": {
+      "absMin": 300,
+      "optMin": 500,
+      "optMax": 1000,
+      "absMax": 1800
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Plant single cloves, not seeds.",
+      "Garlic likes loose, well-drained soil and full sun.",
+      "Stop watering when the leaves start to yellow so the bulbs can dry."
+    ],
+    "pestTips": [
+      "Remove any plant with yellow, wilting leaves and a rotten base.",
+      "Keep weeds out. Garlic does not compete well."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Break a bulb into cloves and plant each one pointy end up, about 10–15 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 30,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 45,
+        "amount": null,
+        "detail": "Pull weeds by hand and loosen the soil lightly between the rows.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 60,
+        "amount": null,
+        "detail": "yellow leaves, rotten bases or tiny pests on the leaves",
+        "extra": "pull up sick plants and spray soapy water on the rest."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 100,
+        "amount": null,
+        "detail": "the lower leaves turn yellow and dry, while the upper leaves are still partly green",
+        "extra": "Dig the bulbs gently, dry them in the shade for a week, and keep them in a cool, airy place."
+      }
+    ]
+  },
+  {
+    "code": "gabi",
+    "name": "Gabi",
+    "englishName": "Taro",
+    "scientificName": "Colocasia esculenta",
+    "emoji": "🥔",
+    "cycleDays": 180,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 60–90 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 1000,
+      "optMin": 1500,
+      "optMax": 3000,
+      "absMax": 4500
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 6.5,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "CLAY",
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Loves wet, rich soil and can grow at the edge of a pond or ditch.",
+      "Needs plenty of water the whole season.",
+      "Wear gloves when handling raw leaves and corms, because they can itch."
+    ],
+    "pestTips": [
+      "Leaf spots and rot are worse in poorly drained soil. Do not let water sit around the stem.",
+      "Pick off caterpillars by hand."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 8,
+        "detail": "Plant a small corm, or the top cut from a corm, about 60 cm from the next plant.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 1,
+        "detail": "Keep the soil wet.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 45,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 90,
+        "amount": null,
+        "detail": "Cut off old yellow leaves at the base and pull weeds.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 120,
+        "amount": null,
+        "detail": "chewed leaves or leaf spots",
+        "extra": "pick off caterpillars and remove spotted leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 180,
+        "amount": null,
+        "detail": "the leaves turn yellow and droop, about 6 months after planting",
+        "extra": "Dig around the plant and lift the corms. Leave the small ones to grow again."
+      }
+    ]
+  },
+  {
+    "code": "baguio",
+    "name": "Baguio beans",
+    "englishName": "String beans",
+    "scientificName": "Phaseolus vulgaris",
+    "emoji": "🌱",
+    "cycleDays": 55,
+    "sunlight": "Full sun",
+    "spacing": "About 10 cm apart, in rows 40 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 18,
+      "optMax": 28,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1800,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Bush types stand up on their own. Climbing types need sticks or a trellis.",
+      "Beans make some of their own plant food, so go easy on fertiliser.",
+      "Pick often to keep new pods coming."
+    ],
+    "pestTips": [
+      "Tiny bugs (aphids): wash them off with water or soapy water.",
+      "Do not work in the bed when the leaves are wet, since that can spread disease."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant 2 seeds per hole, about 10 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil lightly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Thin to one plant per hole. Add sticks if you planted a climbing type.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Add a light layer of compost.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 30,
+        "amount": null,
+        "detail": "tiny bugs (aphids) or chewed leaves",
+        "extra": "wash them off with water or spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 55,
+        "amount": null,
+        "detail": "the pods are firm and slim and snap cleanly, before the seeds bulge",
+        "extra": "Pick every 2 days with two hands so you do not pull the plant."
+      }
+    ]
+  },
+  {
+    "code": "sitsaro",
+    "name": "Sitsaro",
+    "englishName": "Snow peas",
+    "scientificName": "Pisum sativum var. saccharatum",
+    "emoji": "🌱",
+    "cycleDays": 65,
+    "sunlight": "Full sun",
+    "spacing": "About 5 cm apart, along a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 13,
+      "optMax": 22,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 400,
+      "optMin": 600,
+      "optMax": 1200,
+      "absMax": 2000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Peas like cool weather, so they do best in highland areas or the cooler months.",
+      "Give them a trellis. They climb with curly tendrils.",
+      "Pick often to keep the plant flowering."
+    ],
+    "pestTips": [
+      "Aphids: wash them off with water or soapy water.",
+      "Powdery white leaves are mildew. Water at the base and remove the worst leaves."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant seeds about 5 cm apart along a trellis or fence.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Keep the soil lightly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Guide the tendrils onto the trellis.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 28,
+        "amount": null,
+        "detail": "A light layer of compost is enough.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 40,
+        "amount": null,
+        "detail": "tiny bugs (aphids) on the tips or powdery white leaves",
+        "extra": "wash off the bugs and remove mildewed leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 65,
+        "amount": null,
+        "detail": "the pods are flat and about 6–8 cm long, before the peas swell",
+        "extra": "Pick every 2–3 days."
+      }
+    ]
+  },
+  {
+    "code": "broccoli",
+    "name": "Broccoli",
+    "englishName": "Broccoli",
+    "scientificName": "Brassica oleracea var. italica",
+    "emoji": "🥦",
+    "cycleDays": 70,
+    "sunlight": "Full sun",
+    "spacing": "About 40–50 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 15,
+      "optMax": 20,
+      "absMax": 28
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Broccoli likes cool weather, so it does best in highland areas or the cooler months.",
+      "Needs rich soil and steady watering.",
+      "After you cut the main head, side shoots keep growing for more small heads."
+    ],
+    "pestTips": [
+      "Green caterpillars eat the leaves. Check under the leaves often and pick them off.",
+      "A fine net over the bed keeps the moths away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray in light shade and move the seedlings to the bed after about 4 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water gently every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 28,
+        "amount": null,
+        "detail": "Mix compost around each seedling after you move it to the bed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 42,
+        "amount": null,
+        "detail": "green caterpillars and holes in the leaves",
+        "extra": "pick them off by hand and cover the bed with a fine net."
+      },
+      {
+        "kind": "FEEDING",
+        "day": 50,
+        "amount": null,
+        "detail": "Add more compost around the plant as the head starts to form.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 70,
+        "amount": null,
+        "detail": "the main head is dark green with tight buds, before any yellow flowers open",
+        "extra": "Cut the head with a short piece of stem. Side shoots will grow more small heads."
+      }
+    ]
+  },
+  {
+    "code": "kuliplor",
+    "name": "Kuliplor",
+    "englishName": "Cauliflower",
+    "scientificName": "Brassica oleracea var. botrytis",
+    "emoji": "🌼",
+    "cycleDays": 75,
+    "sunlight": "Full sun",
+    "spacing": "About 50 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 15,
+      "optMax": 20,
+      "absMax": 28
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Cauliflower likes cool weather, so it does best in highland areas or the cooler months.",
+      "Needs rich soil and steady watering.",
+      "Tie the leaves over the head so it stays white."
+    ],
+    "pestTips": [
+      "Green caterpillars eat the leaves. Check under the leaves often and pick them off.",
+      "A fine net over the bed keeps the moths away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray in light shade and move the seedlings to the bed after about 4 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water gently every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 28,
+        "amount": null,
+        "detail": "Mix compost around each seedling after you move it to the bed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 42,
+        "amount": null,
+        "detail": "green caterpillars and holes in the leaves",
+        "extra": "pick them off by hand and cover the bed with a fine net."
+      },
+      {
+        "kind": "PRUNING",
+        "day": 55,
+        "amount": null,
+        "detail": "When the head is about the size of an egg, tie the outer leaves loosely over it to keep it white.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 75,
+        "amount": null,
+        "detail": "the white head is firm and about 12–15 cm wide",
+        "extra": "Cut with a few leaves around it to keep it clean."
+      }
+    ]
+  },
+  {
+    "code": "kinchay",
+    "name": "Kinchay",
+    "englishName": "Chinese celery",
+    "scientificName": "Apium graveolens",
+    "emoji": "🌿",
+    "cycleDays": 70,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 15–20 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 10,
+      "optMin": 16,
+      "optMax": 24,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Slow to sprout. Keep the seedbed moist and lightly shaded.",
+      "Likes moist, rich soil and cooler weather.",
+      "Cut stalks as you need them and the plant keeps growing."
+    ],
+    "pestTips": [
+      "Aphids: wash them off with water or spray soapy water.",
+      "Remove leaves with brown spots."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.3,
+        "detail": "Sow the tiny seeds on the surface and press them in lightly. Keep moist and shaded. They sprout slowly, in 2–3 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Mist or water gently so the seeds do not wash away.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 30,
+        "amount": null,
+        "detail": "Move or thin the seedlings to about 15 cm apart.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 45,
+        "amount": null,
+        "detail": "leaf spots or tiny bugs (aphids)",
+        "extra": "remove spotted leaves and spray soapy water."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 70,
+        "amount": null,
+        "detail": "the stalks are about 25–30 cm tall and strongly scented",
+        "extra": "Cut the outer stalks as needed, or cut the whole plant 3 cm above the soil so it regrows."
+      }
+    ]
+  },
+  {
+    "code": "spinach",
+    "name": "Spinach",
+    "englishName": "Spinach",
+    "scientificName": "Spinacia oleracea",
+    "emoji": "🥬",
+    "cycleDays": 40,
+    "sunlight": "Full sun to light shade",
+    "spacing": "About 10 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 15,
+      "optMax": 22,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 400,
+      "optMin": 600,
+      "optMax": 1200,
+      "absMax": 2000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.5,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Spinach likes cool weather and runs to flower in the heat. In the hot lowlands, try alugbati instead.",
+      "Keep the soil evenly moist.",
+      "Pick before the plant flowers, since the leaves turn bitter."
+    ],
+    "pestTips": [
+      "Leaf miners leave pale winding trails in the leaves. Remove affected leaves.",
+      "A fine net keeps the flies away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 1,
+        "detail": "Sow seeds thinly in rows and cover lightly with fine soil.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 2,
+        "amount": 0.4,
+        "detail": "Keep the soil evenly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 14,
+        "amount": null,
+        "detail": "Thin to about 10 cm apart. The thinnings are good to eat.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 18,
+        "amount": null,
+        "detail": "Sprinkle a thin layer of compost between the rows.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 25,
+        "amount": null,
+        "detail": "pale winding trails or holes in the leaves",
+        "extra": "remove affected leaves and cover the bed with a fine net."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 40,
+        "amount": null,
+        "detail": "the leaves are 8–10 cm long",
+        "extra": "Pick the outer leaves, or cut the whole plant. Harvest before it flowers."
+      }
+    ]
+  },
+  {
+    "code": "kundol",
+    "name": "Kundol",
+    "englishName": "Wax gourd",
+    "scientificName": "Benincasa hispida",
+    "emoji": "🍈",
+    "cycleDays": 100,
+    "sunlight": "Full sun",
+    "spacing": "About 1 m apart, with room to sprawl",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 24,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 800,
+      "optMin": 1200,
+      "optMax": 2500,
+      "absMax": 4000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A vigorous vine that needs room or a strong trellis.",
+      "Needs full sun and regular water.",
+      "A mature fruit keeps for weeks in a cool place."
+    ],
+    "pestTips": [
+      "Fruit flies sting young fruits. Wrap them in paper bags.",
+      "Spray soapy water on aphids and other soft bugs."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Soak the seeds overnight, then plant 2–3 seeds per hole about 1 m apart.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 1,
+        "detail": "Water the hole well and keep the soil damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 30,
+        "amount": null,
+        "detail": "Guide the vines onto a strong trellis, or let them spread over dry grass.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 40,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 60,
+        "amount": null,
+        "detail": "fruit fly stings or tiny bugs under the leaves",
+        "extra": "wrap young fruits in paper bags and spray soapy water on the leaves."
+      },
+      {
+        "kind": "WATERING",
+        "day": 80,
+        "amount": 2,
+        "detail": "Water deeply once a week if there has been no rain.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 100,
+        "amount": null,
+        "detail": "the fruit is full size and has a white waxy powder on the skin",
+        "extra": "Cut with a short piece of stem. It keeps for weeks in a cool place."
+      }
+    ]
+  },
+  {
+    "code": "bataw",
+    "name": "Bataw",
+    "englishName": "Hyacinth bean",
+    "scientificName": "Lablab purpureus",
+    "emoji": "🌱",
+    "cycleDays": 90,
+    "sunlight": "Full sun",
+    "spacing": "About 30 cm apart, with a trellis",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 38
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 800,
+      "optMax": 2000,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.0,
+      "optMin": 5.5,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "A strong climbing vine. Give it a sturdy trellis.",
+      "Handles heat and dry spells better than most beans.",
+      "Always cook the pods and beans well before eating."
+    ],
+    "pestTips": [
+      "Aphids on young shoots: wash them off with water or soapy water.",
+      "Remove any leaves with spots."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 3,
+        "detail": "Plant 2–3 seeds per hole, 30 cm apart, next to a trellis.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.4,
+        "detail": "Keep the soil lightly damp.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 21,
+        "amount": null,
+        "detail": "Guide the vines up the trellis.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Add a light layer of compost. Do not over-feed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 50,
+        "amount": null,
+        "detail": "tiny bugs (aphids) on young shoots or spotted leaves",
+        "extra": "wash the bugs off with water and remove spotted leaves."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 90,
+        "amount": null,
+        "detail": "the pods are flat, 6–10 cm long and still tender",
+        "extra": "Pick every 2–3 days. Cook the pods well before eating."
+      }
+    ]
+  },
+  {
+    "code": "siling-haba",
+    "name": "Siling haba",
+    "englishName": "Long green chilli",
+    "scientificName": "Capsicum annuum",
+    "emoji": "🌶️",
+    "cycleDays": 90,
+    "sunlight": "Full sun",
+    "spacing": "About 40–50 cm apart; also grows well in pots",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 15,
+      "optMin": 20,
+      "optMax": 30,
+      "absMax": 35
+    },
+    "rainfall": {
+      "absMin": 600,
+      "optMin": 1000,
+      "optMax": 1800,
+      "absMax": 3000
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 8.0
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Grows well in pots or beds and gives fruit for months.",
+      "Needs full sun and soil that drains well.",
+      "Water at the base and do not let the soil stay soggy."
+    ],
+    "pestTips": [
+      "Tiny bugs (aphids and thrips) curl the leaves. Spray soapy water under the leaves.",
+      "Remove curled or spotted leaves and throw them away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray and keep them warm and moist. Move the seedlings to the bed after about 5 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water lightly every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 35,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 49,
+        "amount": null,
+        "detail": "Tie the plant to a stake if it leans.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 60,
+        "amount": null,
+        "detail": "curled leaves with tiny bugs under them",
+        "extra": "spray soapy water under the leaves in the evening."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 90,
+        "amount": null,
+        "detail": "the chillies are 10–15 cm long, shiny and firm",
+        "extra": "Pick them green, or let them ripen to red. Picking often encourages more fruit."
+      }
+    ]
+  },
+  {
+    "code": "wombok",
+    "name": "Wombok",
+    "englishName": "Napa cabbage",
+    "scientificName": "Brassica rapa subsp. pekinensis",
+    "emoji": "🥬",
+    "cycleDays": 60,
+    "sunlight": "Full sun",
+    "spacing": "About 30–40 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 5,
+      "optMin": 15,
+      "optMax": 22,
+      "absMax": 30
+    },
+    "rainfall": {
+      "absMin": 500,
+      "optMin": 800,
+      "optMax": 1500,
+      "absMax": 2500
+    },
+    "ph": {
+      "absMin": 5.5,
+      "optMin": 6.0,
+      "optMax": 7.0,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "CLAY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY",
+      "CLAY"
+    ],
+    "careTips": [
+      "Napa cabbage likes cool weather, so it does best in highland areas or the cooler months.",
+      "Needs rich soil and steady watering.",
+      "Harvest on time, since the heads can split or bolt if left too long."
+    ],
+    "pestTips": [
+      "Caterpillars and slugs chew the leaves. Check often and remove them by hand.",
+      "A fine net over the bed keeps the moths away."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 0.5,
+        "detail": "Start seeds in a tray in light shade and move the seedlings to the bed after about 3 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 3,
+        "amount": 0.3,
+        "detail": "Water gently every morning.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 21,
+        "amount": null,
+        "detail": "Mix compost around each seedling after you move it to the bed.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 35,
+        "amount": null,
+        "detail": "holes in the leaves, caterpillars or slugs",
+        "extra": "pick them off by hand and cover the bed with a fine net."
+      },
+      {
+        "kind": "FEEDING",
+        "day": 45,
+        "amount": null,
+        "detail": "Add more compost as the head starts to form.",
+        "extra": ""
+      },
+      {
+        "kind": "HARVEST",
+        "day": 60,
+        "amount": null,
+        "detail": "the head is long, firm and solid when you squeeze it",
+        "extra": "Cut the head at the base with a knife."
+      }
+    ]
+  },
+  {
+    "code": "luya",
+    "name": "Luya",
+    "englishName": "Ginger",
+    "scientificName": "Zingiber officinale",
+    "emoji": "🫚",
+    "cycleDays": 240,
+    "sunlight": "Light shade to full sun",
+    "spacing": "About 20–25 cm apart",
+    "verified": false,
+    "sourceNote": "Typical growing ranges from agricultural extension guidance. Not yet checked against the FAO EcoCrop datasheet. Look the crop up at gaez.fao.org/pages/ecocrop-search before relying on exact numbers.",
+    "sourceUrl": "https://gaez.fao.org/pages/ecocrop-search",
+    "temperature": {
+      "absMin": 18,
+      "optMin": 22,
+      "optMax": 32,
+      "absMax": 36
+    },
+    "rainfall": {
+      "absMin": 1000,
+      "optMin": 1500,
+      "optMax": 3000,
+      "absMax": 4500
+    },
+    "ph": {
+      "absMin": 4.5,
+      "optMin": 5.5,
+      "optMax": 6.5,
+      "absMax": 7.5
+    },
+    "optimalSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "tolerableSoils": [
+      "LOAM",
+      "SANDY"
+    ],
+    "careTips": [
+      "Ginger likes warm, damp, loose soil and a little shade.",
+      "Be patient. It takes about 8 months, but you can pick young ginger earlier.",
+      "Never let water sit around the roots."
+    ],
+    "pestTips": [
+      "Yellowing leaves and soft, rotten stems mean root rot. Dig up and throw away sick plants and improve drainage.",
+      "Keep the bed weeded."
+    ],
+    "tasks": [
+      {
+        "kind": "SOWING",
+        "day": 0,
+        "amount": 5,
+        "detail": "Plant pieces of fresh ginger with 2–3 buds, buds facing up.",
+        "extra": ""
+      },
+      {
+        "kind": "WATERING",
+        "day": 7,
+        "amount": 0.5,
+        "detail": "Keep the soil lightly damp. Sprouting takes 3–4 weeks.",
+        "extra": ""
+      },
+      {
+        "kind": "FEEDING",
+        "day": 60,
+        "amount": null,
+        "detail": "Mix a thin layer of compost into the soil around the plants.",
+        "extra": ""
+      },
+      {
+        "kind": "PRUNING",
+        "day": 90,
+        "amount": null,
+        "detail": "Pile soil around the base of the stems and pull weeds.",
+        "extra": ""
+      },
+      {
+        "kind": "PEST_CONTROL",
+        "day": 120,
+        "amount": null,
+        "detail": "yellowing leaves or soft, rotten stems",
+        "extra": "dig up and throw away sick plants, and improve the drainage."
+      },
+      {
+        "kind": "HARVEST",
+        "day": 240,
+        "amount": null,
+        "detail": "the leaves turn yellow and dry, about 8 months after planting",
+        "extra": "Dig the rhizomes with a fork. You can pick young ginger earlier, at about 5 months."
+      }
+    ]
+  }
+]
