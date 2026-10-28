@@ -44,13 +44,36 @@ public final class AppController {
 
     private void showApp(boolean firstTime) {
         User user = ctx.session.require();
-        main = new MainPanel(ctx, this::signOut);
+        main = new MainPanel(ctx, this::signOut, this::restart);
         shell.setWindowTitle("PlantWise PH - " + user.getDisplayName());
         shell.showBody(main);
+        if (!firstTime) announce();
         if (firstTime) {
             main.show(Navigator.LOCATION);
             main.flash("Welcome, " + user.getDisplayName() + "! Set where your garden is so the weather and crop matches are right.", false);
         }
+    }
+
+    /** On opening the app, says how many garden tasks are due, in the window and as a desktop notification. */
+    private void announce() {
+        MainPanel panel = main;
+        Tasks.run(() -> ctx.garden.reminders(0).size(), due -> {
+            if (due > 0 && panel == main) {
+                String text = due == 1 ? "1 garden task is due today or overdue." : due + " garden tasks are due today or overdue.";
+                panel.flash(text, false);
+                Notifier.desktop("PlantWise PH", text);
+            }
+        }, t -> { /* reminders are a nicety; the Today screen shows any problem */ });
+    }
+
+    /** Rebuilds the main window (for example after the language changed) and opens one screen. */
+    private void restart(String page) {
+        if (!ctx.session.isSignedIn()) return;
+        User user = ctx.session.require();
+        main = new MainPanel(ctx, this::signOut, this::restart);
+        shell.setWindowTitle("PlantWise PH - " + user.getDisplayName());
+        shell.showBody(main);
+        main.show(page);
     }
 
     public void signOut() {

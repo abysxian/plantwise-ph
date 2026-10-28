@@ -28,7 +28,7 @@ public class ServicesTest {
         final AtomicInteger climates = new AtomicInteger();
         boolean offline;
         double rainToday = 0, maxToday = 30;
-        ClimateStats climate = new ClimateStats(27.8, 2300);
+        ClimateStats climate = new ClimateStats(27.8, 2300, new double[] {26,26.5,27.5,28.5,29,28.5,28,28,27.8,27.5,27,26.2}, new double[] {60,40,45,60,150,260,380,420,380,250,150,100});
 
         @Override public WeatherForecast fetchForecast(double lat, double lon) {
             forecasts.incrementAndGet();

@@ -43,10 +43,10 @@ public class JdbcPlotRepository implements PlotRepository {
             Long cropId = plot.isEmpty() ? null : plot.getCrop().getId();
             if (plot.getId() == null) {
                 plot.assignId(Sql.insert(c, "INSERT INTO plots (user_id, slot_number, name, crop_id, planted_on) VALUES (?,?,?,?,?)",
-                        session.requireUserId(), plot.getSlotNumber(), plot.getName(), cropId, plot.getPlantedOn()));
+                        session.requireGardenId(), plot.getSlotNumber(), plot.getName(), cropId, plot.getPlantedOn()));
             } else {
                 int changed = Sql.update(c, "UPDATE plots SET name = ?, crop_id = ?, planted_on = ? WHERE id = ? AND user_id = ?",
-                        plot.getName(), cropId, plot.getPlantedOn(), plot.getId(), session.requireUserId());
+                        plot.getName(), cropId, plot.getPlantedOn(), plot.getId(), session.requireGardenId());
                 if (changed == 0) throw new NotFoundException("That bed does not exist.");
             }
             saveTasks(c, plot);
@@ -88,7 +88,7 @@ public class JdbcPlotRepository implements PlotRepository {
     }
 
     @Override public void delete(Plot plot) {
-        long userId = session.requireUserId();
+        long userId = session.requireGardenId();
         db.run(() -> db.withConnection(c -> {
             Sql.update(c, "DELETE FROM care_tasks WHERE plot_id IN (SELECT id FROM plots WHERE id = ? AND user_id = ?)", plot.getId(), userId);
             Sql.update(c, "DELETE FROM plots WHERE id = ? AND user_id = ?", plot.getId(), userId);
@@ -97,12 +97,12 @@ public class JdbcPlotRepository implements PlotRepository {
     }
 
     @Override public long count() {
-        return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM plots WHERE user_id = ?", session.requireUserId()));
+        return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM plots WHERE user_id = ?", session.requireGardenId()));
     }
 
     /** {@code extra} is appended to the "belongs to the signed-in user" condition, e.g. "AND id = ?". */
     private List<Plot> load(String extra, String orderBy, Object... params) {
-        long userId = session.requireUserId();
+        long userId = session.requireGardenId();
         Object[] all = new Object[params.length + 1];
         all[0] = userId;
         System.arraycopy(params, 0, all, 1, params.length);

@@ -3,6 +3,7 @@ package com.agristep.service;
 import com.agristep.domain.User;
 import com.agristep.domain.ValidationException;
 import com.agristep.repository.LegacyData;
+import com.agristep.repository.SharingRepository;
 import com.agristep.repository.Transactions;
 import com.agristep.repository.UserRepository;
 
@@ -34,11 +35,12 @@ public class AuthService {
     private final LegacyData legacy;
     private final Transactions transactions;
     private final Clock clock;
+    private final SharingRepository sharing;
     private final Map<String, Attempts> attempts = new ConcurrentHashMap<>();
     private final String unknownUserHash;
 
     public AuthService(UserRepository users, PasswordHasher hasher, Session session, GardenProvisioner provisioner,
-                       LegacyData legacy, Transactions transactions, Clock clock) {
+                       LegacyData legacy, Transactions transactions, Clock clock, SharingRepository sharing) {
         this.users = users;
         this.hasher = hasher;
         this.session = session;
@@ -46,6 +48,7 @@ public class AuthService {
         this.legacy = legacy;
         this.transactions = transactions;
         this.clock = clock;
+        this.sharing = sharing;
         this.unknownUserHash = hasher.hash("not-a-real-password");   // so unknown names take as long as wrong passwords
     }
 
@@ -100,7 +103,7 @@ public class AuthService {
             throw new AuthenticationException("Wrong username or password.");
         }
         attempts.remove(key);
-        session.signIn(found.get());
+        signInWithGarden(found.get());
         return found.get();
     }
 
@@ -108,8 +111,14 @@ public class AuthService {
     public Optional<User> signInRemembered(String username) {
         if (username == null || username.isBlank()) return Optional.empty();
         Optional<User> found = users.findByUsername(username);
-        found.ifPresent(session::signIn);
+        found.ifPresent(this::signInWithGarden);
         return found;
+    }
+
+    /** Signs in, and if this person joined someone else's garden, opens that garden. */
+    private void signInWithGarden(User user) {
+        session.signIn(user);
+        sharing.ownerOf(user.getId()).ifPresent(session::useGardenOf);
     }
 
     public void logout() { session.signOut(); }

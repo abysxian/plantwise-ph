@@ -26,7 +26,7 @@ public class JdbcHarvestRecordRepository implements HarvestRecordRepository {
             record.assignId(Sql.insert(c,
                     "INSERT INTO harvest_records (user_id, crop_name, crop_emoji, plot_name, planted_on, harvested_on, completion_percent)"
                             + " VALUES (?,?,?,?,?,?,?)",
-                    session.requireUserId(), record.getCropName(), record.getCropEmoji(), record.getPlotName(),
+                    session.requireGardenId(), record.getCropName(), record.getCropEmoji(), record.getPlotName(),
                     record.getPlantedOn(), record.getHarvestedOn(), record.getCompletionPercent()));
             return null;
         });
@@ -40,7 +40,7 @@ public class JdbcHarvestRecordRepository implements HarvestRecordRepository {
     @Override public List<HarvestRecord> findAll() { return query("ORDER BY id"); }
 
     @Override public long count() {
-        return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM harvest_records WHERE user_id = ?", session.requireUserId()));
+        return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM harvest_records WHERE user_id = ?", session.requireGardenId()));
     }
 
     @Override public List<HarvestRecord> findTop10ByOrderByHarvestedOnDescIdDesc() {
@@ -50,7 +50,7 @@ public class JdbcHarvestRecordRepository implements HarvestRecordRepository {
     /** {@code tail} continues the "belongs to the signed-in user" condition, e.g. "AND id = ?" or "ORDER BY id". */
     private List<HarvestRecord> query(String tail, Object... params) {
         Object[] all = new Object[params.length + 1];
-        all[0] = session.requireUserId();
+        all[0] = session.requireGardenId();
         System.arraycopy(params, 0, all, 1, params.length);
         return db.withConnection(c -> Sql.query(c, SELECT + tail, rs -> {
             HarvestRecord r = new HarvestRecord(rs.getString("crop_name"), rs.getString("crop_emoji"), rs.getString("plot_name"),

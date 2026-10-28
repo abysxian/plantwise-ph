@@ -29,16 +29,25 @@ public final class MainPanel extends JPanel implements Navigator {
     private final FlashBar flash = new FlashBar();
     private final JPanel topBar;
     private final JPanel north = new JPanel(new BorderLayout());
+    private final Runnable onSignOut;
+    private final java.util.function.Consumer<String> onRestart;
     private boolean wideMode = true;
     private String current;
 
     /** For tests and simple uses: a window with no sign-out action. */
     public MainPanel(AppContext ctx) {
-        this(ctx, () -> { });
+        this(ctx, () -> { }, page -> { });
     }
 
     public MainPanel(AppContext ctx, Runnable onSignOut) {
+        this(ctx, onSignOut, page -> { });
+    }
+
+    /** @param onRestart asked to rebuild the window (for example after a language change) and open a screen */
+    public MainPanel(AppContext ctx, Runnable onSignOut, java.util.function.Consumer<String> onRestart) {
         super(new BorderLayout());
+        this.onSignOut = onSignOut;
+        this.onRestart = onRestart;
         setBackground(Theme.PAPER);
         String who = ctx.session.require().getDisplayName();
         topBar = brandStrip(who, onSignOut);
@@ -46,7 +55,11 @@ public final class MainPanel extends JPanel implements Navigator {
         addPage(Navigator.TODAY, new TodayPage(ctx, this));
         addPage(Navigator.GARDEN, new GardenPage(ctx, this));
         addPage(Navigator.CROPS, new CropsPage(ctx, this));
+        addPage(Navigator.CALENDAR, new CalendarPage(ctx, this));
+        addPage(Navigator.JOURNAL, new JournalPage(ctx, this));
+        addPage(Navigator.INSIGHTS, new InsightsPage(ctx, this));
         addPage(Navigator.LOCATION, new LocationPage(ctx, this));
+        addPage(Navigator.ACCOUNT, new AccountPage(ctx, this));
         addPage(Navigator.CROP_DETAIL, new CropDetailPage(ctx, this));
 
         navBar = new NavBar(this::show);
@@ -132,6 +145,15 @@ public final class MainPanel extends JPanel implements Navigator {
         ((CropDetailPage) pages.get(Navigator.CROP_DETAIL)).setCrop(crop);
         show(Navigator.CROP_DETAIL);
     }
+
+    @Override public void showJournalFor(Long plotId) {
+        ((JournalPage) pages.get(Navigator.JOURNAL)).preselect(plotId);
+        show(Navigator.JOURNAL);
+    }
+
+    @Override public void signOut() { onSignOut.run(); }
+
+    @Override public void restart(String page) { onRestart.accept(page); }
 
     @Override public void flash(String message, boolean error) {
         Tasks.later(() -> flash.show(message, error));

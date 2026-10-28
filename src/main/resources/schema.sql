@@ -115,5 +115,33 @@ CREATE TABLE IF NOT EXISTS climate_profiles (
     location_name VARCHAR(160),
     avg_temp_30d_c DOUBLE NOT NULL,
     annual_rain_mm DOUBLE NOT NULL,
+    monthly_temp VARCHAR(300),
+    monthly_rain VARCHAR(300),
     fetched_at DATETIME NOT NULL
+);
+
+-- Notes and photos in the garden journal. user_id is the id of the garden's owner.
+CREATE TABLE IF NOT EXISTS journal_entries (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    author_name VARCHAR(60) NOT NULL,
+    plot_name VARCHAR(60),
+    crop_name VARCHAR(80),
+    entry_date DATE NOT NULL,
+    note VARCHAR(2000) NOT NULL,
+    photo_file VARCHAR(80)
+);
+
+-- Shared gardens: a member works in the owner's garden instead of their own.
+CREATE TABLE IF NOT EXISTS garden_members (
+    member_id BIGINT NOT NULL PRIMARY KEY,
+    owner_id BIGINT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS garden_invites (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    owner_id BIGINT NOT NULL,
+    invitee_id BIGINT NOT NULL,
+    created_at DATETIME NOT NULL,
+    CONSTRAINT uq_invite UNIQUE (owner_id, invitee_id)
 );

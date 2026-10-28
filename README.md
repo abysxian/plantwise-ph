@@ -146,6 +146,38 @@ Saving a location returns you to Today with the weather and crop ranking updated
 
 Browse all 36 vegetables and search by Filipino name, English name or scientific name. Each detail page shows the temperature and rainfall it needs, its soil preferences, the day-by-day care plan, care tips, pest tips and the source label for its data. Press **Plant** to put the crop in an empty bed.
 
+### Calendar: what to plant each month
+
+Pick a month to see all 36 crops ranked for it, using that month's average temperature at your location from the last year of weather (the same scoring as Today). Below that, choose one crop to see how all twelve months suit it. Philippine temperatures change little through the year, so the differences are largest for crops that are fussy about heat, and in the highlands. If monthly figures are not saved yet (first start while offline), the screen says so.
+
+### Journal
+
+Write dated notes about the whole garden or about one bed, and attach a photo (JPG, PNG or GIF; it is shrunk to 900 px and stored in `~/.agristep/journal`). Notes show who wrote them. Press **Write a note** on a planted bed in the Garden screen to start a note for that bed. Deleting asks twice.
+
+### Insights: harvest statistics and export
+
+Totals, the average days from planting to harvest, the most harvested crop, a chart of harvests per month for the last 12 months and a count per crop. Three buttons save your records: harvests as CSV, every care task as CSV (both open in Excel or Google Sheets) and a PDF garden report (beds, care plans, harvest history) that can be printed.
+
+### Reminders and weather alerts
+
+- When you open the app with tasks due today or overdue, a message appears in the window and, where the system supports it, as a desktop notification. The Today screen has a **Coming up** card with overdue tasks and tasks due in the next 3 days. There are no email or phone reminders.
+- **Weather alerts** appear on Today when the 7-day forecast shows heavy rain (50 mm or more in a day), strong gusts (60 km/h or more), thunderstorms or extreme heat (36 °C or more), with garden advice such as harvesting early and staking tall crops. They are rules applied to forecast numbers and are **not official typhoon bulletins**; the app points to PAGASA for those.
+
+### Companion planting and crop rotation
+
+When you choose a crop for an empty bed, the app compares it with the beds touching it (including diagonally) and shows suggestions such as good neighbours (for example tomato with onion), pairs often kept apart (tomato with cabbage) and a rotation warning if that bed grew the same crop or plant family in the last 12 months. These are traditional gardening guidelines, not laboratory-tested rules, and are worded as suggestions.
+
+### Pest guide
+
+On the Crops screen press **Pest guide** to read the common pests and problems for every vegetable. It is written advice with no photos.
+
+### Account: password, shared garden, language, deleting
+
+- **Change password** asks for the current password first.
+- **Shared garden:** invite another account by username. When they accept, they work in your garden (beds, plants, harvests, journal and location) until they leave; their own garden is kept untouched. A person working in someone else's garden cannot invite others, and you must remove your own members before joining another garden.
+- **Language:** English or Filipino for the menus, screen titles and main buttons. Longer explanations, tips and messages stay in English. The choice is saved in `~/.agristep/language.txt`.
+- **Delete account** asks for the password and a second press, then permanently removes the account, garden, history, journal and photos. People who had joined your garden return to their own.
+
 ### Window sizes
 
 On a wide window the menu is a side rail. On a narrow window (phone-shaped) it becomes a bottom bar and the screens switch to a single column. Drag the window edge to see it change.
@@ -171,7 +203,9 @@ The database is chosen in `agristep.properties` in the project folder.
 | `harvest_records` | Harvest history per user |
 | `garden_settings` | Each user's location, soil and grid columns |
 | `crops`, `crop_optimal_soils`, `crop_tolerable_soils`, `crop_tips`, `task_templates` | The vegetable catalogue and its care plans |
-| `climate_profiles` | Climate data saved for each location |
+| `climate_profiles` | Climate data saved for each location, including month-by-month figures |
+| `journal_entries` | Journal notes and the names of their photo files |
+| `garden_members`, `garden_invites` | Shared-garden membership and pending invitations |
 
 The default MySQL login is XAMPP's (user `root`, empty password). Change `mysql.user`, `mysql.password` or `mysql.url` in the same file if yours differ. H2 and MySQL keep separate data; switching `db.type` switches which database is used.
 
@@ -252,7 +286,7 @@ src/test/java/                  automated tests
 
 ## 13. Testing
 
-`mvn test` runs **139 automated tests**:
+`mvn test` runs **179 automated tests**:
 
 - the data rules for all 36 crops, scoring, care-plan planning, weather parsing and caching (with a fake weather service, so no internet is needed);
 - every database operation on H2, including closing and reopening a database file and upgrading an old single-garden database;
@@ -269,6 +303,10 @@ The database layer was also run against a real MariaDB server (the database behi
 - Only **one crop (talong)** is verified against FAO EcoCrop; the other 35 use typical ranges and are labelled that way.
 - The H2 database belongs to one computer. Sharing one garden between computers needs the MySQL option on a shared server.
 - "Keep me signed in" is convenient but open to anyone using the same computer until sign-out.
+
+- Reminders are in the window and as desktop notifications only (no email or phone alerts), and weather alerts are rule-of-thumb warnings rather than official bulletins.
+- Journal photos are stored on the computer running the app, so people sharing a garden from different computers need the shared MySQL database and will not see each other's photos.
+- The Filipino setting covers menus, titles and main buttons, not every sentence.
 
 ## 15. Troubleshooting
 

@@ -12,6 +12,7 @@ import java.util.Locale;
 /** The vegetable catalogue, with search. */
 final class CropsPage extends Page {
     private List<Crop> all = List.of();
+    private boolean pestGuide;
     private final SearchField search = new SearchField("Search by name, e.g. talong or eggplant");
     private final JPanel list = new JPanel(new FlowGridLayout(300, 3, 10, 0));
     private final WrapLabel count = new WrapLabel("", Theme.BODY, new java.awt.Color(0xD9F0E3));
@@ -29,7 +30,12 @@ final class CropsPage extends Page {
     @Override void onShow() {
         Tasks.run(ctx.crops::findAllByOrderByNameAsc, crops -> {
             all = crops;
-            Card header = banner("Crops", null, Scenery.Photo.PHILODENDRON, count, search);
+            PillButton mode = PillButton.secondary(pestGuide ? "Crop list" : "Pest guide");
+            mode.addActionListener(e -> {
+                pestGuide = !pestGuide;
+                onShow();
+            });
+            Card header = banner("Crops", null, Scenery.Photo.PHILODENDRON, count, search, Widgets.left(mode));
             setContent(header, list);
             refill();
         }, this::fail);
@@ -41,10 +47,13 @@ final class CropsPage extends Page {
         int shown = 0;
         for (Crop crop : all) {
             if (!q.isEmpty() && !matches(crop, q)) continue;
-            list.add(cropCard(crop));
+            list.add(pestGuide ? pestCard(crop) : cropCard(crop));
             shown++;
         }
-        count.setText(q.isEmpty()
+        count.setText(pestGuide
+                ? (q.isEmpty() ? "Common pests and problems for each vegetable, and what to do about them. Written advice only; "
+                + "for a serious outbreak ask your local agriculture office." : shown + " of " + all.size() + " match \"" + search.getText().trim() + "\".")
+                : q.isEmpty()
                 ? all.size() + " vegetables for Philippine gardens. Tap one for its care guide."
                 : shown + " of " + all.size() + " match \"" + search.getText().trim() + "\".");
         if (shown == 0) list.add(new Card().add(WrapLabel.muted("No crop matches that search.")));
@@ -72,6 +81,20 @@ final class CropsPage extends Page {
         body.add(left(sourceBadge(crop)));
         row.add(body, RowLayout.CENTER);
         card.add(row);
+        card.onClick(() -> nav.showCrop(crop));
+        return card;
+    }
+
+    private Card pestCard(Crop crop) {
+        Card card = new Card().padding(12).gap(6);
+        JPanel head = new JPanel(new RowLayout(10, false));
+        head.setOpaque(false);
+        head.add(Emoji.label(crop.getEmoji(), 32), RowLayout.WEST);
+        head.add(WrapLabel.h3(crop.getName()), RowLayout.CENTER);
+        card.add(head);
+        List<String> tips = crop.pestTips();
+        if (tips.isEmpty()) card.add(WrapLabel.small("No pest notes for this crop yet."));
+        for (String tip : tips) card.add(WrapLabel.small("• " + tip));
         card.onClick(() -> nav.showCrop(crop));
         return card;
     }

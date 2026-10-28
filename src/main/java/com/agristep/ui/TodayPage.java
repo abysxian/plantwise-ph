@@ -1,6 +1,8 @@
 package com.agristep.ui;
 
 import com.agristep.AppContext;
+import com.agristep.service.GardenService;
+import com.agristep.service.WeatherAlerts;
 import com.agristep.domain.GardenSettings;
 import com.agristep.domain.SoilType;
 import com.agristep.service.CropRecommendation;
@@ -24,8 +26,11 @@ import java.util.Optional;
 /** "What should I do today?": the weather, the soil choice, and crops ranked for this place. */
 final class TodayPage extends Page {
     private static final int FIRST_SHOWN = 10;
+    static final int REMINDER_DAYS = 3;
+    private static final int REMINDERS_SHOWN = 6;
 
-    private record Snapshot(GardenSettings settings, Optional<WeatherForecast> forecast, String advice) {}
+    private record Snapshot(GardenSettings settings, Optional<WeatherForecast> forecast, String advice,
+                            List<WeatherAlerts.Alert> alerts, List<GardenService.Reminder> reminders) {}
 
     private int generation;
     private boolean showAll;
@@ -46,7 +51,7 @@ final class TodayPage extends Page {
             GardenSettings s = ctx.settings.current();
             Optional<WeatherForecast> forecast = ctx.weather.forecast(s);
             String advice = ctx.advisor.todayAdvice(forecast, ctx.garden.dueTaskCount(), ctx.garden.readyPlotCount());
-            return new Snapshot(s, forecast, advice);
+            return new Snapshot(s, forecast, advice, WeatherAlerts.from(forecast.orElse(null)), ctx.garden.reminders(REMINDER_DAYS));
         }, snap -> {
             if (mine == generation) render(snap);
         }, this::fail);
@@ -64,7 +69,14 @@ final class TodayPage extends Page {
         recsSection.setOpaque(false);
         recsSection.add(WrapLabel.h2("What to plant"));
         recsSection.add(WrapLabel.muted("Checking what fits " + settings.getLocationName() + "…"));
-        setContent(hero(snap), weatherCard(snap.forecast()), soilCard(), recsSection);
+        List<java.awt.Component> parts = new java.util.ArrayList<>();
+        parts.add(hero(snap));
+        if (!snap.alerts().isEmpty()) parts.add(alertsCard(snap.alerts()));
+        if (!snap.reminders().isEmpty()) parts.add(remindersCard(snap.reminders()));
+        parts.add(weatherCard(snap.forecast()));
+        parts.add(soilCard());
+        parts.add(recsSection);
+        setContent(parts.toArray(new java.awt.Component[0]));
         loadRecommendations();
     }
 
@@ -98,8 +110,69 @@ final class TodayPage extends Page {
 
     private String greeting() {
         int hour = java.time.LocalTime.now().getHour();
-        String part = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+        String part = I18n.t(hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening");
         return part + ", " + ctx.session.require().getDisplayName();
+    }
+
+    // ---- alerts and reminders ----
+
+    private Card alertsCard(List<WeatherAlerts.Alert> alerts) {
+        Card card = new Card().gap(10);
+        card.add(WrapLabel.h3("Weather alerts"));
+        for (WeatherAlerts.Alert a : alerts) {
+            Color fill = switch (a.level()) {
+                case DANGER -> Theme.SILI_SOFT;
+                case WARNING -> Theme.LIME_SOFT;
+                case WATCH -> Theme.RAIN_SOFT;
+            };
+            Color edge = switch (a.level()) {
+                case DANGER -> Theme.SILI;
+                case WARNING -> Theme.LIME;
+                case WATCH -> Theme.RAIN;
+            };
+            Card row = new Card(fill, edge).padding(12).gap(4);
+            JPanel head = new JPanel(new RowLayout(10, false));
+            head.setOpaque(false);
+            head.add(Emoji.label("⚠️", 24), RowLayout.WEST);
+            String when = a.date().equals(java.time.LocalDate.now()) ? "today"
+                    : a.date().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+            head.add(new WrapLabel(a.title() + " (" + when + ")", Theme.BODY_BOLD, Theme.INK), RowLayout.CENTER);
+            row.add(head);
+            row.add(WrapLabel.body(a.advice()));
+            card.add(row);
+        }
+        card.add(WrapLabel.small("These come from forecast numbers and are not official bulletins. " + WeatherAlerts.OFFICIAL));
+        return card;
+    }
+
+    private Card remindersCard(List<GardenService.Reminder> reminders) {
+        Card card = new Card().gap(8);
+        card.add(WrapLabel.h3("Coming up"));
+        int shown = Math.min(REMINDERS_SHOWN, reminders.size());
+        for (int i = 0; i < shown; i++) {
+            GardenService.Reminder r = reminders.get(i);
+            JPanel row = new JPanel(new RowLayout(10, false));
+            row.setOpaque(false);
+            row.add(Emoji.label(r.task().getIcon(), 24), RowLayout.WEST);
+            JPanel text = new JPanel(new StackLayout(1));
+            text.setOpaque(false);
+            text.add(WrapLabel.bold(r.task().getTitle() + " · " + r.plot().getName() + " (" + r.plot().getCrop().getName() + ")"));
+            text.add(new WrapLabel(whenText(r.daysAway()), Theme.SMALL_BOLD, r.daysAway() < 0 ? Theme.SILI : Theme.MUTED));
+            row.add(text, RowLayout.CENTER);
+            card.add(row);
+        }
+        if (reminders.size() > shown) card.add(WrapLabel.small("…and " + (reminders.size() - shown) + " more in your garden."));
+        PillButton open = PillButton.secondary("Open garden");
+        open.addActionListener(e -> nav.show(Navigator.GARDEN));
+        card.add(Widgets.left(open));
+        return card;
+    }
+
+    static String whenText(long daysAway) {
+        if (daysAway < 0) return "Overdue by " + (-daysAway) + (daysAway == -1 ? " day" : " days");
+        if (daysAway == 0) return "Due today";
+        if (daysAway == 1) return "Due tomorrow";
+        return "Due in " + daysAway + " days";
     }
 
     // ---- weather ----

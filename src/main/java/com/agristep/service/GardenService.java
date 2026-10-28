@@ -86,6 +86,33 @@ public class GardenService {
 
     public List<HarvestRecord> recentHarvests() { return harvests.findTop10ByOrderByHarvestedOnDescIdDesc(); }
 
+    public List<HarvestRecord> allHarvests() {
+        return harvests.findAll().stream()
+                .sorted(java.util.Comparator.comparing(HarvestRecord::getHarvestedOn).reversed()
+                        .thenComparing(HarvestRecord::getId, java.util.Comparator.reverseOrder()))
+                .toList();
+    }
+
+    /** A care task that is overdue or coming up soon. {@code daysAway} is negative when overdue. */
+    public record Reminder(Plot plot, CareTask task, long daysAway) {}
+
+    /** Unfinished tasks that are overdue or due within the next {@code days} days, soonest first. */
+    public List<Reminder> reminders(int days) {
+        LocalDate today = today();
+        LocalDate last = today.plusDays(days);
+        List<Reminder> found = new java.util.ArrayList<>();
+        for (Plot plot : plots.findAllByOrderBySlotNumberAsc()) {
+            if (plot.isEmpty()) continue;
+            for (CareTask t : plot.getTasks()) {
+                if (!t.isCompleted() && !t.getDueDate().isAfter(last)) {
+                    found.add(new Reminder(plot, t, java.time.temporal.ChronoUnit.DAYS.between(today, t.getDueDate())));
+                }
+            }
+        }
+        found.sort(java.util.Comparator.comparingLong(Reminder::daysAway).thenComparing(r -> r.plot().getSlotNumber()));
+        return found;
+    }
+
     public long dueTaskCount() { return tasks.countByCompletedFalseAndDueDateLessThanEqual(today()); }
 
     public long readyPlotCount() {

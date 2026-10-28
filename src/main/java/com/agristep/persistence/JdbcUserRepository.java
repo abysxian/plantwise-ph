@@ -28,6 +28,10 @@ public class JdbcUserRepository implements UserRepository {
         return user;
     }
 
+    @Override public void updatePasswordHash(long userId, String newHash) {
+        db.withConnection(c -> Sql.update(c, "UPDATE users SET password_hash = ? WHERE id = ?", newHash, userId));
+    }
+
     @Override public Optional<User> findById(Long id) { return query("WHERE id = ?", id).stream().findFirst(); }
 
     @Override public Optional<User> findByUsername(String username) {

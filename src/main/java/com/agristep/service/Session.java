@@ -10,6 +10,7 @@ import java.util.Optional;
  */
 public final class Session {
     private volatile User user;
+    private volatile Long gardenOwnerId;     // set while working in someone else's shared garden
 
     public Optional<User> user() { return Optional.ofNullable(user); }
 
@@ -19,11 +20,23 @@ public final class Session {
         return u;
     }
 
+    /** The id of the signed-in person. */
     public long requireUserId() { return require().getId(); }
+
+    /** The id of the garden being worked on: the person's own, or the owner's while in a shared garden. */
+    public long requireGardenId() {
+        User u = require();
+        Long owner = gardenOwnerId;
+        return owner != null ? owner : u.getId();
+    }
+
+    public boolean isInSharedGarden() { return gardenOwnerId != null; }
+
+    void useGardenOf(Long ownerId) { this.gardenOwnerId = ownerId; }
 
     public boolean isSignedIn() { return user != null; }
 
-    void signIn(User user) { this.user = user; }
+    void signIn(User user) { this.user = user; this.gardenOwnerId = null; }
 
-    void signOut() { this.user = null; }
+    void signOut() { this.user = null; this.gardenOwnerId = null; }
 }

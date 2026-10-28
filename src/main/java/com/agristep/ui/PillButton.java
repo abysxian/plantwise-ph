@@ -19,7 +19,7 @@ final class PillButton extends JButton {
     private final Motion.Tween glow = new Motion.Tween(this, 140);
 
     PillButton(String text, Style style) {
-        super(text);
+        super(I18n.t(text));
         this.style = style;
         setFont(Theme.BODY_BOLD);
         setFocusPainted(false);

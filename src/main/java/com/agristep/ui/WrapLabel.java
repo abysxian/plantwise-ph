@@ -37,8 +37,8 @@ final class WrapLabel extends JComponent {
     static WrapLabel small(String text) { return new WrapLabel(text, Theme.SMALL, Theme.MUTED); }
     static WrapLabel bold(String text) { return new WrapLabel(text, Theme.BODY_BOLD, Theme.INK); }
     static WrapLabel h1(String text) { return new WrapLabel(text, Theme.H1, Theme.INK); }
-    static WrapLabel h2(String text) { return new WrapLabel(text, Theme.H2, Theme.INK); }
-    static WrapLabel h3(String text) { return new WrapLabel(text, Theme.H3, Theme.INK); }
+    static WrapLabel h2(String text) { return new WrapLabel(I18n.t(text), Theme.H2, Theme.INK); }
+    static WrapLabel h3(String text) { return new WrapLabel(I18n.t(text), Theme.H3, Theme.INK); }
 
     WrapLabel align(int alignment) {
         this.alignment = alignment;

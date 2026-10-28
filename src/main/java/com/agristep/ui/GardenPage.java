@@ -216,6 +216,12 @@ final class GardenPage extends Page {
             return label;
         });
         card.add(box);
+        JPanel hints = new JPanel(new StackLayout(6));
+        hints.setOpaque(false);
+        card.add(hints);
+        Runnable refreshHints = () -> showHints(plot, (Crop) box.getSelectedItem(), hints);
+        box.addActionListener(e -> refreshHints.run());
+        refreshHints.run();
         PillButton plant = PillButton.primary("Plant here");
         plant.addActionListener(e -> {
             Crop crop = (Crop) box.getSelectedItem();
@@ -232,6 +238,34 @@ final class GardenPage extends Page {
         buttons.add(plant);
         buttons.add(advice);
         card.add(buttons);
+    }
+
+    /** Companion-planting and crop-rotation suggestions for the crop chosen in the drop-down. */
+    private void showHints(Plot plot, Crop crop, JPanel into) {
+        if (crop == null) return;
+        int columns = shape.columns();
+        List<Plot> plots = data.plots();
+        LocalDate today = data.today();
+        Tasks.run(() -> ctx.planting.hintsFor(crop, plot, plots, columns, ctx.garden.allHarvests(), today), hints -> {
+            into.removeAll();
+            for (com.agristep.service.PlantingAdvisor.Hint hint : hints) {
+                Card c = switch (hint.kind()) {
+                    case GOOD -> new Card(Theme.LEAF_SOFT, Theme.LEAF_2);
+                    case AVOID -> new Card(Theme.LIME_SOFT, Theme.LIME);
+                    case ROTATE -> new Card(Theme.RAIN_SOFT, Theme.RAIN);
+                };
+                String label = switch (hint.kind()) {
+                    case GOOD -> "Good neighbours: ";
+                    case AVOID -> "Better apart: ";
+                    case ROTATE -> "Rotate crops: ";
+                };
+                c.padding(10).add(WrapLabel.body(label + hint.text()));
+                into.add(c);
+            }
+            into.revalidate();
+            into.repaint();
+            revalidate();
+        }, this::fail);
     }
 
     private void plantedBedPanel(Card card, Plot plot) {
@@ -263,7 +297,7 @@ final class GardenPage extends Page {
         card.add(WrapLabel.h3("Checklist"));
         for (CareTask task : plot.getTasks()) card.add(taskRow(plot, task, today));
 
-        JPanel buttons = new JPanel(new FlowGridLayout(100, 3, 8, 0));
+        JPanel buttons = new JPanel(new FlowGridLayout(130, 2, 8, 0));
         buttons.setOpaque(false);
         PillButton harvest = status == PlotStatus.READY ? PillButton.primary("Harvest") : PillButton.secondary("Harvest");
         harvest.addActionListener(e -> harvest(plot, status));
@@ -271,9 +305,12 @@ final class GardenPage extends Page {
         clear.addActionListener(e -> clear(plot));
         PillButton guide = PillButton.secondary("Care guide");
         guide.addActionListener(e -> nav.showCrop(crop));
+        PillButton journal = PillButton.secondary("Write a note");
+        journal.addActionListener(e -> nav.showJournalFor(plot.getId()));
         buttons.add(harvest);
         buttons.add(clear);
         buttons.add(guide);
+        buttons.add(journal);
         card.add(buttons);
     }
 

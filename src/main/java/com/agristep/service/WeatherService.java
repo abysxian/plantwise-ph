@@ -60,7 +60,8 @@ public class WeatherService {
         LocalDateTime now = LocalDateTime.now(clock);
         Optional<ClimateProfile> saved = profiles.findByLocationKey(settings.locationKey());
 
-        if (saved.isPresent() && saved.get().isFresh(now, CLIMATE_FRESH_FOR)) {
+        // A profile saved before monthly figures existed is refreshed once so the planting calendar has data.
+        if (saved.isPresent() && saved.get().isFresh(now, CLIMATE_FRESH_FOR) && saved.get().toStats().hasMonthly()) {
             return new ClimateResult(saved.get().toStats(), false, saved.get().getFetchedAt());
         }
         try {

@@ -14,6 +14,7 @@ final class FlashBar extends JPanel {
     private final WrapLabel label = new WrapLabel("", Theme.BODY_BOLD, Theme.INK);
     private final Timer hider = new Timer(SHOW_MILLIS, e -> dismiss());
     private Color background = Theme.LEAF_SOFT;
+    private boolean error;
 
     FlashBar() {
         setOpaque(false);
@@ -28,6 +29,7 @@ final class FlashBar extends JPanel {
         label.setText(message);
         label.color(error ? Theme.SILI : Theme.LEAF);
         background = error ? Theme.SILI_SOFT : Theme.LEAF_SOFT;
+        this.error = error;
         setVisible(true);
         hider.restart();
         revalidate();
@@ -42,6 +44,8 @@ final class FlashBar extends JPanel {
             getParent().repaint();
         }
     }
+
+    boolean isShowingError() { return isVisible() && error; }
 
     String message() { return isVisible() ? label.getText() : ""; }
 

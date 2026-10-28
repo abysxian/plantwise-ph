@@ -12,6 +12,8 @@ public class ClimateProfile {
     private final String locationName;
     private double avgTemp30dC;
     private double annualRainMm;
+    private double[] monthlyTempC;
+    private double[] monthlyRainMm;
     private LocalDateTime fetchedAt;
 
     public ClimateProfile(String locationKey, String locationName, ClimateStats stats, LocalDateTime fetchedAt) {
@@ -23,6 +25,8 @@ public class ClimateProfile {
     public void refresh(ClimateStats stats, LocalDateTime now) {
         this.avgTemp30dC = stats.avgTemp30dC();
         this.annualRainMm = stats.annualRainMm();
+        this.monthlyTempC = stats.monthlyTempC();
+        this.monthlyRainMm = stats.monthlyRainMm();
         this.fetchedAt = now;
     }
 
@@ -30,7 +34,7 @@ public class ClimateProfile {
         return Duration.between(fetchedAt, now).compareTo(maxAge) < 0;
     }
 
-    public ClimateStats toStats() { return new ClimateStats(avgTemp30dC, annualRainMm); }
+    public ClimateStats toStats() { return new ClimateStats(avgTemp30dC, annualRainMm, monthlyTempC, monthlyRainMm); }
 
     public void assignId(Long id) {
         if (this.id != null && !this.id.equals(id)) {

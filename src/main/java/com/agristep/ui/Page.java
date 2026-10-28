@@ -49,7 +49,7 @@ abstract class Page extends ScrollPage {
     /** The picture banner at the top of a screen: a title, one line under it, and optionally more parts. */
     static Card banner(String title, String subtitle, Scenery.Photo photo, java.awt.Component... extra) {
         Card banner = new Card(Theme.LEAF, Theme.LEAF).hero(photo, Scenery.Sky.CLEAR).gap(8).padding(18);
-        banner.add(new WrapLabel(title, Theme.H1, java.awt.Color.WHITE));
+        banner.add(new WrapLabel(I18n.t(title), Theme.H1, java.awt.Color.WHITE));
         if (subtitle != null && !subtitle.isEmpty()) banner.add(new WrapLabel(subtitle, Theme.BODY, new java.awt.Color(0xD9F0E3)));
         for (java.awt.Component c : extra) banner.add(c);
         return banner;

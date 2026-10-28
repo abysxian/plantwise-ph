@@ -58,7 +58,7 @@ public class OpenMeteoClient implements WeatherProvider {
     static String forecastUrl(double lat, double lon) {
         return "https://api.open-meteo.com/v1/forecast?latitude=" + plain(lat) + "&longitude=" + plain(lon)
                 + "&current=temperature_2m,relative_humidity_2m,weather_code"
-                + "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum"
+                + "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,wind_gusts_10m_max"
                 + "&forecast_days=7&timezone=auto";
     }
 
@@ -95,7 +95,8 @@ public class OpenMeteoClient implements WeatherProvider {
                     daily.path("temperature_2m_max").path(i).asDouble(0),
                     daily.path("temperature_2m_min").path(i).asDouble(0),
                     daily.path("precipitation_sum").path(i).asDouble(0),
-                    daily.path("weather_code").path(i).asInt(0)));
+                    daily.path("weather_code").path(i).asInt(0),
+                    daily.path("wind_gusts_10m_max").path(i).asDouble(0)));
         }
         return new WeatherForecast(
                 current.path("temperature_2m").asDouble(days.get(0).tempMaxC()),
@@ -106,6 +107,7 @@ public class OpenMeteoClient implements WeatherProvider {
 
     static ClimateStats parseClimate(String json) {
         JsonNode daily = read(json).path("daily");
+        JsonNode times = daily.path("time");
         List<Double> temps = numbers(daily.path("temperature_2m_mean"));
         List<Double> rain = numbers(daily.path("precipitation_sum"));
         if (temps.isEmpty() || rain.isEmpty()) {
@@ -114,7 +116,33 @@ public class OpenMeteoClient implements WeatherProvider {
         List<Double> lastMonth = temps.subList(Math.max(0, temps.size() - 30), temps.size());
         double avgTemp = lastMonth.stream().mapToDouble(Double::doubleValue).average().orElseThrow();
         double annualRain = rain.stream().mapToDouble(Double::doubleValue).sum() / rain.size() * 365.0;
-        return new ClimateStats(avgTemp, annualRain);
+
+        // Average temperature and typical rain total for each calendar month, from the same year of data.
+        double[] tempSum = new double[12];
+        int[] tempDays = new int[12];
+        double[] rainSum = new double[12];
+        int[] rainDays = new int[12];
+        JsonNode tNode = daily.path("temperature_2m_mean");
+        JsonNode rNode = daily.path("precipitation_sum");
+        for (int i = 0; i < times.size(); i++) {
+            int m;
+            try {
+                m = LocalDate.parse(times.get(i).asText()).getMonthValue() - 1;
+            } catch (RuntimeException e) {
+                continue;
+            }
+            if (tNode.path(i).isNumber()) { tempSum[m] += tNode.get(i).asDouble(); tempDays[m]++; }
+            if (rNode.path(i).isNumber()) { rainSum[m] += rNode.get(i).asDouble(); rainDays[m]++; }
+        }
+        double[] monthlyTemp = new double[12];
+        double[] monthlyRain = new double[12];
+        boolean complete = true;
+        for (int m = 0; m < 12; m++) {
+            if (tempDays[m] == 0 || rainDays[m] == 0) { complete = false; break; }
+            monthlyTemp[m] = tempSum[m] / tempDays[m];
+            monthlyRain[m] = rainSum[m] / rainDays[m] * java.time.Month.of(m + 1).length(false);
+        }
+        return complete ? new ClimateStats(avgTemp, annualRain, monthlyTemp, monthlyRain) : new ClimateStats(avgTemp, annualRain);
     }
 
     static List<GeoPlace> parsePlaces(String json) {

@@ -19,7 +19,7 @@ public class JdbcSettingsRepository implements GardenSettingsRepository {
 
     @Override
     public GardenSettings save(GardenSettings s) {
-        long userId = session.requireUserId();
+        long userId = session.requireGardenId();
         db.run(() -> db.withConnection(c -> {
             int changed = Sql.update(c, "UPDATE garden_settings SET location_name = ?, latitude = ?, longitude = ?, soil = ?, grid_columns = ? WHERE user_id = ?",
                     s.getLocationName(), s.getLatitude(), s.getLongitude(), s.getSoil().name(), s.getGridColumns(), userId);
@@ -34,7 +34,7 @@ public class JdbcSettingsRepository implements GardenSettingsRepository {
 
     @Override
     public Optional<GardenSettings> findCurrent() {
-        long userId = session.requireUserId();
+        long userId = session.requireGardenId();
         return db.withConnection(c -> Sql.query(c,
                 "SELECT location_name, latitude, longitude, soil, grid_columns FROM garden_settings WHERE user_id = ?",
                 rs -> {

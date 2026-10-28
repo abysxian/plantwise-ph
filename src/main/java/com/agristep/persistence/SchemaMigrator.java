@@ -21,6 +21,8 @@ final class SchemaMigrator {
         if (hasColumn(c, "harvest_records", "user_id") == false) execute(c, "ALTER TABLE harvest_records ADD COLUMN user_id BIGINT");
         if (hasColumn(c, "garden_settings", "user_id") == false) execute(c, "ALTER TABLE garden_settings ADD COLUMN user_id BIGINT");
         if (!hasColumn(c, "garden_settings", "grid_columns")) execute(c, "ALTER TABLE garden_settings ADD COLUMN grid_columns INT NOT NULL DEFAULT 3");
+        if (!hasColumn(c, "climate_profiles", "monthly_temp")) execute(c, "ALTER TABLE climate_profiles ADD COLUMN monthly_temp VARCHAR(300)");
+        if (!hasColumn(c, "climate_profiles", "monthly_rain")) execute(c, "ALTER TABLE climate_profiles ADD COLUMN monthly_rain VARCHAR(300)");
         if (upgrading) {
             execute(c, "ALTER TABLE plots ADD COLUMN user_id BIGINT");
             // slot numbers used to be unique across the whole table; now they are unique per user

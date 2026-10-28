@@ -22,13 +22,13 @@ public class JdbcCareTaskRepository implements CareTaskRepository {
         }
         db.withConnection(c -> Sql.update(c, "UPDATE care_tasks SET completed = ?, completed_at = ? WHERE id = ? "
                         + "AND plot_id IN (SELECT id FROM plots WHERE user_id = ?)",
-                task.isCompleted(), task.getCompletedAt(), task.getId(), session.requireUserId()));
+                task.isCompleted(), task.getCompletedAt(), task.getId(), session.requireGardenId()));
         return task;
     }
 
     @Override
     public long countByCompletedFalseAndDueDateLessThanEqual(LocalDate date) {
         return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM care_tasks t JOIN plots p ON p.id = t.plot_id "
-                + "WHERE p.user_id = ? AND t.completed = ? AND t.due_date <= ?", session.requireUserId(), false, date));
+                + "WHERE p.user_id = ? AND t.completed = ? AND t.due_date <= ?", session.requireGardenId(), false, date));
     }
 }

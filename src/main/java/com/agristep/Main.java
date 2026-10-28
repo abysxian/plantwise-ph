@@ -44,8 +44,9 @@ public final class Main {
             @Override protected Started doInBackground() throws Exception {
                 config = DatabaseConfig.load();
                 Clock clock = Clock.systemDefaultZone();
-                AppContext ctx = AppContext.create(config.openDatabase(), new OpenMeteoClient(clock), clock);
+                AppContext ctx = AppContext.create(config.openDatabase(), new OpenMeteoClient(clock), clock, AppContext.defaultPhotoFolder());
                 ctx.seed();
+                com.agristep.ui.I18n.use(com.agristep.ui.I18n.Language.fromCode(com.agristep.config.LanguagePreference.atDefaultLocation().read()));
                 RememberedLogin remembered = RememberedLogin.atDefaultLocation();
                 boolean signedIn = remembered.read().flatMap(ctx.auth::signInRemembered).isPresent();
                 return new Started(ctx, remembered, signedIn, config.describe());

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class JdbcClimateProfileRepository implements ClimateProfileRepository {
     private static final String SELECT =
-            "SELECT id, location_key, location_name, avg_temp_30d_c, annual_rain_mm, fetched_at FROM climate_profiles ";
+            "SELECT id, location_key, location_name, avg_temp_30d_c, annual_rain_mm, monthly_temp, monthly_rain, fetched_at FROM climate_profiles ";
 
     private final Database db;
 
@@ -23,11 +23,11 @@ public class JdbcClimateProfileRepository implements ClimateProfileRepository {
             ClimateStats stats = p.toStats();
             if (p.getId() == null) {
                 p.assignId(Sql.insert(c,
-                        "INSERT INTO climate_profiles (location_key, location_name, avg_temp_30d_c, annual_rain_mm, fetched_at) VALUES (?,?,?,?,?)",
-                        p.getLocationKey(), p.getLocationName(), stats.avgTemp30dC(), stats.annualRainMm(), p.getFetchedAt()));
+                        "INSERT INTO climate_profiles (location_key, location_name, avg_temp_30d_c, annual_rain_mm, monthly_temp, monthly_rain, fetched_at) VALUES (?,?,?,?,?,?,?)",
+                        p.getLocationKey(), p.getLocationName(), stats.avgTemp30dC(), stats.annualRainMm(), join(stats.monthlyTempC()), join(stats.monthlyRainMm()), p.getFetchedAt()));
             } else {
-                Sql.update(c, "UPDATE climate_profiles SET location_name = ?, avg_temp_30d_c = ?, annual_rain_mm = ?, fetched_at = ? WHERE id = ?",
-                        p.getLocationName(), stats.avgTemp30dC(), stats.annualRainMm(), p.getFetchedAt(), p.getId());
+                Sql.update(c, "UPDATE climate_profiles SET location_name = ?, avg_temp_30d_c = ?, annual_rain_mm = ?, monthly_temp = ?, monthly_rain = ?, fetched_at = ? WHERE id = ?",
+                        p.getLocationName(), stats.avgTemp30dC(), stats.annualRainMm(), join(stats.monthlyTempC()), join(stats.monthlyRainMm()), p.getFetchedAt(), p.getId());
             }
             return null;
         });
@@ -45,9 +45,34 @@ public class JdbcClimateProfileRepository implements ClimateProfileRepository {
     private List<ClimateProfile> query(String tail, Object... params) {
         return db.withConnection(c -> Sql.query(c, SELECT + tail, rs -> {
             ClimateProfile p = new ClimateProfile(rs.getString("location_key"), rs.getString("location_name"),
-                    new ClimateStats(rs.getDouble("avg_temp_30d_c"), rs.getDouble("annual_rain_mm")), Sql.dateTime(rs, "fetched_at"));
+                    new ClimateStats(rs.getDouble("avg_temp_30d_c"), rs.getDouble("annual_rain_mm"),
+                            split(rs.getString("monthly_temp")), split(rs.getString("monthly_rain"))), Sql.dateTime(rs, "fetched_at"));
             p.assignId(rs.getLong("id"));
             return p;
         }, params));
+    }
+
+    /** Twelve numbers as comma-separated text, or null when there are no monthly figures. */
+    static String join(double[] values) {
+        if (values == null) return null;
+        StringBuilder text = new StringBuilder();
+        for (int i = 0; i < values.length; i++) {
+            if (i > 0) text.append(',');
+            text.append(values[i]);
+        }
+        return text.toString();
+    }
+
+    static double[] split(String text) {
+        if (text == null || text.isBlank()) return null;
+        String[] parts = text.split(",");
+        if (parts.length != 12) return null;
+        double[] values = new double[12];
+        try {
+            for (int i = 0; i < 12; i++) values[i] = Double.parseDouble(parts[i].trim());
+        } catch (NumberFormatException e) {
+            return null;
+        }
+        return values;
     }
 }

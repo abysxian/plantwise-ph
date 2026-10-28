@@ -29,7 +29,11 @@ final class NavBar extends JPanel {
             {Navigator.TODAY, "Today", "☀️"},
             {Navigator.GARDEN, "Garden", "🏡"},
             {Navigator.CROPS, "Crops", "📖"},
+            {Navigator.CALENDAR, "Calendar", "📅"},
+            {Navigator.JOURNAL, "Journal", "📝"},
+            {Navigator.INSIGHTS, "Insights", "📊"},
             {Navigator.LOCATION, "Location", "📍"},
+            {Navigator.ACCOUNT, "Account", "👤"},
     };
 
     private final Map<String, Button> buttons = new LinkedHashMap<>();
@@ -62,7 +66,7 @@ final class NavBar extends JPanel {
         account = new JPanel(new StackLayout(6));
         account.setOpaque(false);
         account.setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 6, 0, 6));
-        account.add(new WrapLabel("Signed in as", Theme.SMALL_BOLD, Theme.LIME));
+        account.add(new WrapLabel(I18n.t("Signed in as"), Theme.SMALL_BOLD, Theme.LIME));
         account.add(new WrapLabel(displayName, Theme.BODY_BOLD, Color.WHITE).maxLines(1));
         PillButton out = PillButton.secondary("Sign out");
         out.addActionListener(e -> onSignOut.run());
@@ -106,7 +110,7 @@ final class NavBar extends JPanel {
         JPanel text = new JPanel(new StackLayout(0));
         text.setOpaque(false);
         text.add(new WrapLabel("PlantWise PH", Theme.H3, Color.WHITE));
-        text.add(new WrapLabel("Backyard farming", Theme.SMALL, Theme.LIME));
+        text.add(new WrapLabel(I18n.t("Backyard farming"), Theme.SMALL, Theme.LIME));
         row.add(text, RowLayout.CENTER);
         return row;
     }
@@ -137,11 +141,11 @@ final class NavBar extends JPanel {
         private final Motion.Tween hover = new Motion.Tween(this, 150);
 
         Button(String id, String label, String emoji, Consumer<String> onChoose) {
-            this.label = label;
+            this.label = I18n.t(label);
             this.emoji = emoji;
             setFocusable(true);
             setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            getAccessibleContext().setAccessibleName(label);
+            getAccessibleContext().setAccessibleName(this.label);
             addMouseListener(new MouseAdapter() {
                 @Override public void mouseClicked(MouseEvent e) {
                     requestFocusInWindow();
@@ -200,9 +204,15 @@ final class NavBar extends JPanel {
                     g2.fillRoundRect(w / 2 - 28, 6, 56, 32, 32, 32);
                 }
                 icon.paintIcon(this, g2, (w - icon.getIconWidth()) / 2, 9);
-                g2.setFont(selected ? Theme.SMALL_BOLD : Theme.SMALL);
-                g2.setColor(selected ? Theme.LEAF : Theme.MUTED);
+                java.awt.Font labelFont = selected ? Theme.SMALL_BOLD : Theme.SMALL;
+                g2.setFont(labelFont);
                 FontMetrics fm = g2.getFontMetrics();
+                for (float size = labelFont.getSize2D(); fm.stringWidth(label) > w - 2 && size > 8f; ) {
+                    size -= 0.5f;                       // many destinations on a narrow screen: shrink the label to fit
+                    g2.setFont(labelFont.deriveFont(size));
+                    fm = g2.getFontMetrics();
+                }
+                g2.setColor(selected ? Theme.LEAF : Theme.MUTED);
                 g2.drawString(label, (w - fm.stringWidth(label)) / 2, h - 10);
             }
             if (hasFocus()) {
