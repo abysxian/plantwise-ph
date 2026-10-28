@@ -39,6 +39,7 @@ public final class LoginPage extends ScrollPage {
         this.listener = listener;
         this.dataNote = dataNote;
         setLayout(new StackLayout(14, 460));
+        Motion.ambient(this);
         form.setOpaque(false);
         error.setVisible(false);
         submit.addActionListener(e -> submit());
@@ -63,15 +64,27 @@ public final class LoginPage extends ScrollPage {
 
     boolean isCreating() { return creating; }
 
+    /** When the window is taller than the form, let the landscape fill the whole window. */
+    @Override public boolean getScrollableTracksViewportHeight() {
+        return getParent() instanceof javax.swing.JViewport vp && vp.getHeight() > getPreferredSize().height;
+    }
+
+    /** A daytime landscape behind the sign-in card. */
+    @Override protected void paintComponent(java.awt.Graphics g) {
+        java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+        Scenery.paintBackdrop(g2, creating ? Scenery.Photo.HOUSEPLANTS : Scenery.Photo.HILLS, getWidth(), getHeight(), Motion.seconds());
+        g2.dispose();
+    }
+
     // ---- layout ----
 
     private void build() {
         removeAll();
         JPanel brand = new JPanel(new StackLayout(4));
         brand.setOpaque(false);
-        brand.add(Emoji.label("🌱", 56));
-        brand.add(new WrapLabel("PlantWise PH", Theme.H1, Theme.INK).align(WrapLabel.CENTER));
-        brand.add(WrapLabel.muted("Know what to plant, and when.").align(WrapLabel.CENTER));
+        brand.add(Brand.mark(84));
+        brand.add(new WrapLabel("PlantWise PH", Theme.H1, Color.WHITE).align(WrapLabel.CENTER));
+        brand.add(new WrapLabel("Know what to plant, and when.", Theme.BODY, new Color(0xE6F4EC)).align(WrapLabel.CENTER));
         add(brand);
 
         Card card = new Card().gap(12).padding(18);
@@ -114,8 +127,7 @@ public final class LoginPage extends ScrollPage {
         demo.add(CropsPage.left(fill));
         add(demo);
 
-        JPanel note = new JPanel(new StackLayout(0));
-        note.setOpaque(false);
+        Card note = new Card(new Color(255, 255, 255, 235), Theme.LINE).gap(2).padding(10);
         note.add(WrapLabel.small(dataNote).align(WrapLabel.CENTER));
         note.add(WrapLabel.small("Each account keeps its own beds, plants, location and harvest history.").align(WrapLabel.CENTER));
         add(note);

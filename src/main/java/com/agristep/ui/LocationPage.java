@@ -84,11 +84,9 @@ final class LocationPage extends Page {
         latitude.setText(String.format(Locale.ROOT, "%.4f", current.getLatitude()));
         longitude.setText(String.format(Locale.ROOT, "%.4f", current.getLongitude()));
 
-        Card header = new Card().gap(6);
-        header.add(WrapLabel.h1("Location"));
-        header.add(WrapLabel.muted("Your garden is at " + current.getLocationName() + " ("
+        Card header = banner("Location", "Your garden is at " + current.getLocationName() + " ("
                 + String.format(Locale.ROOT, "%.4f, %.4f", current.getLatitude(), current.getLongitude())
-                + "). The weather and the crop ranking use this place."));
+                + "). The weather and the crop ranking use this place.", Scenery.Photo.MOUNTAINS);
 
         Card edit = new Card().gap(10);
         edit.add(WrapLabel.h3("Where is your garden?"));

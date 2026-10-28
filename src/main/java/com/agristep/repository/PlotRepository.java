@@ -9,4 +9,7 @@ public interface PlotRepository extends Repository<Plot, Long> {
     List<Plot> findAllByOrderBySlotNumberAsc();
 
     Optional<Plot> findTopByOrderBySlotNumberDesc();
+
+    /** Removes a bed together with its care tasks. */
+    void delete(Plot plot);
 }

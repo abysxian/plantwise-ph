@@ -14,8 +14,12 @@ public final class MainFrame extends JFrame implements Shell {
     public MainFrame() {
         super("PlantWise PH");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        BufferedImage icon = Emoji.image("🌱");
-        if (icon != null) setIconImage(icon);
+        if (Brand.hasLogo()) {
+            setIconImages(java.util.List.of(Brand.icon(16), Brand.icon(32), Brand.icon(64), Brand.icon(128)));
+        } else {
+            BufferedImage icon = Emoji.image("🌱");
+            if (icon != null) setIconImage(icon);
+        }
         setMinimumSize(new Dimension(340, 560));
         setSize(1100, 780);
         setLocationRelativeTo(null);
@@ -46,7 +50,7 @@ public final class MainFrame extends JFrame implements Shell {
         ScrollPage page = new ScrollPage();
         page.setBackground(Theme.PAPER);
         Card card = new Card().gap(12).padding(20);
-        card.add(Emoji.label("🌱", 48));
+        card.add(Brand.mark(64));
         card.add(new WrapLabel(buttonText == null ? "PlantWise PH" : "PlantWise couldn't start", Theme.H2, Theme.INK)
                 .align(WrapLabel.CENTER));
         card.add(WrapLabel.body(text).align(WrapLabel.CENTER));

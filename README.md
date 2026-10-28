@@ -27,6 +27,12 @@ mvn test                     # runs the tests
 ```
 `run.bat` (Windows) and `run.sh` (Mac/Linux) build the jar if needed and start it.
 
+## Look and feel
+
+- **Logo:** none yet. When you have one, save it as `src/main/resources/brand/logo.png` (a square PNG with a transparent background works best) and it appears in the side menu, the phone top bar, the sign-in screen and the window icon. Until then the app shows just its name.
+- **Photos:** each screen has a photo banner, and the sign-in screen has a full-window photo. They live in `src/main/resources/images/` and are chosen like this: Today follows the real weather (clear = green hills, cloudy = misty mountains, rain = wet leaves), Garden = monstera, Crops = philodendron, Location = mountains, sign-in = hills (houseplants when creating an account). Replace a file with another photo of the same name to change it. Check the licence of any photo before publishing the app.
+- **Movement:** buttons, cards, beds and menu items react to the pointer; screens fade in; progress bars fill; the photos drift slowly. To turn motion off, start with `-Dplantwise.reduceMotion=true` or set the environment variable `PLANTWISE_REDUCE_MOTION=1`.
+
 ## Accounts, login and saved history
 
 When the app opens you sign in or create an account.
@@ -57,7 +63,7 @@ It uses its own database name on purpose, so it will not clash with tables left 
 | Screen | What it does |
 |---|---|
 | **Today** | One-sentence advice from the weather and your tasks, current weather and 7-day forecast, soil picker (3 soil types), crops ranked for your place with a fit score |
-| **Garden** | 3x3 grid of beds that fill green as the crop grows; plant a bed, tick its care checklist (with rain/heat hints), harvest, clear, add beds, harvest history |
+| **Garden** | A grid of beds that fill green as the crop grows. **Edit grid** sets rows and columns (1-10 rows, 1-8 columns, e.g. 2×2 or 4×6) with + / - buttons or quick presets; the size is saved per account. Plant a bed, tick its care checklist (with rain/heat hints), harvest, clear, harvest history. Making the grid smaller removes beds from the end and asks first if any have plants |
 | **Crops** | All 36 vegetables with search; each has a detail page: needs, care plan, care tips, pest tips, source |
 | **Location** | Type your own place name and coordinates and save, search any town, or pick from 26 common places with a filter (works offline). Each account has its own |
 | **Sign in** | Sign in or create an account; Sign out is in the side menu (top bar on phones) |
@@ -90,7 +96,7 @@ New crops added to `crops.json` appear automatically on the next start, even in 
 
 ## How it was checked
 
-- **124 automated tests** (`mvn test`): the crop data rules for all 36 crops, scoring, planning, weather parsing and caching (with fakes, no internet), every database operation on H2 including closing and reopening a database file, accounts (validation, hashing, lockout, one account never seeing another's garden), upgrading an old single-garden database, and the Swing screens driven without a window (every screen at 4 window widths checked for overflow or cut-off text; plant, tick, harvest, search, location, soil pick, navigation).
+- **139 automated tests** (`mvn test`): the crop data rules for all 36 crops, scoring, planning, weather parsing and caching (with fakes, no internet), every database operation on H2 including closing and reopening a database file, accounts (validation, hashing, lockout, one account never seeing another's garden), upgrading an old single-garden database, and the Swing screens driven without a window (every screen at 4 window widths checked for overflow or cut-off text; plant, tick, harvest, search, location, soil pick, navigation).
 - Screens were also rendered to images and looked at, at desktop and phone widths, and the real `Main` was started on a virtual display.
 - The same SQL was run against a real **MariaDB** server (XAMPP's database): schema creation, seeding, a full garden flow, two accounts kept separate across a restart, and upgrading an old single-garden database in place.
 

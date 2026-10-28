@@ -102,7 +102,7 @@ final class NavBar extends JPanel {
         JPanel row = new JPanel(new RowLayout(10, false));
         row.setOpaque(false);
         row.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 6, 0, 0));
-        row.add(Emoji.label("🌱", 32), RowLayout.WEST);
+        row.add(Brand.mark(40), RowLayout.WEST);
         JPanel text = new JPanel(new StackLayout(0));
         text.setOpaque(false);
         text.add(new WrapLabel("PlantWise PH", Theme.H3, Color.WHITE));
@@ -134,7 +134,7 @@ final class NavBar extends JPanel {
         private final String emoji;
         private boolean wide = true;
         private boolean selected;
-        private boolean hover;
+        private final Motion.Tween hover = new Motion.Tween(this, 150);
 
         Button(String id, String label, String emoji, Consumer<String> onChoose) {
             this.label = label;
@@ -147,8 +147,8 @@ final class NavBar extends JPanel {
                     requestFocusInWindow();
                     onChoose.accept(id);
                 }
-                @Override public void mouseEntered(MouseEvent e) { hover = true; repaint(); }
-                @Override public void mouseExited(MouseEvent e) { hover = false; repaint(); }
+                @Override public void mouseEntered(MouseEvent e) { hover.to(1); }
+                @Override public void mouseExited(MouseEvent e) { hover.to(0); }
             });
             getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "go");
             getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "go");
@@ -185,11 +185,11 @@ final class NavBar extends JPanel {
                 if (selected) {
                     g2.setColor(Theme.LIME);
                     g2.fillRoundRect(0, 0, w - 1, h - 1, 16, 16);
-                } else if (hover) {
-                    g2.setColor(new Color(255, 255, 255, 30));
+                } else if (hover.value() > 0f) {
+                    g2.setColor(new Color(255, 255, 255, Math.round(34 * hover.value())));
                     g2.fillRoundRect(0, 0, w - 1, h - 1, 16, 16);
                 }
-                icon.paintIcon(this, g2, 12, (h - icon.getIconHeight()) / 2);
+                icon.paintIcon(this, g2, 12 + Math.round(3 * hover.value()), (h - icon.getIconHeight()) / 2);
                 g2.setFont(Theme.BODY_BOLD);
                 g2.setColor(selected ? Theme.INK : Color.WHITE);
                 FontMetrics fm = g2.getFontMetrics();

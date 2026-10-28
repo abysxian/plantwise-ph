@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="PlantWise PH logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B8A5A"/><stop offset="1" stop-color="#0A3326"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A5238"/><stop offset="1" stop-color="#4A3426"/></linearGradient>
+    <clipPath id="badge"><rect width="512" height="512" rx="153.6"/></clipPath>
+  </defs>
+  <rect width="512" height="512" rx="153.6" fill="url(#bg)"/>
+  <g clip-path="url(#badge)">
+    <circle cx="348.2" cy="184.3" r="143.4" fill="#F2C94C" fill-opacity=".27"/>
+    <circle cx="348.2" cy="184.3" r="81.9" fill="#F2C94C"/>
+    <path d="M-51.2 522.2V409.6C128.0 337.9 384.0 337.9 563.2 419.8V522.2Z" fill="url(#soil)"/>
+    <path d="M225.3 378.9C225.3 317.4 235.5 276.5 240.6 235.5" fill="none" stroke="#fff" stroke-width="33.3" stroke-linecap="round"/>
+    <path d="M235.5 281.6 Q204.8 171.8 92.2 153.6 Q122.9 263.4 235.5 281.6Z" fill="#C8F3D6"/>
+    <path d="M240.6 240.6 Q348.1 229.8 363.5 122.9 Q256.0 133.7 240.6 240.6Z" fill="#fff"/>
+  </g>
+</svg>

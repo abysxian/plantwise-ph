@@ -14,6 +14,7 @@ import java.util.List;
 abstract class Page extends ScrollPage {
     protected final AppContext ctx;
     protected final Navigator nav;
+    private final Motion.Tween fade = new Motion.Tween(this, 320);
 
     Page(AppContext ctx, Navigator nav) {
         this.ctx = ctx;
@@ -30,6 +31,28 @@ abstract class Page extends ScrollPage {
         add(Footer.create());
         revalidate();
         repaint();
+        fade.jump(0f);
+        fade.to(1f);
+    }
+
+    /** New content eases in from the page background instead of popping in. */
+    @Override protected void paintChildren(java.awt.Graphics g) {
+        super.paintChildren(g);
+        float v = fade.value();
+        if (v < 1f) {
+            g.setColor(new java.awt.Color(Theme.PAPER.getRed(), Theme.PAPER.getGreen(), Theme.PAPER.getBlue(),
+                    Math.round(255 * (1f - v))));
+            g.fillRect(0, 0, getWidth(), getHeight());
+        }
+    }
+
+    /** The picture banner at the top of a screen: a title, one line under it, and optionally more parts. */
+    static Card banner(String title, String subtitle, Scenery.Photo photo, java.awt.Component... extra) {
+        Card banner = new Card(Theme.LEAF, Theme.LEAF).hero(photo, Scenery.Sky.CLEAR).gap(8).padding(18);
+        banner.add(new WrapLabel(title, Theme.H1, java.awt.Color.WHITE));
+        if (subtitle != null && !subtitle.isEmpty()) banner.add(new WrapLabel(subtitle, Theme.BODY, new java.awt.Color(0xD9F0E3)));
+        for (java.awt.Component c : extra) banner.add(c);
+        return banner;
     }
 
     protected void fail(Throwable t) {

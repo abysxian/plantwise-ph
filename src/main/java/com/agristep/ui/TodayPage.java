@@ -81,7 +81,9 @@ final class TodayPage extends Page {
     // ---- hero ----
 
     private Card hero(Snapshot snap) {
-        Card hero = new Card(Theme.LEAF, Theme.LEAF).hero().gap(10).padding(20);
+        int code = snap.forecast().map(WeatherForecast::currentWeatherCode).orElse(0);
+        Card hero = new Card(Theme.LEAF, Theme.LEAF).hero(Scenery.photoFor(code), Scenery.skyFor(code)).gap(10).padding(20);
+        hero.add(new WrapLabel(greeting(), Theme.H1, Color.WHITE).maxLines(2));
         hero.add(new WrapLabel("TODAY IN " + snap.settings().getLocationName().toUpperCase(Locale.ROOT),
                 Theme.SMALL_BOLD, Theme.LIME));
         hero.add(new WrapLabel(snap.advice(), Theme.H2, Color.WHITE));
@@ -92,6 +94,12 @@ final class TodayPage extends Page {
         row.add(change, RowLayout.WEST);
         hero.add(row);
         return hero;
+    }
+
+    private String greeting() {
+        int hour = java.time.LocalTime.now().getHour();
+        String part = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+        return part + ", " + ctx.session.require().getDisplayName();
     }
 
     // ---- weather ----

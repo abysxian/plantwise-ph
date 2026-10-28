@@ -11,12 +11,16 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/** A rounded white surface with a soft shadow: the building block of every screen. */
+/** A rounded white surface with a soft shadow: the building block of every screen. A "hero" card shows a picture. */
 class Card extends JPanel {
+    private static final int ARC = 22;
+
     private final Color fill;
     private final Color outline;
-    private boolean hover;
-    private boolean hero;
+    private final Motion.Tween hover = new Motion.Tween(this, 160);
+    private boolean clickable;
+    private Scenery.Photo photo;
+    private Scenery.Sky sky = Scenery.Sky.CLEAR;
 
     Card() { this(Theme.WHITE, Theme.LINE); }
 
@@ -35,24 +39,31 @@ class Card extends JPanel {
         return this;
     }
 
-    /** The big gradient banner at the top of a screen. */
-    Card hero() {
-        hero = true;
+    /** The big picture banner at the top of a screen. */
+    Card hero(Scenery.Photo photo, Scenery.Sky sky) {
+        this.photo = photo;
+        this.sky = sky;
+        Motion.ambient(this);
         return this;
     }
+
+    Card hero() { return hero(Scenery.Photo.PHILODENDRON, Scenery.Sky.CLEAR); }
+
+    boolean isHero() { return photo != null; }
 
     Card padding(int px) {
         setBorder(new EmptyBorder(px, px, px, px));
         return this;
     }
 
-    /** Makes the whole card clickable (shows a hand cursor and a soft highlight). */
+    /** Makes the whole card clickable: a hand cursor, a glow and a small lift when the pointer is over it. */
     Card onClick(Runnable action) {
+        clickable = true;
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addMouseListener(new MouseAdapter() {
             @Override public void mouseClicked(MouseEvent e) { action.run(); }
-            @Override public void mouseEntered(MouseEvent e) { hover = true; repaint(); }
-            @Override public void mouseExited(MouseEvent e) { hover = false; repaint(); }
+            @Override public void mouseEntered(MouseEvent e) { hover.to(1); }
+            @Override public void mouseExited(MouseEvent e) { hover.to(0); }
         });
         return this;
     }
@@ -60,7 +71,9 @@ class Card extends JPanel {
     @Override public Dimension getPreferredSize() {
         if (getLayout() instanceof WidthLayout) {
             int w = getWidth() > 0 ? getWidth() : 380;
-            return new Dimension(w, WidthLayout.heightOf(this, w));
+            int h = WidthLayout.heightOf(this, w);
+            if (photo != null) h = Math.max(h, 140);   // room for the photo to show
+            return new Dimension(w, h);
         }
         return super.getPreferredSize();
     }
@@ -70,28 +83,23 @@ class Card extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         int w = getWidth();
         int h = getHeight() - 4;      // the last few pixels hold the shadow
-        int arc = 22;
+        float lift = hover.value();
+        int top = -Math.round(lift * 2);
         for (int i = 4; i >= 1; i--) {   // soft layered shadow, drawn inside the card's own bounds
-            g2.setColor(new Color(0x0E, 0x3B, 0x2C, hover ? 16 : 10));
-            g2.fillRoundRect(i - 1, i, w - 2 * i + 2, h, arc, arc);
+            g2.setColor(new Color(0x0E, 0x3B, 0x2C, 10 + Math.round(lift * 9)));
+            g2.fillRoundRect(i - 1, i + top + 1, w - 2 * i + 2, h, ARC, ARC);
         }
-        if (hero) {
-            java.awt.Shape clip = new java.awt.geom.RoundRectangle2D.Float(0, 0, w, h, arc, arc);
-            g2.setClip(clip);
-            g2.setPaint(new java.awt.GradientPaint(0, 0, Theme.LEAF, w, h, Theme.CANOPY_2));
-            g2.fill(clip);
-            g2.setColor(new Color(0xF2, 0xC9, 0x4C, 235));     // the sun, partly out of frame
-            int sun = Math.min(84, Math.max(56, w / 8));
-            g2.fillOval(w - sun / 2 - 4, -sun / 2, sun, sun);
-            g2.setColor(new Color(0xF2, 0xC9, 0x4C, 45));
-            g2.fillOval(w - sun / 2 - 4 - sun / 3, -sun / 2 - sun / 3, sun * 5 / 3, sun * 5 / 3);
-            g2.setClip(null);
+        if (photo != null) {
+            Scenery.paintBanner(g2, photo, sky, w, h, ARC, Motion.seconds());
         } else {
-            g2.setColor(hover ? Theme.LEAF_SOFT : fill);
-            g2.fillRoundRect(0, 0, w - 1, h - 1, arc, arc);
-            g2.setColor(hover ? Theme.LEAF_2 : outline);
-            g2.drawRoundRect(0, 0, w - 1, h - 1, arc, arc);
+            g2.translate(0, top);
+            g2.setColor(Theme.mix(fill, Theme.LEAF_SOFT, lift));
+            g2.fillRoundRect(0, 0, w - 1, h - 1, ARC, ARC);
+            g2.setColor(Theme.mix(outline, Theme.LEAF_2, lift));
+            g2.drawRoundRect(0, 0, w - 1, h - 1, ARC, ARC);
         }
         g2.dispose();
     }
+
+    boolean isClickable() { return clickable; }
 }

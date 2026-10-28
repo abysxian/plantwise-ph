@@ -31,6 +31,7 @@ final class BedCard extends JComponent {
     private final int progress;
     private final String statusText;
     private final boolean selected;
+    private final Motion.Tween hover = new Motion.Tween(this, 140);
 
     BedCard(Plot plot, LocalDate today, boolean selected, Runnable onSelect) {
         this.plot = plot;
@@ -45,6 +46,8 @@ final class BedCard extends JComponent {
                 requestFocusInWindow();
                 onSelect.run();
             }
+            @Override public void mouseEntered(MouseEvent e) { hover.to(1); }
+            @Override public void mouseExited(MouseEvent e) { hover.to(0); }
         });
         getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "select");
         getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "select");
@@ -86,7 +89,8 @@ final class BedCard extends JComponent {
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         int w = getWidth();
         int h = getHeight();
-        Shape tile = new RoundRectangle2D.Float(1, 1, w - 3, h - 3, 20, 20);
+        float grow = 3f * (1f - hover.value());   // tiles swell slightly under the pointer
+        Shape tile = new RoundRectangle2D.Float(1 + grow, 1 + grow, w - 3 - 2 * grow, h - 3 - 2 * grow, 20, 20);
 
         g2.setColor(plot.isEmpty() ? Theme.PAPER : Theme.WHITE);
         g2.fill(tile);
@@ -110,6 +114,12 @@ final class BedCard extends JComponent {
             g2.setColor(Theme.LIME);
             g2.setStroke(new java.awt.BasicStroke(2f));
             g2.drawRoundRect(5, 5, w - 11, h - 11, 14, 14);
+        }
+
+        if (w < 84) {
+            paintCompact(g2, w, h);
+            g2.dispose();
+            return;
         }
 
         // bed name, top left
@@ -140,6 +150,21 @@ final class BedCard extends JComponent {
         String shownStatus = fit(statusText, note, w - 16);
         g2.drawString(shownStatus, (w - note.stringWidth(shownStatus)) / 2, h - 12);
         g2.dispose();
+    }
+
+    /** Small tiles (big grids on a phone): just the picture and the bed number; the side panel has the details. */
+    private void paintCompact(Graphics2D g2, int w, int h) {
+        int icon = Math.max(16, Math.min(32, Math.round(Math.min(w, h) * 0.5f)));
+        javax.swing.Icon pic = Emoji.icon(plot.isEmpty() ? "🌱" : plot.getCrop().getEmoji(), icon);
+        java.awt.Composite old = g2.getComposite();
+        if (plot.isEmpty()) g2.setComposite(java.awt.AlphaComposite.getInstance(java.awt.AlphaComposite.SRC_OVER, 0.35f));
+        pic.paintIcon(this, g2, (w - icon) / 2, Math.max(3, (h - icon) / 2 - 5));
+        g2.setComposite(old);
+        g2.setFont(Theme.font(java.awt.Font.BOLD, 10));
+        FontMetrics fm = g2.getFontMetrics();
+        String number = String.valueOf(plot.getSlotNumber());
+        g2.setColor(status == PlotStatus.READY ? Theme.INK : Theme.MUTED);
+        g2.drawString(number, (w - fm.stringWidth(number)) / 2, h - 6);
     }
 
     private static String fit(String text, FontMetrics fm, int width) {

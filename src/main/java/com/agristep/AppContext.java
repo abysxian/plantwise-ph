@@ -23,6 +23,7 @@ public final class AppContext {
     public final RecommendationService recommendations;
     public final GardenService garden;
     public final GardenAdvisor advisor;
+    public final GardenGridService grid;
     private final DataSeeder seeder;
 
     private AppContext(Database db, WeatherProvider provider, Clock clock) {
@@ -36,6 +37,7 @@ public final class AppContext {
         this.weather = new WeatherService(provider, new JdbcClimateProfileRepository(db), clock);
         this.recommendations = new RecommendationService(crops, weather, new ClimateSuitabilityScorer());
         this.garden = new GardenService(plots, crops, tasks, harvests, new TaskPlanner(), clock, db);
+        this.grid = new GardenGridService(plots, settings, db);
         this.advisor = new GardenAdvisor();
         this.auth = new AuthService(new JdbcUserRepository(db), new PasswordHasher(), session,
                 new GardenProvisioner(plots, settings), new JdbcLegacyData(db), db, clock);

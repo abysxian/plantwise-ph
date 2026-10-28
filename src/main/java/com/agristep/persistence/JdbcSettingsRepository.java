@@ -21,11 +21,11 @@ public class JdbcSettingsRepository implements GardenSettingsRepository {
     public GardenSettings save(GardenSettings s) {
         long userId = session.requireUserId();
         db.run(() -> db.withConnection(c -> {
-            int changed = Sql.update(c, "UPDATE garden_settings SET location_name = ?, latitude = ?, longitude = ?, soil = ? WHERE user_id = ?",
-                    s.getLocationName(), s.getLatitude(), s.getLongitude(), s.getSoil().name(), userId);
+            int changed = Sql.update(c, "UPDATE garden_settings SET location_name = ?, latitude = ?, longitude = ?, soil = ?, grid_columns = ? WHERE user_id = ?",
+                    s.getLocationName(), s.getLatitude(), s.getLongitude(), s.getSoil().name(), s.getGridColumns(), userId);
             if (changed == 0) {
-                Sql.update(c, "INSERT INTO garden_settings (id, user_id, location_name, latitude, longitude, soil) VALUES (?,?,?,?,?,?)",
-                        userId, userId, s.getLocationName(), s.getLatitude(), s.getLongitude(), s.getSoil().name());
+                Sql.update(c, "INSERT INTO garden_settings (id, user_id, location_name, latitude, longitude, soil, grid_columns) VALUES (?,?,?,?,?,?,?)",
+                        userId, userId, s.getLocationName(), s.getLatitude(), s.getLongitude(), s.getSoil().name(), s.getGridColumns());
             }
             return null;
         }));
@@ -36,8 +36,12 @@ public class JdbcSettingsRepository implements GardenSettingsRepository {
     public Optional<GardenSettings> findCurrent() {
         long userId = session.requireUserId();
         return db.withConnection(c -> Sql.query(c,
-                "SELECT location_name, latitude, longitude, soil FROM garden_settings WHERE user_id = ?",
-                rs -> new GardenSettings(rs.getString("location_name"), rs.getDouble("latitude"),
-                        rs.getDouble("longitude"), SoilType.valueOf(rs.getString("soil"))), userId)).stream().findFirst();
+                "SELECT location_name, latitude, longitude, soil, grid_columns FROM garden_settings WHERE user_id = ?",
+                rs -> {
+                    GardenSettings g = new GardenSettings(rs.getString("location_name"), rs.getDouble("latitude"),
+                            rs.getDouble("longitude"), SoilType.valueOf(rs.getString("soil")));
+                    g.useGridColumns(rs.getInt("grid_columns"));
+                    return g;
+                }, userId)).stream().findFirst();
     }
 }

@@ -105,7 +105,8 @@ CREATE TABLE IF NOT EXISTS garden_settings (
     location_name VARCHAR(160) NOT NULL,
     latitude DOUBLE NOT NULL,
     longitude DOUBLE NOT NULL,
-    soil VARCHAR(20) NOT NULL
+    soil VARCHAR(20) NOT NULL,
+    grid_columns INT NOT NULL DEFAULT 3
 );
 
 CREATE TABLE IF NOT EXISTS climate_profiles (

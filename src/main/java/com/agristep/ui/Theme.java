@@ -31,6 +31,14 @@ final class Theme {
 
     static final Color CANOPY_2 = new Color(0x16704C);
 
+    /** Blends two colours: 0 gives {@code a}, 1 gives {@code b}. */
+    static Color mix(Color a, Color b, float t) {
+        float k = Math.max(0f, Math.min(1f, t));
+        return new Color(Math.round(a.getRed() + (b.getRed() - a.getRed()) * k),
+                Math.round(a.getGreen() + (b.getGreen() - a.getGreen()) * k),
+                Math.round(a.getBlue() + (b.getBlue() - a.getBlue()) * k));
+    }
+
     private static final String FAMILY = pickFamily();
 
     private static String pickFamily() {

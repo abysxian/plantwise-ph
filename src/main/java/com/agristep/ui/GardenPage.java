@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
-/** The garden: a 3-column grid of beds, plus a side panel for the selected bed. */
+/** The garden: a grid of beds the person can resize, plus a side panel for the selected bed. */
 final class GardenPage extends Page {
     private static final DateTimeFormatter SHORT_DATE = DateTimeFormatter.ofPattern("d MMM", Locale.ENGLISH);
 
@@ -31,6 +31,12 @@ final class GardenPage extends Page {
                               Optional<WeatherForecast> forecast, LocalDate today) {}
 
     private GardenData data;
+    private com.agristep.service.GridShape shape = new com.agristep.service.GridShape(3, 3);
+    private boolean editingGrid;
+    private int wantRows;
+    private int wantColumns;
+    private String gridWarning = "";
+    private boolean needsConfirm;
     private Long selectedId;
     private int generation;
 
@@ -43,10 +49,13 @@ final class GardenPage extends Page {
         if (data == null) setContent(TodayPage.loadingCard("Opening your garden…"));
         Tasks.run(() -> {
             List<Plot> plots = ctx.garden.allPlots();
-            return new GardenData(plots, ctx.garden.recentHarvests(), ctx.crops.findAllByOrderByNameAsc(),
+            GardenData d = new GardenData(plots, ctx.garden.recentHarvests(), ctx.crops.findAllByOrderByNameAsc(),
                     ctx.weather.forecast(ctx.settings.current()), ctx.garden.today());
-        }, loaded -> {
+            return new Object[] {d, ctx.grid.shape()};
+        }, both -> {
             if (mine != generation) return;
+            GardenData loaded = (GardenData) both[0];
+            shape = (com.agristep.service.GridShape) both[1];
             data = loaded;
             boolean stillThere = loaded.plots().stream().anyMatch(p -> p.getId().equals(selectedId));
             if (!stillThere) {
@@ -58,17 +67,17 @@ final class GardenPage extends Page {
     }
 
     private void render() {
-        Card header = new Card().gap(10);
-        JPanel top = new JPanel(new RowLayout(10, false));
-        top.setOpaque(false);
-        PillButton add = PillButton.primary("Add a bed");
-        add.addActionListener(e -> addBed());
-        top.add(WrapLabel.h1("Your garden"), RowLayout.CENTER);
-        top.add(add, RowLayout.EAST);
-        header.add(top);
-        header.add(WrapLabel.muted("Each bed fills with green as its crop grows. Tap a bed to see what to do next."));
+        PillButton edit = editingGrid ? PillButton.secondary("Done") : PillButton.primary("Edit grid");
+        edit.addActionListener(e -> toggleGridEditor());
+        JPanel action = new JPanel(new RowLayout(10, false));
+        action.setOpaque(false);
+        action.add(edit, RowLayout.WEST);
+        Card header = banner("Your garden", shape.rows() + " × " + shape.columns() + " grid, " + data.plots().size()
+                + (data.plots().size() == 1 ? " bed" : " beds") + ". Each bed fills with green as its crop grows. "
+                + "Tap a bed to see what to do next.", Scenery.Photo.MONSTERA, action);
 
-        JPanel beds = new JPanel(new FlowGridLayout(96, 3, 10, 1.0));
+        int cols = Math.max(1, shape.columns());
+        JPanel beds = new JPanel(new FlowGridLayout(cols <= 3 ? 96 : cols <= 5 ? 66 : 50, cols, cols <= 4 ? 10 : 6, 1.0));
         beds.setOpaque(false);
         for (Plot plot : data.plots()) {
             beds.add(new BedCard(plot, data.today(), plot.getId().equals(selectedId), () -> select(plot.getId())));
@@ -79,7 +88,8 @@ final class GardenPage extends Page {
         split.add(beds);
         split.add(sidePanel());
 
-        setContent(header, split, historyCard());
+        if (editingGrid) setContent(header, gridEditor(), split, historyCard());
+        else setContent(header, split, historyCard());
     }
 
     private void select(Long plotId) {
@@ -87,12 +97,91 @@ final class GardenPage extends Page {
         render();
     }
 
-    private void addBed() {
-        Tasks.run(ctx.garden::addPlot, plot -> {
-            selectedId = plot.getId();
-            nav.flash(plot.getName() + " added.", false);
+    // ---- grid editor ----
+
+    private void toggleGridEditor() {
+        editingGrid = !editingGrid;
+        wantRows = shape.rows();
+        wantColumns = shape.columns();
+        gridWarning = "";
+        needsConfirm = false;
+        render();
+    }
+
+    private Card gridEditor() {
+        Card card = new Card().gap(12);
+        card.add(WrapLabel.h3("Grid size"));
+        card.add(WrapLabel.muted("Choose how many rows and columns of beds you have. New beds are added empty at the end; "
+                + "a smaller grid removes beds from the end."));
+
+        Stepper rows = new Stepper("rows", wantRows, 1, com.agristep.service.GardenGridService.MAX_ROWS);
+        Stepper columns = new Stepper("columns", wantColumns, 1, com.agristep.service.GardenGridService.MAX_COLUMNS);
+        WrapLabel summary = WrapLabel.bold("");
+        Runnable refresh = () -> {
+            wantRows = rows.value();
+            wantColumns = columns.value();
+            summary.setText(wantRows + " × " + wantColumns + " = " + (wantRows * wantColumns) + " beds");
+            gridWarning = "";
+            needsConfirm = false;
+        };
+        rows.onChange(v -> refresh.run());
+        columns.onChange(v -> refresh.run());
+        summary.setText(wantRows + " × " + wantColumns + " = " + (wantRows * wantColumns) + " beds");
+
+        JPanel pair = new JPanel(new FlowGridLayout(170, 2, 12, 0));
+        pair.setOpaque(false);
+        pair.add(labelledStepper("Rows", rows));
+        pair.add(labelledStepper("Columns", columns));
+        card.add(pair);
+
+        JPanel presets = new JPanel(new FlowGridLayout(70, 5, 8, 0));
+        presets.setOpaque(false);
+        for (int[] preset : new int[][] {{2, 2}, {3, 3}, {4, 4}, {4, 6}, {6, 6}}) {
+            PillButton b = PillButton.secondary(preset[0] + " × " + preset[1]);
+            b.addActionListener(e -> {
+                rows.setQuietly(preset[0]);
+                columns.setQuietly(preset[1]);
+                refresh.run();
+            });
+            presets.add(b);
+        }
+        card.add(presets);
+        card.add(summary);
+
+        if (!gridWarning.isEmpty()) {
+            Card warn = new Card(Theme.SILI_SOFT, Theme.SILI).padding(12).gap(8);
+            warn.add(new WrapLabel(gridWarning, Theme.BODY, Theme.SILI));
+            card.add(warn);
+        }
+        PillButton apply = needsConfirm ? PillButton.danger("Remove beds and resize") : PillButton.primary("Apply grid");
+        apply.addActionListener(e -> applyGrid(needsConfirm));
+        card.add(apply);
+        return card;
+    }
+
+    private static JPanel labelledStepper(String label, Stepper stepper) {
+        JPanel box = new JPanel(new StackLayout(4));
+        box.setOpaque(false);
+        box.add(new WrapLabel(label, Theme.SMALL_BOLD, Theme.MUTED));
+        box.add(stepper);
+        return box;
+    }
+
+    private void applyGrid(boolean confirmed) {
+        int r = wantRows;
+        int c = wantColumns;
+        Tasks.run(() -> ctx.grid.resize(r, c, confirmed), done -> {
+            editingGrid = false;
+            gridWarning = "";
+            needsConfirm = false;
+            nav.flash("Your garden is now " + r + " × " + c + " (" + (r * c) + " beds).", false);
             reload();
-        }, this::fail);
+        }, t -> {
+            gridWarning = Tasks.messageOf(t);
+            needsConfirm = t instanceof com.agristep.service.GridResizeException
+                    || (t.getCause() instanceof com.agristep.service.GridResizeException);
+            render();
+        });
     }
 
     // ---- side panel ----
@@ -102,7 +191,7 @@ final class GardenPage extends Page {
         Card card = new Card().gap(10);
         if (plot == null) {
             card.add(WrapLabel.h3("No beds yet"));
-            card.add(WrapLabel.muted("Tap \"Add a bed\" to make your first one."));
+            card.add(WrapLabel.muted("Tap \"Edit grid\" to make your first beds."));
         } else if (plot.isEmpty()) {
             emptyBedPanel(card, plot);
         } else {

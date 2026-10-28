@@ -14,7 +14,7 @@ final class CropsPage extends Page {
     private List<Crop> all = List.of();
     private final SearchField search = new SearchField("Search by name, e.g. talong or eggplant");
     private final JPanel list = new JPanel(new FlowGridLayout(300, 3, 10, 0));
-    private final WrapLabel count = WrapLabel.muted("");
+    private final WrapLabel count = new WrapLabel("", Theme.BODY, new java.awt.Color(0xD9F0E3));
 
     CropsPage(AppContext ctx, Navigator nav) {
         super(ctx, nav);
@@ -29,10 +29,7 @@ final class CropsPage extends Page {
     @Override void onShow() {
         Tasks.run(ctx.crops::findAllByOrderByNameAsc, crops -> {
             all = crops;
-            Card header = new Card().gap(10);
-            header.add(WrapLabel.h1("Crops"));
-            header.add(count);
-            header.add(search);
+            Card header = banner("Crops", null, Scenery.Photo.PHILODENDRON, count, search);
             setContent(header, list);
             refill();
         }, this::fail);

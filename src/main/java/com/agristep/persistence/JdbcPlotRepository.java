@@ -87,6 +87,15 @@ public class JdbcPlotRepository implements PlotRepository {
         return load("", "ORDER BY slot_number DESC LIMIT 1").stream().findFirst();
     }
 
+    @Override public void delete(Plot plot) {
+        long userId = session.requireUserId();
+        db.run(() -> db.withConnection(c -> {
+            Sql.update(c, "DELETE FROM care_tasks WHERE plot_id IN (SELECT id FROM plots WHERE id = ? AND user_id = ?)", plot.getId(), userId);
+            Sql.update(c, "DELETE FROM plots WHERE id = ? AND user_id = ?", plot.getId(), userId);
+            return null;
+        }));
+    }
+
     @Override public long count() {
         return db.withConnection(c -> Sql.count(c, "SELECT COUNT(*) FROM plots WHERE user_id = ?", session.requireUserId()));
     }

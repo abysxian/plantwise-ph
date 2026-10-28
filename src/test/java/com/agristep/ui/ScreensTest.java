@@ -274,16 +274,20 @@ class ScreensTest {
         });
     }
 
-    @Test void addingABedAndOpeningTheCareGuide() {
+    @Test void resizingTheGridAddsBedsAndOpeningTheCareGuideStillWorks() {
         UiFixture.edt(() -> {
             App a = app(true, false);
             a.panel().show("garden");
             size(a.panel(), 1100);
             Page garden = page(a, "garden");
-            UiFixture.button(garden, "Add a bed").doClick();
+            UiFixture.button(garden, "Edit grid").doClick();
             size(a.panel(), 1100);
-            assertEquals(10, UiFixture.all(garden, BedCard.class).size());
-            assertTrue(UiFixture.hasText(garden, "Bed 10 is empty"));
+            UiFixture.button(garden, "4 × 4").doClick();
+            UiFixture.button(garden, "Apply grid").doClick();
+            size(a.panel(), 1100);
+            assertEquals(16, UiFixture.all(garden, BedCard.class).size());
+            assertTrue(UiFixture.hasText(garden, "4 × 4 grid, 16 beds"));
+            assertTrue(a.panel().flashBar().message().contains("4 × 4"));
 
             UiFixture.click(UiFixture.all(garden, BedCard.class).get(0));
             size(a.panel(), 1100);
@@ -291,6 +295,42 @@ class ScreensTest {
             assertEquals("crop", a.panel().currentPage());
             size(a.panel(), 1100);
             assertTrue(UiFixture.hasText(page(a, "crop"), "Talong"));
+        });
+    }
+
+    @Test void shrinkingTheGridWarnsBeforeRemovingPlantedBeds() {
+        UiFixture.edt(() -> {
+            App a = app(true, false);   // beds 1, 2, 3 and 5 have plants
+            a.panel().show("garden");
+            size(a.panel(), 1100);
+            Page garden = page(a, "garden");
+            UiFixture.button(garden, "Edit grid").doClick();
+            size(a.panel(), 1100);
+            UiFixture.button(garden, "2 × 2").doClick();
+            UiFixture.button(garden, "Apply grid").doClick();
+            size(a.panel(), 1100);
+            assertTrue(UiFixture.hasText(garden, "removes a bed with plants in them (Bed 5)"), "warns about Bed 5");
+            assertEquals(9, a.ctx().garden.allPlots().size(), "nothing removed yet");
+            UiFixture.button(garden, "Remove beds and resize").doClick();
+            size(a.panel(), 1100);
+            assertEquals(4, UiFixture.all(garden, BedCard.class).size());
+            assertEquals(4, a.ctx().garden.allPlots().size());
+            assertTrue(UiFixture.hasText(garden, "2 × 2 grid, 4 beds"));
+            UiFixture.assertFits(garden, "garden 2x2");
+        });
+    }
+
+    @Test void largeGridsStayReadableOnPhoneAndDesktop() {
+        UiFixture.edt(() -> {
+            App a = app(true, false);
+            a.ctx().grid.resize(6, 6, true);
+            for (int width : new int[] {1100, 700, 390, 340}) {
+                a.panel().show("garden");
+                size(a.panel(), width);
+                Page garden = page(a, "garden");
+                assertEquals(36, UiFixture.all(garden, BedCard.class).size());
+                UiFixture.assertFits(garden, "garden 6x6 @" + width);
+            }
         });
     }
 

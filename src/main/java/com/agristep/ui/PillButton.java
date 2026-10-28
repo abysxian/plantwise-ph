@@ -16,6 +16,7 @@ final class PillButton extends JButton {
     enum Style { PRIMARY, SECONDARY, DANGER }
 
     private final Style style;
+    private final Motion.Tween glow = new Motion.Tween(this, 140);
 
     PillButton(String text, Style style) {
         super(text);
@@ -26,6 +27,7 @@ final class PillButton extends JButton {
         setContentAreaFilled(false);
         setOpaque(false);
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        getModel().addChangeListener(e -> glow.to(isEnabled() && (getModel().isRollover() || getModel().isArmed()) ? 1f : 0f));
     }
 
     static PillButton primary(String text) { return new PillButton(text, Style.PRIMARY); }
@@ -44,23 +46,25 @@ final class PillButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         boolean on = isEnabled();
-        boolean hot = on && (getModel().isRollover() || getModel().isArmed());
+        float heat = on ? glow.value() : 0f;
+        boolean pressed = on && getModel().isArmed();
+        if (pressed) g2.translate(0, 1);
         Color bg;
         Color fg;
         Color line;
         switch (style) {
             case PRIMARY -> {
-                bg = hot ? Theme.CANOPY_2 : Theme.LEAF;
+                bg = Theme.mix(Theme.LEAF, Theme.CANOPY_2, heat);
                 fg = Color.WHITE;
                 line = bg;
             }
             case DANGER -> {
-                bg = hot ? new Color(0xF2C9C2) : Theme.SILI_SOFT;
+                bg = Theme.mix(Theme.SILI_SOFT, new Color(0xF2C9C2), heat);
                 fg = Theme.SILI;
                 line = bg;
             }
             default -> {
-                bg = hot ? new Color(0xCDE9D9) : Theme.LEAF_SOFT;
+                bg = Theme.mix(Theme.LEAF_SOFT, new Color(0xC3E5D2), heat);
                 fg = Theme.LEAF;
                 line = bg;
             }
@@ -72,8 +76,8 @@ final class PillButton extends JButton {
         }
         int arc = getHeight();
         if (on && style == Style.PRIMARY) {
-            g2.setPaint(new java.awt.GradientPaint(0, 0, hot ? Theme.CANOPY_2 : Theme.LEAF, getWidth(), 0,
-                    hot ? Theme.LEAF_2 : Theme.CANOPY_2));
+            g2.setPaint(new java.awt.GradientPaint(0, 0, Theme.mix(Theme.LEAF, Theme.CANOPY_2, heat), getWidth(), 0,
+                    Theme.mix(Theme.CANOPY_2, Theme.LEAF_2, heat)));
         } else {
             g2.setColor(bg);
         }

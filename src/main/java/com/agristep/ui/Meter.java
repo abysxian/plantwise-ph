@@ -11,6 +11,8 @@ import java.awt.RenderingHints;
 final class Meter extends JComponent {
     private final int value;
     private final Color color;
+    private final Motion.Tween grow = new Motion.Tween(this, 700);
+    private boolean started;
 
     Meter(int value, Color color) {
         this.value = Math.max(0, Math.min(100, value));
@@ -28,7 +30,16 @@ final class Meter extends JComponent {
         int h = getHeight();
         g2.setColor(Theme.LINE);
         g2.fillRoundRect(0, 0, getWidth(), h, h, h);
-        int w = Math.round(getWidth() * value / 100f);
+        if (!started) {
+            started = true;
+            if (Motion.enabled() && isShowing()) {
+                grow.jump(0f);
+                grow.to(1f);
+            } else {
+                grow.jump(1f);
+            }
+        }
+        int w = Math.round(getWidth() * value / 100f * grow.value());
         if (w > 0) {
             g2.setPaint(new java.awt.GradientPaint(0, 0, color.darker(), Math.max(w, h), 0, color));
             g2.fillRoundRect(0, 0, Math.max(w, h), h, h, h);

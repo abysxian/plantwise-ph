@@ -19,6 +19,8 @@ public class SettingsService {
                 repository.save(new GardenSettings("Manila, Philippines", 14.5995, 120.9842, SoilType.LOAM)));
     }
 
+    GardenSettings save(GardenSettings settings) { return repository.save(settings); }
+
     public GardenSettings changeSoil(SoilType soil) {
         GardenSettings settings = current();
         settings.useSoil(soil);
