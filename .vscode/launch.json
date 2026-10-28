@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "PlantWise",
+      "request": "launch",
+      "mainClass": "com.agristep.Main",
+      "projectName": "agristep",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
