@@ -82,7 +82,7 @@ public final class LoginPage extends ScrollPage {
         removeAll();
         JPanel brand = new JPanel(new StackLayout(4));
         brand.setOpaque(false);
-        brand.add(Brand.mark(84));
+        brand.add(Brand.mark(96, true));
         brand.add(new WrapLabel("PlantWise PH", Theme.H1, Color.WHITE).align(WrapLabel.CENTER));
         brand.add(new WrapLabel("Know what to plant, and when.", Theme.BODY, new Color(0xE6F4EC)).align(WrapLabel.CENTER));
         add(brand);

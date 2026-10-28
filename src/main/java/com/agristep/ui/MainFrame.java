@@ -50,7 +50,7 @@ public final class MainFrame extends JFrame implements Shell {
         ScrollPage page = new ScrollPage();
         page.setBackground(Theme.PAPER);
         Card card = new Card().gap(12).padding(20);
-        card.add(Brand.mark(64));
+        card.add(Brand.mark(72, false));
         card.add(new WrapLabel(buttonText == null ? "PlantWise PH" : "PlantWise couldn't start", Theme.H2, Theme.INK)
                 .align(WrapLabel.CENTER));
         card.add(WrapLabel.body(text).align(WrapLabel.CENTER));

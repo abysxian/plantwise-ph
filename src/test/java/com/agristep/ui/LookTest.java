@@ -19,10 +19,18 @@ class LookTest {
         }
     }
 
-    @Test void withoutALogoFileTheBrandTakesNoSpace() {
-        assertFalse(Brand.hasLogo(), "no logo yet: the owner will add src/main/resources/brand/logo.png");
-        assertEquals(0, Brand.mark(40).getPreferredSize().width);
-        assertNull(Brand.icon(32));
+    @Test void theLogoIsBundledAndDrawnOnAWhiteCircleForDarkBackgrounds() {
+        assertTrue(Brand.hasLogo(), "logo.png is bundled");
+        java.awt.Dimension d = Brand.mark(42, true).getPreferredSize();
+        assertEquals(42, d.width);
+        assertEquals(42, d.height);
+        BufferedImage icon = Brand.icon(64);
+        assertNotNull(icon);
+        assertEquals(0xFFFFFF, icon.getRGB(32, 3) & 0xFFFFFF, "white circle behind the logo");
+        assertTrue((icon.getRGB(0, 0) >>> 24) < 128, "corner outside the circle is see-through");
+        java.util.Set<Integer> colours = new java.util.HashSet<>();
+        for (int y = 0; y < 64; y++) for (int x = 0; x < 64; x++) colours.add(icon.getRGB(x, y));
+        assertTrue(colours.size() > 30, "the logo artwork is drawn");
     }
 
     @Test void weatherCodesPickTheMatchingPicture() {

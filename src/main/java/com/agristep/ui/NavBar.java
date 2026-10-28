@@ -102,7 +102,7 @@ final class NavBar extends JPanel {
         JPanel row = new JPanel(new RowLayout(10, false));
         row.setOpaque(false);
         row.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 6, 0, 0));
-        row.add(Brand.mark(40), RowLayout.WEST);
+        row.add(Brand.mark(42, true), RowLayout.WEST);
         JPanel text = new JPanel(new StackLayout(0));
         text.setOpaque(false);
         text.add(new WrapLabel("PlantWise PH", Theme.H3, Color.WHITE));

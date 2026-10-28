@@ -86,7 +86,7 @@ public final class MainPanel extends JPanel implements Navigator {
             }
         };
         strip.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 14, 0, 14));
-        strip.add(Brand.mark(34), RowLayout.WEST);
+        strip.add(Brand.mark(36, true), RowLayout.WEST);
         strip.add(new WrapLabel("PlantWise PH · " + who, Theme.H3, Color.WHITE).maxLines(1), RowLayout.CENTER);
         PillButton out = PillButton.secondary("Sign out");
         out.addActionListener(e -> onSignOut.run());
