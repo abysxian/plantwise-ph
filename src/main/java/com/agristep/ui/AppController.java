@@ -61,7 +61,7 @@ public final class AppController {
             if (due > 0 && panel == main) {
                 String text = due == 1 ? "1 garden task is due today or overdue." : due + " garden tasks are due today or overdue.";
                 panel.flash(text, false);
-                Notifier.desktop("PlantWise PH", text);
+                Notifier.desktop("PlantWise PH", I18n.t(text));
             }
         }, t -> { /* reminders are a nicety; the Today screen shows any problem */ });
     }

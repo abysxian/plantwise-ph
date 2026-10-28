@@ -11,8 +11,10 @@ import java.awt.RenderingHints;
 final class SearchField extends JTextField {
     private final String hint;
 
+    String hint() { return hint; }
+
     SearchField(String hint) {
-        this.hint = hint;
+        this.hint = I18n.t(hint);
         setFont(Theme.BODY);
         setForeground(Theme.INK);
         setCaretColor(Theme.INK);

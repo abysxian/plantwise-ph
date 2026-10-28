@@ -71,13 +71,13 @@ final class CropDetailPage extends Page {
     }
 
     private static String soilNames(Set<SoilType> soils) {
-        return soils.stream().sorted().map(s -> s.getLabel().toLowerCase(Locale.ROOT))
+        return soils.stream().sorted().map(s -> I18n.t(s.getLabel().toLowerCase(Locale.ROOT)))
                 .collect(Collectors.joining(", "));
     }
 
     private static Card fact(String label, String value) {
         Card tile = new Card(Theme.PAPER, Theme.PAPER).gap(2).padding(10);
-        tile.add(WrapLabel.small(label.toUpperCase(Locale.ROOT)));
+        tile.add(WrapLabel.small(I18n.t(label).toUpperCase(I18n.current() == I18n.Language.FILIPINO ? Locale.forLanguageTag("fil-PH") : Locale.ROOT)));
         tile.add(WrapLabel.bold(value));
         return tile;
     }

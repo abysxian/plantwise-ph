@@ -92,7 +92,7 @@ final class GardenPage extends Page {
         else setContent(header, split, historyCard());
     }
 
-    private void select(Long plotId) {
+    void select(Long plotId) {
         selectedId = plotId;
         render();
     }
@@ -379,7 +379,7 @@ final class GardenPage extends Page {
 
     private boolean confirm(String title, String message) {
         Component parent = SwingUtilities.getWindowAncestor(this);
-        return JOptionPane.showConfirmDialog(parent, message, title, JOptionPane.OK_CANCEL_OPTION,
+        return JOptionPane.showConfirmDialog(parent, I18n.t(message), I18n.t(title), JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION;
     }
 

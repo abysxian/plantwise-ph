@@ -109,7 +109,7 @@ final class InsightsPage extends Page {
     private void chooseFile(Export kind) {
         JFileChooser chooser = new JFileChooser();
         boolean pdf = kind == Export.REPORT_PDF;
-        chooser.setFileFilter(new FileNameExtensionFilter(pdf ? "PDF file" : "CSV file", pdf ? "pdf" : "csv"));
+        chooser.setFileFilter(new FileNameExtensionFilter(I18n.t(pdf ? "PDF file" : "CSV file"), pdf ? "pdf" : "csv"));
         chooser.setSelectedFile(new java.io.File(switch (kind) {
             case HARVESTS_CSV -> "plantwise-harvests.csv";
             case TASKS_CSV -> "plantwise-care-plan.csv";

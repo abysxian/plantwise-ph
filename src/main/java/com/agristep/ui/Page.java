@@ -87,7 +87,7 @@ abstract class Page extends ScrollPage {
             return label;
         });
         int answer = JOptionPane.showConfirmDialog(SwingUtilities.getWindowAncestor(this), box,
-                "Which bed for " + crop.getName() + "?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                I18n.t("Which bed for " + crop.getName() + "?"), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         return answer == JOptionPane.OK_OPTION ? (Plot) box.getSelectedItem() : null;
     }
 }

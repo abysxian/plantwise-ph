@@ -36,7 +36,7 @@ final class Widgets {
         @SuppressWarnings("unchecked") T[] array = (T[]) items.toArray();
         JComboBox<T> box = new JComboBox<>(array);
         box.setRenderer((list, value, index, selected, focus) -> {
-            JLabel label = new JLabel(value == null ? "" : text.apply(value));
+            JLabel label = new JLabel(value == null ? "" : I18n.t(text.apply(value)));
             label.setOpaque(true);
             label.setFont(Theme.BODY);
             label.setForeground(Theme.INK);

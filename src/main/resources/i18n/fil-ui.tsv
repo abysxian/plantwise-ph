@@ -1,0 +1,359 @@
+# English<TAB>Filipino. Screens, buttons, messages and service text. Loaded by Translator.
+Today	Ngayon
+Garden	Hardin
+Crops	Mga Pananim
+Calendar	Kalendaryo
+Journal	Talaarawan
+Insights	Estadistika
+Location	Lokasyon
+Account	Account
+Sign out	Mag-sign out
+Signed in as	Naka-sign in bilang
+Backyard farming	Pagtatanim sa bakuran
+Your garden	Ang iyong hardin
+What to plant	Ano ang itatanim
+Planting calendar	Kalendaryo ng pagtatanim
+Garden journal	Talaarawan ng hardin
+Your harvests	Ang iyong mga ani
+Your account	Ang iyong account
+Checklist	Listahan ng gagawin
+Harvest history	Kasaysayan ng ani
+Grid size	Laki ng grid
+Coming up	Paparating
+Weather alerts	Babala sa panahon
+Shared garden	Pinagsasaluhang hardin
+Change password	Palitan ang password
+Language	Wika
+Delete account	Burahin ang account
+What soil is in your garden?	Anong lupa ang nasa hardin mo?
+Plant	Itanim
+Plant here	Itanim dito
+Harvest	Anihin
+Clear bed	Alisin ang tanim
+Care guide	Gabay sa pag-aalaga
+Edit grid	Baguhin ang grid
+Done	Tapos na
+Apply grid	Ilapat ang grid
+Change place	Palitan ang lugar
+Search	Hanapin
+Save location	I-save ang lugar
+Sign in	Mag-sign in
+Create account	Gumawa ng account
+Save entry	I-save ang tala
+Add photo	Dagdag litrato
+Delete	Burahin
+Cancel	Kanselahin
+Accept	Tanggapin
+Decline	Tanggihan
+Invite	Imbitahan
+Remove	Alisin
+Leave garden	Umalis sa hardin
+Write a note	Sumulat ng tala
+Show fewer	Magpakita ng kaunti
+What fits best?	Mga mungkahi
+Export harvests (CSV)	I-export ang ani (CSV)
+Export care plan (CSV)	I-export ang plano (CSV)
+Garden report (PDF)	Ulat ng hardin (PDF)
+Good morning	Magandang umaga
+Good afternoon	Magandang hapon
+Good evening	Magandang gabi
+Current password	Kasalukuyang password
+New password (6 or more characters)	Bagong password (6 o higit pang karakter)
+New password again	Ulitin ang bagong password
+Their username	Username nila
+Your password	Iyong password
+Opening your account…	Binubuksan ang iyong account…
+Choose the language for the whole app.	Piliin ang wika para sa buong app.
+Invite a family member or neighbour who has a PlantWise account. When they accept, you both work in your garden until they leave.	Mag-imbita ng kapamilya o kapitbahay na may PlantWise account. Kapag tinanggap nila, magkasama kayong magtatrabaho sa iyong hardin hanggang sa umalis sila.
+Really remove?	Sigurado bang aalisin?
+In your garden	Nasa iyong hardin
+Invitation cancelled.	Nakansela ang imbitasyon.
+Invited, waiting for an answer	Naimbitahan, naghihintay ng sagot
+Invitation declined.	Tinanggihan ang imbitasyon.
+You are back in your own garden.	Nasa sarili mo nang hardin ka ulit.
+New password	Bagong password
+Password changed. Use the new one next time you sign in.	Napalitan ang password. Gamitin ang bago sa susunod na pag-sign in.
+This permanently removes your account, beds, harvest history, journal and photos.	Permanente nitong buburahin ang iyong account, mga taniman, kasaysayan ng ani, talaarawan at mga litrato.
+It cannot be undone. People who joined your garden go back to their own.	Hindi na ito maibabalik. Babalik sa kani-kanilang hardin ang mga sumali sa iyong hardin.
+Type your password to confirm	I-type ang iyong password para kumpirmahin
+Yes, delete everything	Oo, burahin ang lahat
+Tap to plant	I-tap para magtanim
+Ready!	Handa na!
+Empty	Walang tanim
+Great fit	Sakto
+Good fit	Bagay
+Possible	Maaari
+Not recommended	Hindi mainam
+Back to crops	Bumalik sa mga pananim
+Care tips	Mga tip sa pag-aalaga
+Pests and problems	Mga peste at problema
+Plant this	Itanim ito
+What it needs	Ano ang kailangan nito
+Temperature	Temperatura
+Rainfall	Ulan
+Soil pH	pH ng lupa
+Sunlight	Sikat ng araw
+Spacing	Pagitan
+Time to harvest	Oras bago anihin
+Best soil	Pinakamagandang lupa
+Also grows in	Tumutubo rin sa
+Source: FAO EcoCrop	Pinagkunan: FAO EcoCrop
+Where these numbers come from	Saan galing ang mga bilang na ito
+Treat the ranges as a guide and check your local agriculture office for your area.	Gawing gabay lang ang mga saklaw at magtanong sa inyong lokal na tanggapan ng agrikultura.
+Open source page	Buksan ang pinagkunang pahina
+Care plan	Plano ng pag-aalaga
+What to do, counted from the day you plant.	Ang mga gagawin, bilang mula sa araw ng pagtatanim.
+planting day	araw ng pagtatanim
+No tips yet.	Wala pang mga tip.
+The whole garden	Ang buong hardin
+Whole garden	Buong hardin
+No photo chosen.	Walang napiling litrato.
+Opening your journal…	Binubuksan ang iyong talaarawan…
+Write down what you notice, with a photo if you like. Notes belong to the garden, so everyone sharing it sees them.	Isulat ang napapansin mo, may litrato kung gusto. Pag-aari ng hardin ang mga tala, kaya makikita ito ng lahat ng kasama sa hardin.
+No notes yet. Your first one will show up here.	Wala pang tala. Dito lalabas ang una mong tala.
+New note	Bagong tala
+About	Tungkol sa
+What did you notice?	Ano ang napansin mo?
+Pictures (JPG, PNG, GIF)	Mga larawan (JPG, PNG, GIF)
+Note saved.	Nai-save ang tala.
+Really delete?	Sigurado bang buburahin?
+Note deleted.	Nabura ang tala.
+Opening your garden…	Binubuksan ang iyong hardin…
+Choose how many rows and columns of beds you have. New beds are added empty at the end; a smaller grid removes beds from the end.	Piliin kung ilang hanay at hanay-pababa ng taniman ang mayroon ka. Idinaragdag na walang laman ang mga bagong taniman sa dulo; ang mas maliit na grid ay nag-aalis ng taniman mula sa dulo.
+rows	hanay
+columns	kolum
+Rows	Mga hanay
+Columns	Mga kolum
+Remove beds and resize	Alisin ang mga taniman at baguhin ang laki
+No beds yet	Wala pang taniman
+Tap "Edit grid" to make your first beds.	I-tap ang "Baguhin ang grid" para gawin ang una mong mga taniman.
+Choose a vegetable and its care plan is made for you, with dates counted from today.	Pumili ng gulay at gagawa ang app ng plano ng pag-aalaga, may mga petsang bibilangin mula ngayon.
+Good neighbours	Magandang magkatabi
+Better apart	Mas mabuting magkahiwalay
+Rotate crops	Magpalit-palit ng pananim
+It isn't ready yet.	Hindi pa ito handa.
+Saved to your harvest history.	Nai-save sa iyong kasaysayan ng ani.
+Nothing harvested yet. When you harvest a bed it is saved here.	Wala pang naaani. Kapag nag-ani ka ng taniman, mase-save ito rito.
+Weather and climate data: Open-Meteo.com (CC BY 4.0).	Datos ng panahon at klima: Open-Meteo.com (CC BY 4.0).
+Crop ranges: FAO EcoCrop where marked, otherwise typical garden guidance.	Saklaw ng pananim: FAO EcoCrop kung may marka, kung hindi ay karaniwang gabay sa hardin.
+Emoji pictures: Twemoji (CC BY 4.0).	Mga larawan ng emoji: Twemoji (CC BY 4.0).
+Type a town or city	Mag-type ng bayan o lungsod
+Your barangay, town or city	Iyong barangay, bayan o lungsod
+Filter the list, e.g. Cebu	Salain ang listahan, hal. Cebu
+Where is your garden?	Nasaan ang iyong hardin?
+Type the name of your place and its coordinates, then save.	I-type ang pangalan ng iyong lugar at ang mga coordinate nito, saka i-save.
+Not sure of the coordinates? Search or pick a place below and they are filled in for you.	Hindi sigurado sa mga coordinate? Maghanap o pumili ng lugar sa ibaba at kusa itong pupunuan.
+Place name	Pangalan ng lugar
+Latitude	Latitude
+Longitude	Longitude
+Reset	I-reset
+Search for your town	Hanapin ang iyong bayan
+Pick a common place	Pumili ng karaniwang lugar
+These work even without internet.	Gumagana ang mga ito kahit walang internet.
+Type the name of your place.	I-type ang pangalan ng iyong lugar.
+Type at least 2 letters.	Mag-type ng hindi bababa sa 2 titik.
+Searching…	Naghahanap…
+No common place matches. Use the form above to type yours.	Walang tugmang karaniwang lugar. Gamitin ang form sa itaas para i-type ang sa iyo.
+Username	Username
+What should we call you? (optional)	Ano ang itatawag namin sa iyo? (opsyonal)
+Password	Password
+Type the password again	I-type ulit ang password
+Keep me signed in on this computer	Panatilihin akong naka-sign in sa computer na ito
+Show password	Ipakita ang password
+Know what to plant, and when.	Alamin kung ano ang itatanim, at kailan.
+Your name	Iyong pangalan
+Confirm password	Kumpirmahin ang password
+Use at least 6 characters.	Gumamit ng hindi bababa sa 6 na karakter.
+Just want to try it?	Gusto lang subukan?
+Fill in the demo account	Punan ang demo account
+Each account keeps its own beds, plants, location and harvest history.	May sariling mga taniman, halaman, lokasyon at kasaysayan ng ani ang bawat account.
+Please wait…	Sandali lang…
+All your beds are full. Add a bed or harvest one first.	Puno na ang lahat ng taniman mo. Magdagdag ng taniman o mag-ani muna.
+Reading the climate for your garden…	Binabasa ang klima para sa iyong hardin…
+Month-by-month weather is not saved for this place yet. Connect to the internet, then open this screen again. The Today screen still ranks crops for right now.	Wala pang naka-save na lagay ng panahon kada buwan para sa lugar na ito. Kumonekta sa internet, saka buksan muli ang screen na ito. Niraranggo pa rin ng screen na Ngayon ang mga pananim para sa kasalukuyan.
+You are offline. This calendar uses climate data saved earlier.	Offline ka. Gumagamit ang kalendaryong ito ng datos ng klima na na-save kanina.
+One crop, all year	Isang pananim, buong taon
+Pick a vegetable to see how every month suits it.	Pumili ng gulay para makita kung bagay ito sa bawat buwan.
+Dark green is a great fit, light green good, yellow possible and red not recommended.	Ang madilim na berde ay napakabagay, ang mapusyaw na berde ay bagay, ang dilaw ay maaari at ang pula ay hindi inirerekomenda.
+Counting your harvests…	Binibilang ang iyong mga ani…
+Harvest a bed from the Garden screen and your results will be charted here.	Mag-ani ng taniman sa screen na Hardin at ilalagay dito sa tsart ang iyong resulta.
+days from planting to harvest, on average	araw mula pagtatanim hanggang pag-ani, sa karaniwan
+harvests	mga ani
+Harvests per month	Mga ani kada buwan
+Nothing to chart yet.	Wala pang maitsa-tsart.
+By crop	Ayon sa pananim
+Save or print your records	I-save o i-print ang iyong mga tala
+CSV files open in Excel or Google Sheets. The PDF report lists your beds, care plans and harvest history and can be printed.	Nabubuksan ang mga CSV file sa Excel o Google Sheets. Inililista ng PDF na ulat ang iyong mga taniman, plano ng pag-aalaga at kasaysayan ng ani, at maaaring i-print.
+PDF file	PDF file
+CSV file	CSV file
+What should I do today?	Ano ang dapat kong gawin ngayon?
+Checking the weather and your garden…	Sinusuri ang panahon at ang iyong hardin…
+These come from forecast numbers and are not official bulletins.	Galing ang mga ito sa mga numero ng forecast at hindi opisyal na babala.
+For official storm and typhoon bulletins, check PAGASA (pagasa.dost.gov.ph).	Para sa opisyal na babala sa bagyo, tingnan ang PAGASA (pagasa.dost.gov.ph).
+Open garden	Buksan ang hardin
+Weather	Panahon
+The weather service can't be reached right now. Check your internet connection. Crop suggestions still work from the climate data saved earlier.	Hindi maabot ang serbisyo ng panahon ngayon. Suriin ang iyong koneksyon sa internet. Gumagana pa rin ang mga mungkahing pananim batay sa datos ng klima na na-save kanina.
+dry	tuyo
+Squeeze a handful when it is damp. The feel tells you which one it is.	Pisilin ang isang dakot kapag mamasa-masa. Mararamdaman mo kung alin ito.
+No weather data is available, so crops are ranked by soil only.	Walang datos ng panahon, kaya lupa lang ang batayan sa pagraranggo ng mga pananim.
+You are offline. Ranking uses climate data saved earlier.	Offline ka. Gumagamit ang pagraranggo ng datos ng klima na na-save kanina.
+Search by name, e.g. talong or eggplant	Maghanap sa pangalan, hal. talong o eggplant
+Crop list	Listahan ng pananim
+Pest guide	Gabay sa peste
+Common pests and problems for each vegetable, and what to do about them. Written advice only; for a serious outbreak ask your local agriculture office.	Mga karaniwang peste at problema ng bawat gulay, at ang dapat gawin. Payo lang ito; para sa malalang pagkalat, magtanong sa inyong lokal na tanggapan ng agrikultura.
+No crop matches that search.	Walang pananim na tumutugma sa paghahanap.
+No pest notes for this crop yet.	Wala pang tala tungkol sa peste para sa pananim na ito.
+FAO verified	Napatunayan ng FAO
+Typical range	Karaniwang saklaw
+PlantWise couldn't start	Hindi masimulan ang PlantWise
+Try again	Subukan muli
+1 garden task is due today or overdue.	1 gawain sa hardin ang due ngayon o lampas na.
+Fewer	Kaunti
+More	Marami
+Soft garden soil	Malambot na lupa sa hardin
+Sandy soil	Mabuhanging lupa
+Sticky clay	Malagkit na luwad
+soft garden soil	malambot na lupa sa hardin
+sandy soil	mabuhanging lupa
+sticky clay	malagkit na luwad
+Dark and crumbly. Easy to dig, holds water but still drains.	Madilim at madurog. Madaling hukayin, may hawak na tubig pero umaagos pa rin.
+Loose and gritty, like beach sand. Water drains away fast.	Maluwag at magaspang, parang buhangin sa dalampasigan. Mabilis umagos ang tubig.
+Heavy and muddy when wet. Holds water for a long time.	Mabigat at maputik kapag basa. Matagal humawak ng tubig.
+Empty bed	Walang tanim
+Just planted	Kakatanim lang
+Growing	Lumalaki
+Ready to harvest	Handa nang anihin
+Sow the seeds	Ihasik ang mga buto
+Water the plants	Diligan ang mga halaman
+Feed the soil	Pakainin ang lupa
+Prune and support	Putulan at suportahan
+Check for pests	Tingnan kung may peste
+Clear sky	Maaliwalas ang langit
+Mostly clear	Halos maaliwalas
+Partly cloudy	Bahagyang maulap
+Overcast	Makulimlim
+Fog	Hamog
+Drizzle	Ambon
+Rain	Ulan
+Snow	Niyebe
+Rain showers	Pag-ulan
+Thunderstorm	Pagkulog at pagkidlat
+Unknown	Hindi alam
+Thunderstorm in the forecast	May pagkulog at pagkidlat sa forecast
+Stay out of the garden during lightning and put tools away. Check the beds for damage afterwards.	Huwag pumunta sa hardin habang kumikidlat at itabi ang mga gamit. Tingnan pagkatapos kung may pinsala ang mga taniman.
+Harvest anything that is ready before the rain. Clear drainage ditches, lift pots off the ground and skip watering and fertilising. Newly sown seeds can wash away.	Anihin ang anumang handa na bago umulan. Linisin ang mga kanal, itaas ang mga paso mula sa lupa at laktawan ang pagdidilig at pagpapataba. Maaaring matangay ang bagong hasik na buto.
+Stake or tie tall and climbing crops (sitao, ampalaya, kamatis), cover young seedlings and move pots to a sheltered spot.	Lagyan ng tukod o itali ang matatangkad at umaakyat na pananim (sitaw, ampalaya, kamatis), takpan ang mga batang punla at ilipat ang mga paso sa silungan.
+Water early in the morning and again in the late afternoon, mulch the soil and shade tender leafy crops (pechay, letsugas) with a net.	Magdilig nang maaga sa umaga at muli sa hapon, lagyan ng mulch ang lupa at lilimin ng net ang malalambot na madahong pananim (pechay, letsugas).
+Weather is not available right now.	Walang makuhang panahon ngayon.
+Username must be 3 to 20 letters, numbers, dots, dashes or underscores.	Ang username ay dapat 3 hanggang 20 titik, numero, tuldok, gitling o underscore.
+The name is too long (40 letters at most).	Masyadong mahaba ang pangalan (hanggang 40 titik lang).
+Password must be at least 6 characters.	Ang password ay dapat hindi bababa sa 6 na karakter.
+Password is too long (100 characters at most).	Masyadong mahaba ang password (hanggang 100 karakter lang).
+The two passwords don't match.	Hindi magkapareho ang dalawang password.
+That username is already taken.	Kinuha na ang username na iyan.
+Enter your username and password.	Ilagay ang iyong username at password.
+Wrong username or password.	Maling username o password.
+That photo could not be found.	Hindi mahanap ang litratong iyon.
+That photo is too big (25 MB at most).	Masyadong malaki ang litratong iyon (hanggang 25 MB lang).
+That file is not a picture the app can read (use JPG, PNG or GIF).	Hindi larawang mababasa ng app ang file na iyon (gumamit ng JPG, PNG o GIF).
+That bed does not exist.	Wala ang tanim na iyon.
+That crop does not exist.	Wala ang pananim na iyon.
+That task does not exist.	Wala ang gawaing iyon.
+The planting date can't be in the future.	Hindi puwedeng nasa hinaharap ang petsa ng pagtatanim.
+The new password must be at least 6 characters.	Ang bagong password ay dapat hindi bababa sa 6 na karakter.
+The new password is too long (100 characters at most).	Masyadong mahaba ang bagong password (hanggang 100 karakter lang).
+The two new passwords don't match.	Hindi magkapareho ang dalawang bagong password.
+Choose a password different from the current one.	Pumili ng password na iba sa kasalukuyan.
+This account no longer exists.	Wala na ang account na ito.
+The current password is not right.	Mali ang kasalukuyang password.
+Month-by-month weather is not available yet.	Wala pang lagay ng panahon kada buwan.
+That journal entry does not exist.	Wala ang tala sa talaarawan na iyon.
+The place needs a name.	Kailangan ng pangalan ang lugar.
+Those coordinates are not on Earth.	Wala sa mundo ang mga coordinate na iyan.
+Leave the garden you joined before inviting people to your own.	Umalis muna sa hardin na sinalihan mo bago mag-imbita sa sarili mong hardin.
+Type the username of the person to invite.	I-type ang username ng taong iimbitahan.
+No account has that username.	Walang account na may ganyang username.
+That is your own account.	Iyan ang sarili mong account.
+That invitation is no longer there.	Wala na ang imbitasyong iyon.
+Leave your current shared garden first.	Umalis muna sa kasalukuyan mong pinagsasaluhang hardin.
+People are working in your garden. Remove them before joining another garden.	May mga nagtatrabaho sa iyong hardin. Alisin muna sila bago sumali sa ibang hardin.
+That person is not in your garden.	Wala sa iyong hardin ang taong iyon.
+Write a note first.	Magsulat muna ng tala.
+Weather data was not available, so this match uses your soil type only.	Walang datos ng panahon, kaya uri lang ng lupa mo ang batayan ng pagtutugma.
+Your soil is ideal for this crop.	Mainam ang lupa mo para sa pananim na ito.
+Your soil works, but it is not this crop's favourite. Mix in compost.	Puwede ang lupa mo, pero hindi ito ang paborito ng pananim. Maghalo ng compost.
+This crop struggles in your soil type. Try a raised bed filled with garden soil and compost.	Nahihirapan ang pananim na ito sa uri ng lupa mo. Subukan ang nakataas na taniman na may lupa sa hardin at compost.
+Fair weather for garden chores.	Maayos ang panahon para sa mga gawain sa hardin.
+A dry spell is coming. Check the soil with your finger every day.	Parating ang tagtuyot. Damhin ang lupa gamit ang daliri araw-araw.
+Wet weather helps pests and leaf disease spread. Check under the leaves carefully.	Nakakatulong ang basang panahon sa pagkalat ng peste at sakit ng dahon. Maingat na tingnan ang ilalim ng mga dahon.
+Heavy rain can wash seeds out. Cover the bed or sow after the rain.	Maaaring tangayin ng malakas na ulan ang mga buto. Takpan ang taniman o maghasik pagkatapos ng ulan.
+Heavy rain is coming and can wash fertiliser away. Feed after it stops.	Parating ang malakas na ulan na maaaring tangayin ang pataba. Magpataba pagkatapos tumigil ang ulan.
+It will be hot today. Water in the early morning or late afternoon.	Mainit ngayong araw. Magdilig nang maaga sa umaga o sa hapon.
+within the last month	nitong nakaraang buwan
+Month must be 1 to 12.	Ang buwan ay dapat 1 hanggang 12.
+today	ngayon
+tomorrow	bukas
+Monday	Lunes
+Tuesday	Martes
+Wednesday	Miyerkules
+Thursday	Huwebes
+Friday	Biyernes
+Saturday	Sabado
+Sunday	Linggo
+January	Enero
+February	Pebrero
+March	Marso
+April	Abril
+May	Mayo
+June	Hunyo
+July	Hulyo
+August	Agosto
+September	Setyembre
+October	Oktubre
+November	Nobyembre
+December	Disyembre
+Jan	Ene
+Feb	Peb
+Mar	Mar
+Apr	Abr
+Jun	Hun
+Jul	Hul
+Aug	Ago
+Sep	Set
+Oct	Okt
+Nov	Nob
+Dec	Dis
+Soil	Lupa
+Soil:	Lupa:
+Back	Bumalik
+Email	Email
+PlantWise PH	PlantWise PH
+Today in	Ngayon sa
+most harvested crop	pinakamaraming naaning pananim
+Set where your garden is so the weather and crop matches are right.	Itakda kung nasaan ang iyong hardin para tama ang panahon at mga mungkahing pananim.
+Skip watering and hold off on sowing seeds.	Laktawan ang pagdidilig at ipagpaliban ang paghahasik.
+Water early in the morning or late afternoon.	Magdilig nang maaga sa umaga o sa hapon.
+Adjust your watering to make up the difference.	Ayusin ang pagdidilig para punan ang kulang.
+It would need careful watering or shelter.	Kailangan nito ng maingat na pagdidilig o silungan.
+Planting the same crop again invites pests and disease.	Ang pagtatanim muli ng parehong pananim ay nag-aanyaya ng peste at sakit.
+Rotate to a different family if you can.	Magpalit ng ibang pamilya kung maaari.
+Rotating families keeps the soil healthier.	Mas malusog ang lupa kapag nagpapalit ng pamilya.
+Consider another bed if you have one.	Pag-isipan ang ibang taniman kung mayroon ka.
+Type your place above or pick a common place below instead.	I-type na lang ang iyong lugar sa itaas o pumili ng karaniwang lugar sa ibaba.
+They will see it on their Account screen.	Makikita nila ito sa kanilang screen na Account.
+The beds, plants, harvests, journal and location you see are theirs.	Kanila ang mga taniman, halaman, ani, talaarawan at lokasyong nakikita mo.
+Your own garden is kept as it was.	Nananatili ang sarili mong hardin.
+Tap one for its care guide.	I-tap ang isa para sa gabay sa pag-aalaga nito.
+The weather and the crop ranking use this place.	Ginagamit ang lugar na ito para sa panahon at pagraranggo ng pananim.
+Good neighbours	Magandang magkatabi
+Better apart	Mas mabuting magkahiwalay
+Rotate crops	Magpalit-palit ng pananim
+You can probably skip watering.	Maaari mong laktawan ang pagdidilig.
+Use the demo account.	Gamitin ang demo account.
+Mon	Lun
+Tue	Mar
+Wed	Miy
+Thu	Huw
+Fri	Biy
+Sat	Sab
+Sun	Lin

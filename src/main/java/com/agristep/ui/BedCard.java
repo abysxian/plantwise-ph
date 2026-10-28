@@ -38,7 +38,7 @@ final class BedCard extends JComponent {
         this.status = plot.status(today);
         this.progress = plot.isEmpty() ? 0 : plot.progressPercent();
         this.selected = selected;
-        this.statusText = describe(plot, today);
+        this.statusText = I18n.t(describe(plot, today));
         setFocusable(true);
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         addMouseListener(new MouseAdapter() {
@@ -54,7 +54,7 @@ final class BedCard extends JComponent {
         getActionMap().put("select", new AbstractAction() {
             @Override public void actionPerformed(ActionEvent e) { onSelect.run(); }
         });
-        getAccessibleContext().setAccessibleName(plot.getName() + ", " + statusText);
+        getAccessibleContext().setAccessibleName(I18n.t(plot.getName()) + ", " + statusText);
     }
 
     private static String describe(Plot plot, LocalDate today) {
@@ -126,7 +126,7 @@ final class BedCard extends JComponent {
         g2.setFont(Theme.SMALL_BOLD);
         FontMetrics small = g2.getFontMetrics();
         g2.setColor(Theme.MUTED);
-        g2.drawString(fit(plot.getName(), small, w - 20), 10, 10 + small.getAscent());
+        g2.drawString(fit(I18n.t(plot.getName()), small, w - 20), 10, 10 + small.getAscent());
 
         // emoji in the middle
         int icon = Math.max(22, Math.min(44, Math.round(Math.min(w, h) * 0.30f)));
@@ -140,7 +140,7 @@ final class BedCard extends JComponent {
         // crop name and status along the bottom
         g2.setFont(Theme.BODY_BOLD);
         FontMetrics body = g2.getFontMetrics();
-        String title = plot.isEmpty() ? "Empty" : plot.getCrop().getName();
+        String title = plot.isEmpty() ? I18n.t("Empty") : plot.getCrop().getName();
         g2.setColor(plot.isEmpty() ? Theme.MUTED : Theme.INK);
         String shownTitle = fit(title, body, w - 16);
         g2.drawString(shownTitle, (w - body.stringWidth(shownTitle)) / 2, h - 12 - small.getHeight() - 2);

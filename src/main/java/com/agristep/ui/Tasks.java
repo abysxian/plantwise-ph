@@ -53,6 +53,6 @@ final class Tasks {
         Throwable root = t;
         while (root.getCause() != null && root.getCause() != root) root = root.getCause();
         String message = t.getMessage() != null ? t.getMessage() : root.getMessage();
-        return message == null || message.isBlank() ? t.getClass().getSimpleName() : message;
+        return message == null || message.isBlank() ? t.getClass().getSimpleName() : I18n.t(message);
     }
 }

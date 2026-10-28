@@ -47,7 +47,7 @@
     </dependencies>
 
     <build>
-        <finalName>agristep</finalName>
+        <finalName>plantwise-ph</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -57,7 +57,7 @@
                     <argLine>-Djava.awt.headless=true</argLine>
                 </configuration>
             </plugin>
-            <!-- "mvn package" builds one runnable file: target/agristep.jar (double-click or java -jar) -->
+            <!-- "mvn package" builds one runnable file: target/plantwise-ph.jar (double-click or java -jar) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

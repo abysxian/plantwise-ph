@@ -12,8 +12,10 @@ final class PasswordInput extends JPasswordField {
     private static final char HIDDEN = '•';
     private final String hint;
 
+    String hint() { return hint; }
+
     PasswordInput(String hint) {
-        this.hint = hint;
+        this.hint = I18n.t(hint);
         setFont(Theme.BODY);
         setForeground(Theme.INK);
         setCaretColor(Theme.INK);

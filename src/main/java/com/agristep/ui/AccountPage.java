@@ -54,7 +54,7 @@ final class AccountPage extends Page {
     private Card languageCard() {
         Card card = new Card().gap(10);
         card.add(WrapLabel.h3("Language"));
-        card.add(WrapLabel.muted("Menus, screen titles and the main buttons switch to Filipino. Longer explanations stay in English."));
+        card.add(WrapLabel.muted("Choose the language for the whole app."));
         JPanel row = new JPanel(new FlowGridLayout(130, 2, 8, 0));
         row.setOpaque(false);
         for (I18n.Language language : I18n.Language.values()) {

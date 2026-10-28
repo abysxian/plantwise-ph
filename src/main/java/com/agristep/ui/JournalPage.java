@@ -119,7 +119,7 @@ final class JournalPage extends Page {
 
     private void choosePhoto() {
         JFileChooser chooser = new JFileChooser();
-        chooser.setFileFilter(new FileNameExtensionFilter("Pictures (JPG, PNG, GIF)", "jpg", "jpeg", "png", "gif"));
+        chooser.setFileFilter(new FileNameExtensionFilter(I18n.t("Pictures (JPG, PNG, GIF)"), "jpg", "jpeg", "png", "gif"));
         if (chooser.showOpenDialog(SwingUtilities.getWindowAncestor(this)) == JFileChooser.APPROVE_OPTION) {
             attachPhoto(chooser.getSelectedFile().toPath());
         }

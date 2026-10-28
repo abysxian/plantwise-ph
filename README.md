@@ -4,7 +4,7 @@
 
 It is a desktop application written in plain Java (Swing for the screens, JDBC for the database, Maven for the build). It runs the same way in NetBeans, VS Code or the command line, and its layout adapts from a wide desktop window down to a narrow, phone-shaped one.
 
-> **A note on the name.** This system was first called **AgriStep PH** and was renamed **PlantWise PH**. The name shown in the app is PlantWise PH, but some internal names in the code still say `agristep`: the Java package `com.agristep`, the settings file `agristep.properties`, the jar `target/agristep.jar`, the MySQL database `agristep_swing`, the H2 files in `./data/agristep`, and the remembered-sign-in file `~/.agristep/remembered-user.txt`. They were deliberately left unchanged so that existing saved data and setups keep working. They refer to the same system.
+> **A note on the name.** This system was first called **AgriStep PH** and was renamed **PlantWise PH**. The name shown in the app is PlantWise PH, but some internal names in the code still say `agristep`: the Java package `com.agristep`, the settings file `agristep.properties`, the MySQL database `agristep_swing`, the H2 files in `./data/agristep`, and the remembered-sign-in file `~/.agristep/remembered-user.txt`. They were deliberately left unchanged so that existing saved data and setups keep working. They refer to the same system.
 
 ---
 
@@ -26,6 +26,7 @@ It is a desktop application written in plain Java (Swing for the screens, JDBC f
 14. [Limitations](#14-limitations)
 15. [Troubleshooting](#15-troubleshooting)
 16. [Credits](#16-credits)
+
 
 ---
 
@@ -98,8 +99,8 @@ Typical garden apps and class projects fall into three groups: a fixed planting 
 
 ```
 mvn compile exec:java            # run directly
-mvn package                      # build target/agristep.jar (a single file with everything inside)
-java -jar target/agristep.jar    # run the built jar
+mvn package                      # build target/plantwise-ph.jar (a single file with everything inside)
+java -jar target/plantwise-ph.jar    # run the built jar
 mvn test                         # run the automated tests
 ```
 
@@ -175,7 +176,7 @@ On the Crops screen press **Pest guide** to read the common pests and problems f
 
 - **Change password** asks for the current password first.
 - **Shared garden:** invite another account by username. When they accept, they work in your garden (beds, plants, harvests, journal and location) until they leave; their own garden is kept untouched. A person working in someone else's garden cannot invite others, and you must remove your own members before joining another garden.
-- **Language:** English or Filipino for the menus, screen titles and main buttons. Longer explanations, tips and messages stay in English. The choice is saved in `~/.agristep/language.txt`.
+- **Language:** English or Filipino for the whole app: menus, screens, buttons, messages, weather alerts, planting hints, care plans, tips and pest notes. Crop names stay as printed (Filipino name with the English name beside it). The choice is saved in `~/.agristep/language.txt`. The CSV and PDF exports stay in English.
 - **Delete account** asks for the password and a second press, then permanently removes the account, garden, history, journal and photos. People who had joined your garden return to their own.
 
 ### Window sizes
@@ -286,7 +287,7 @@ src/test/java/                  automated tests
 
 ## 13. Testing
 
-`mvn test` runs **179 automated tests**:
+`mvn test` runs **187 automated tests**:
 
 - the data rules for all 36 crops, scoring, care-plan planning, weather parsing and caching (with a fake weather service, so no internet is needed);
 - every database operation on H2, including closing and reopening a database file and upgrading an old single-garden database;
@@ -306,7 +307,7 @@ The database layer was also run against a real MariaDB server (the database behi
 
 - Reminders are in the window and as desktop notifications only (no email or phone alerts), and weather alerts are rule-of-thumb warnings rather than official bulletins.
 - Journal photos are stored on the computer running the app, so people sharing a garden from different computers need the shared MySQL database and will not see each other's photos.
-- The Filipino setting covers menus, titles and main buttons, not every sentence.
+- The Filipino setting covers everything on screen, but the CSV and PDF exports stay in English, and a note you type yourself is shown as you wrote it. The Filipino wording is written by the project, so a Filipino speaker should read it over before the presentation.
 
 ## 15. Troubleshooting
 
@@ -329,3 +330,4 @@ The database layer was also run against a real MariaDB server (the database behi
 - Emoji pictures: [Twemoji](https://github.com/jdecked/twemoji) (CC BY 4.0), credited in the app footer.
 - Banner and sign-in photographs: chosen by the project team and stored in `src/main/resources/images/`. Confirm the licence of each photograph before distributing the app publicly.
 - Logo: the PlantWise PH logo, supplied by the project team.
+

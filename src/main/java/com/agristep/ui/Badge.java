@@ -14,7 +14,7 @@ final class Badge extends JComponent {
     private Color background;
 
     Badge(String text, Color foreground, Color background) {
-        this.text = text;
+        this.text = I18n.t(text);
         this.background = background;
         setForeground(foreground);
         setFont(Theme.SMALL_BOLD);
@@ -22,7 +22,7 @@ final class Badge extends JComponent {
     }
 
     void set(String text, Color foreground, Color background) {
-        this.text = text;
+        this.text = I18n.t(text);
         this.background = background;
         setForeground(foreground);
         revalidate();

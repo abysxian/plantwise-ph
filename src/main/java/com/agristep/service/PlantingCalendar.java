@@ -1,6 +1,7 @@
 package com.agristep.service;
 
 import com.agristep.domain.Crop;
+import com.agristep.i18n.Translator;
 import com.agristep.domain.SoilType;
 import com.agristep.weather.ClimateStats;
 
@@ -26,9 +27,9 @@ public class PlantingCalendar {
         public String monthName() { return PlantingCalendar.monthName(month); }
     }
 
-    public static String monthName(int month) { return Month.of(month).getDisplayName(TextStyle.FULL, Locale.ENGLISH); }
+    public static String monthName(int month) { return Translator.t(Month.of(month).getDisplayName(TextStyle.FULL, Locale.ENGLISH)); }
 
-    public static String shortMonthName(int month) { return Month.of(month).getDisplayName(TextStyle.SHORT, Locale.ENGLISH); }
+    public static String shortMonthName(int month) { return Translator.t(Month.of(month).getDisplayName(TextStyle.SHORT, Locale.ENGLISH)); }
 
     /** True when the saved climate has month-by-month figures. */
     public boolean available(ClimateStats climate) { return climate != null && climate.hasMonthly(); }

@@ -54,7 +54,7 @@ public final class LoginPage extends ScrollPage {
     }
 
     private static JCheckBox checkBox(String text) {
-        JCheckBox box = new JCheckBox(text);
+        JCheckBox box = new JCheckBox(I18n.t(text));
         box.setOpaque(false);
         box.setFont(Theme.BODY);
         box.setForeground(Theme.INK);

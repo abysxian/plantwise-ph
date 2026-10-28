@@ -19,7 +19,7 @@ final class PillButton extends JButton {
     private final Motion.Tween glow = new Motion.Tween(this, 140);
 
     PillButton(String text, Style style) {
-        super(I18n.t(text));
+        super(text);
         this.style = style;
         setFont(Theme.BODY_BOLD);
         setFocusPainted(false);
@@ -29,6 +29,8 @@ final class PillButton extends JButton {
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         getModel().addChangeListener(e -> glow.to(isEnabled() && (getModel().isRollover() || getModel().isArmed()) ? 1f : 0f));
     }
+
+    @Override public void setText(String text) { super.setText(I18n.t(text)); }
 
     static PillButton primary(String text) { return new PillButton(text, Style.PRIMARY); }
     static PillButton secondary(String text) { return new PillButton(text, Style.SECONDARY); }

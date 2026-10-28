@@ -345,13 +345,19 @@ class NewScreensTest {
                 assertEquals("Hardin", I18n.t("Garden"));
                 assertEquals("Hindi isinalin na teksto", I18n.t("Hindi isinalin na teksto"), "unknown text stays as it is");
                 UiFixture.assertFits(again.page("garden"), "garden in Filipino");
+                List<String> problems = new java.util.ArrayList<>();
                 for (int width : WIDTHS) {
-                    for (String id : List.of("today", "crops", "calendar", "account")) {
+                    for (String id : List.of("today", "garden", "crops", "calendar", "journal", "insights", "location", "account")) {
                         again.show(id);
                         size(again, width);
-                        UiFixture.assertFits(again.page(id), id + " fil @" + width);
+                        try {
+                            UiFixture.assertFits(again.page(id), id + " fil @" + width);
+                        } catch (AssertionError e) {
+                            problems.add(e.getMessage());
+                        }
                     }
                 }
+                assertTrue(problems.isEmpty(), String.join("\n", problems));
             });
         } finally {
             I18n.use(I18n.Language.ENGLISH);

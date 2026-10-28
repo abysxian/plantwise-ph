@@ -209,7 +209,7 @@ final class UiFixture {
         for (Component child : root.getComponents()) {
             if (!child.isVisible()) continue;
             if (child.getX() < 0 || child.getX() + child.getWidth() > root.getWidth() + 1) {
-                throw new AssertionError(where + ": " + describe(child) + " sticks out sideways (x=" + child.getX()
+                throw new AssertionError(where + ": " + describe(child) + (child instanceof Badge b ? " '" + b.getText() + "'" : "") + " sticks out sideways (x=" + child.getX()
                         + " w=" + child.getWidth() + " parent w=" + root.getWidth() + ")");
             }
             if (child instanceof WrapLabel label && label.getWidth() > 0) {

@@ -96,7 +96,7 @@ final class TodayPage extends Page {
         int code = snap.forecast().map(WeatherForecast::currentWeatherCode).orElse(0);
         Card hero = new Card(Theme.LEAF, Theme.LEAF).hero(Scenery.photoFor(code), Scenery.skyFor(code)).gap(10).padding(20);
         hero.add(new WrapLabel(greeting(), Theme.H1, Color.WHITE).maxLines(2));
-        hero.add(new WrapLabel("TODAY IN " + snap.settings().getLocationName().toUpperCase(Locale.ROOT),
+        hero.add(new WrapLabel(I18n.t("Today in").toUpperCase(Locale.ROOT) + " " + snap.settings().getLocationName().toUpperCase(Locale.ROOT),
                 Theme.SMALL_BOLD, Theme.LIME));
         hero.add(new WrapLabel(snap.advice(), Theme.H2, Color.WHITE));
         JPanel row = new JPanel(new RowLayout(8, false));
@@ -218,7 +218,7 @@ final class TodayPage extends Page {
         cell.setOpaque(false);
         cell.setLayout(new BoxLayout(cell, BoxLayout.Y_AXIS));
         cell.setBorder(BorderFactory.createEmptyBorder(8, 0, 8, 0));
-        String name = today ? "Today" : d.date().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH);
+        String name = I18n.t(today ? "Today" : d.date().getDayOfWeek().getDisplayName(TextStyle.SHORT, Locale.ENGLISH));
         cell.add(centered(name, Theme.font(java.awt.Font.BOLD, 11), Theme.MUTED));
         JLabel icon = Emoji.label(WeatherCodes.emoji(d.weatherCode()), 28);
         icon.setAlignmentX(0.5f);
@@ -232,7 +232,7 @@ final class TodayPage extends Page {
     }
 
     private static JLabel centered(String text, java.awt.Font font, Color color) {
-        JLabel label = new JLabel(text, JLabel.CENTER);
+        JLabel label = new JLabel(I18n.t(text), JLabel.CENTER);
         label.setFont(font);
         label.setForeground(color);
         label.setAlignmentX(0.5f);
